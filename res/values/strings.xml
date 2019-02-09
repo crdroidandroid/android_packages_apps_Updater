@@ -75,6 +75,7 @@
     <string name="menu_ab_perf_mode">Prioritize update process</string>
     <string name="menu_update_recovery">Update recovery</string>
     <string name="toast_forced_update_recovery">It is impossible to disable Recovery updates on this device.</string>
+    <string name="menu_local_update">Local installation</string>
 
     <!-- Sourceforge mirrors -->
     <string name="sf_dialog_title">Available Mirrors</string>

@@ -14,4 +14,8 @@
         android:id="@+id/menu_sf_mirrors"
         android:title="@string/sf_mirror_preferences"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_local_update"
+        android:title="@string/menu_local_update"
+        app:showAsAction="never" />
 </menu>

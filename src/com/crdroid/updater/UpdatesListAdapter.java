@@ -271,6 +271,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
             case UpdateStatus.Persistent.VERIFIED:
                 activeLayout = update.getStatus() == UpdateStatus.INSTALLING;
                 break;
+            case UpdateStatus.Persistent.LOCAL:
             case UpdateStatus.Persistent.INCOMPLETE:
                 activeLayout = true;
                 break;
@@ -282,6 +283,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 DateFormat.LONG, update.getTimestamp());
         String buildVersion = mActivity.getString(R.string.list_build_version,
                 update.getVersion());
+        if(update.getVersion().isEmpty()) buildVersion = update.getName();
         String downloadMirror = MirrorsDbHelper.getInstance(mUpdatesActivity).getMirrorName(update.getDownloadId());
         viewHolder.mBuildDate.setText(buildDate);
         viewHolder.mBuildVersion.setText(buildVersion);
