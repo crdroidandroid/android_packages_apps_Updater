@@ -14,4 +14,8 @@
         android:id="@+id/menu_show_changelog"
         android:title="@string/menu_show_changelog"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_local_update"
+        android:title="@string/menu_local_update"
+        app:showAsAction="never" />
 </menu>

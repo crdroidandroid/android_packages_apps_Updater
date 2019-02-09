@@ -15,6 +15,7 @@
  */
 package com.crdroid.updater;
 
+import android.app.Activity;
 import android.app.UiModeManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -64,13 +65,17 @@ import com.crdroid.updater.controller.UpdaterService;
 import com.crdroid.updater.download.DownloadClient;
 import com.crdroid.updater.misc.BuildInfoUtils;
 import com.crdroid.updater.misc.Constants;
+import com.crdroid.updater.misc.FileUtils;
 import com.crdroid.updater.misc.StringGenerator;
 import com.crdroid.updater.misc.Utils;
+import com.crdroid.updater.model.Update;
 import com.crdroid.updater.model.UpdateInfo;
+import com.crdroid.updater.model.UpdateStatus;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -86,6 +91,8 @@ public class UpdatesActivity extends UpdatesListActivity {
     private RotateAnimation mRefreshAnimation;
 
     private boolean mIsTV;
+
+    private static final int READ_REQUEST_CODE = 42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,6 +242,10 @@ public class UpdatesActivity extends UpdatesListActivity {
                 Intent openUrl = new Intent(Intent.ACTION_VIEW,
                         Uri.parse(Utils.getChangelogURL(this)));
                 startActivity(openUrl);
+                return true;
+            }
+            case R.id.menu_local_update: {
+                performFileSearch();
                 return true;
             }
         }
@@ -531,5 +542,73 @@ public class UpdatesActivity extends UpdatesListActivity {
                     }
                 })
                 .show();
+    }
+
+    private void performFileSearch() {
+        Intent chooseFile;
+        Intent intent;
+        chooseFile = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        chooseFile.setType("application/zip");
+        intent = Intent.createChooser(chooseFile, "Choose a file");
+        startActivityForResult(intent, READ_REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent resultData) {
+        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            Uri uri = null;
+            if (resultData != null) {
+                uri = resultData.getData();
+                addLocalUpdateInfo(uri);
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, resultData);
+    }
+
+    private void addLocalUpdateInfo(Uri uri) {
+        String path = FileUtils.getRealPath(this, uri);
+        Update localUpdate = new Update();
+        File file = new File(path);
+        localUpdate.setFile(file);
+        localUpdate.setName(file.getName());
+        localUpdate.setFileSize(file.length());
+        localUpdate.setTimestamp(new Date().getTime()/1000L);
+        localUpdate.setDownloadId(String.valueOf(new Date().getTime()/1000L));
+        localUpdate.setVersion("");
+        localUpdate.setPersistentStatus(UpdateStatus.Persistent.LOCAL);
+        localUpdate.setStatus(UpdateStatus.DOWNLOADED);
+
+        Log.d(TAG, "Adding local updates");
+        UpdaterController controller = mUpdaterService.getUpdaterController();
+        boolean newUpdates = false;
+
+        List<UpdateInfo> updates = new ArrayList<>();
+        updates.add(localUpdate);
+        List<String> updatesOnline = new ArrayList<>();
+        for (UpdateInfo update : updates) {
+            newUpdates |= controller.addUpdate(update);
+            updatesOnline.add(0, update.getDownloadId());
+        }
+
+        controller.setUpdatesAvailableOnline(updatesOnline, false);
+
+        controller.verifyUpdateAsync(localUpdate.getDownloadId());
+        controller.notifyUpdateChange(localUpdate.getDownloadId());
+
+        List<String> updateIds = new ArrayList<>();
+        List<UpdateInfo> sortedUpdates = controller.getUpdates();
+        if (sortedUpdates.isEmpty()) {
+            findViewById(R.id.no_new_updates_view).setVisibility(View.VISIBLE);
+            findViewById(R.id.recycler_view).setVisibility(View.GONE);
+        } else {
+            findViewById(R.id.no_new_updates_view).setVisibility(View.GONE);
+            findViewById(R.id.recycler_view).setVisibility(View.VISIBLE);
+            sortedUpdates.sort((u1, u2) -> Long.compare(u2.getTimestamp(), u1.getTimestamp()));
+            for (UpdateInfo update : sortedUpdates) {
+                updateIds.add(update.getDownloadId());
+            }
+            mAdapter.setData(updateIds);
+            mAdapter.notifyDataSetChanged();
+        }
     }
 }
