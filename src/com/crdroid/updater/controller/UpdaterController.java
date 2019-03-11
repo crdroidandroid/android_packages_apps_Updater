@@ -102,11 +102,18 @@ public class UpdaterController {
 
     private Map<String, DownloadEntry> mDownloads = new HashMap<>();
 
-    void notifyUpdateChange(String downloadId) {
-        Intent intent = new Intent();
-        intent.setAction(ACTION_UPDATE_STATUS);
-        intent.putExtra(EXTRA_DOWNLOAD_ID, downloadId);
-        mBroadcastManager.sendBroadcast(intent);
+    public void notifyUpdateChange(String downloadId) {
+        new Thread(() -> {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Intent intent = new Intent();
+            intent.setAction(ACTION_UPDATE_STATUS);
+            intent.putExtra(EXTRA_DOWNLOAD_ID, downloadId);
+            mBroadcastManager.sendBroadcast(intent);
+        }).start();
     }
 
     void notifyUpdateDelete(String downloadId) {
