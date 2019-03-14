@@ -40,6 +40,7 @@ import java.nio.channels.ReadableByteChannel;
 public class FileUtils {
 
     private static final String TAG = "FileUtils";
+    private static final boolean DEBUG = false;
     private static final String DOCUMENTS_DIR = "documents";
 
     public interface ProgressCallBack {
@@ -113,14 +114,17 @@ public class FileUtils {
         if (DocumentsContract.isDocumentUri(context, uri)) {
             if (isExternalStorageDocument(uri)) {
                 final String docId = DocumentsContract.getDocumentId(uri);
+                if (DEBUG) Log.d(TAG, "getRealPath docId: " + docId);
                 final String[] split = docId.split(":");
                 final String type = split[0];
+                if (DEBUG) Log.d(TAG, "getRealPath split[0]: " + split[0]);
+                if (DEBUG) Log.d(TAG, "getRealPath split[1]: " + split[1]);
 
                 if ("primary".equalsIgnoreCase(type)) {
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
+                } else {  // handle non-primary volumes
+                    return "/storage/" +  split[0] + "/" + split[1];
                 }
-
-                // TODO handle non-primary volumes
             }
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {
