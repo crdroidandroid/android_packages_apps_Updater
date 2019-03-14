@@ -70,6 +70,7 @@ import com.crdroid.updater.download.DownloadClient;
 import com.crdroid.updater.misc.BuildInfoUtils;
 import com.crdroid.updater.misc.Constants;
 import com.crdroid.updater.misc.FileUtils;
+import com.crdroid.updater.misc.PermissionsUtils;
 import com.crdroid.updater.misc.StringGenerator;
 import com.crdroid.updater.misc.Utils;
 import com.crdroid.updater.model.Update;
@@ -101,9 +102,17 @@ public class UpdatesActivity extends UpdatesListActivity {
 
     private static Map<String, String> sf_mirrors;
 
+    // Storage Permissions
+    private static final int STORAGE_PERMISSIONS_REQUEST_CODE = 0;
+    private static final String[] REQUIRED_STORAGE_PERMISSIONS = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_updates);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -383,7 +392,12 @@ public class UpdatesActivity extends UpdatesListActivity {
                 return true;
             }
             case R.id.menu_local_update: {
-                performFileSearch();
+                boolean hasPermission = PermissionsUtils.checkAndRequestPermissions(
+                      this, REQUIRED_STORAGE_PERMISSIONS,
+                      STORAGE_PERMISSIONS_REQUEST_CODE);
+                if (hasPermission) {
+                  performFileSearch();
+                }
                 return true;
             }
         }
