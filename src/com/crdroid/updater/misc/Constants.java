@@ -20,6 +20,9 @@ public final class Constants {
     private Constants() {
     }
 
+    public static final String SF_PROJECT_NAME = "crdroid";
+    public static final String SF_PROJECT_ROOT_PATH = "6.x";
+
     public static final String AB_PAYLOAD_BIN_PATH = "payload.bin";
     public static final String AB_PAYLOAD_PROPERTIES_PATH = "payload_properties.txt";
 
@@ -34,6 +37,7 @@ public final class Constants {
     public static final String PREF_AB_PERF_MODE = "ab_perf_mode";
     public static final String PREF_MOBILE_DATA_WARNING = "pref_mobile_data_warning";
     public static final String PREF_NEEDS_REBOOT_ID = "needs_reboot_id";
+    public static final String PREF_SF_RANK_SORT = "sf_rank_sort";
 
     public static final String UNCRYPT_FILE_EXT = ".uncrypt";
 

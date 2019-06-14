@@ -24,21 +24,41 @@ import android.util.Log;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import android.os.SystemProperties;
+
+import com.crdroid.updater.R;
+import com.crdroid.updater.UpdatesActivity;
 import com.crdroid.updater.UpdatesDbHelper;
+import com.crdroid.updater.MirrorsDbHelper;
 import com.crdroid.updater.download.DownloadClient;
 import com.crdroid.updater.misc.Utils;
 import com.crdroid.updater.model.Update;
 import com.crdroid.updater.model.UpdateInfo;
 import com.crdroid.updater.model.UpdateStatus;
+import com.crdroid.updater.misc.Constants;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class UpdaterController {
 
@@ -48,7 +68,7 @@ public class UpdaterController {
     public static final String ACTION_UPDATE_STATUS = "action_update_status_change";
     public static final String EXTRA_DOWNLOAD_ID = "extra_download_id";
 
-    private final String TAG = "UpdaterController";
+    private static final String TAG = "UpdaterController";
 
     private static UpdaterController sUpdaterController;
 
@@ -57,6 +77,7 @@ public class UpdaterController {
     private final Context mContext;
     private final LocalBroadcastManager mBroadcastManager;
     private final UpdatesDbHelper mUpdatesDbHelper;
+    private static MirrorsDbHelper mirrorsDbHelper;
 
     private final PowerManager.WakeLock mWakeLock;
 
@@ -64,6 +85,12 @@ public class UpdaterController {
 
     private int mActiveDownloads = 0;
     private Set<String> mVerifyingUpdates = new HashSet<>();
+
+    // Sourceforge variable instances
+    private static Map<String, String> mirror_links;
+    private static Map<Double, String> ranked_mirrors;
+    private static Map<String, String> sorted_sf_mirrors;
+    public static Map<Double, String> sorted_ranked_mirrors;
 
     public static synchronized UpdaterController getInstance() {
         return sUpdaterController;
@@ -79,6 +106,7 @@ public class UpdaterController {
     private UpdaterController(Context context) {
         mBroadcastManager = LocalBroadcastManager.getInstance(context);
         mUpdatesDbHelper = new UpdatesDbHelper(context);
+        mirrorsDbHelper = MirrorsDbHelper.getInstance(context);
         mDownloadRoot = Utils.getDownloadPath(context);
         PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Updater");
@@ -100,7 +128,7 @@ public class UpdaterController {
         }
     }
 
-    private Map<String, DownloadEntry> mDownloads = new HashMap<>();
+    private static Map<String, DownloadEntry> mDownloads = new HashMap<>();
 
     public void notifyUpdateChange(String downloadId) {
         new Thread(() -> {
@@ -323,6 +351,7 @@ public class UpdaterController {
             Log.d(TAG, downloadId + " no longer available online, removing");
             mDownloads.remove(downloadId);
             notifyUpdateDelete(downloadId);
+            mirrorsDbHelper.delUpdate(downloadId);
         }
     }
 
@@ -336,7 +365,13 @@ public class UpdaterController {
             Log.d(TAG, "Download (" + updateInfo.getDownloadId() + ") already added");
             Update updateAdded = mDownloads.get(updateInfo.getDownloadId()).mUpdate;
             updateAdded.setAvailableOnline(availableOnline && updateAdded.getAvailableOnline());
-            updateAdded.setDownloadUrl(updateInfo.getDownloadUrl());
+            if (mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()) != null) {
+                updateAdded.setDownloadUrl(mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()));
+                Log.d(TAG, "Using previous mirror :" + mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()));
+            } else {
+                updateAdded.setDownloadUrl(updateInfo.getDownloadUrl());
+                Log.d(TAG, "Using default server url :" + updateInfo.getDownloadUrl());
+            }
             return false;
         }
         Update update = new Update(updateInfo);
@@ -348,7 +383,177 @@ public class UpdaterController {
         }
         update.setAvailableOnline(availableOnline);
         mDownloads.put(update.getDownloadId(), new DownloadEntry(update));
+        if (!mirrorsDbHelper.isUpdateExists(updateInfo.getDownloadId())) {
+            mirrorsDbHelper.setUpdate(updateInfo.getDownloadId());
+            Log.d(TAG, "Adding new update to mirrors database: " + update.getDownloadId());
+        } else {
+            // Set previous mirror url if update already exists in mirrorsDB
+            Update updateAdded = mDownloads.get(updateInfo.getDownloadId()).mUpdate;
+            if (mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()) != null) {
+                updateAdded.setDownloadUrl(mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()));
+                Log.d(TAG, "Setting previous mirror :" + mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()));
+            }
+        }
         return true;
+    }
+
+    public static void setSfMirror(UpdateInfo updateInfo, UpdatesActivity updatesActivity, String mirror) {
+        if (mDownloads.containsKey(updateInfo.getDownloadId())) {
+            Update updateAdded = mDownloads.get(updateInfo.getDownloadId()).mUpdate;
+            // Set default url sent by server if failed to get sf mirror
+            String mirrorUrl = updateInfo.getDownloadUrl();
+            String mirrorSnack = updatesActivity.getString(R.string.snack_set_sf_mirror, mirror);
+
+            if (Utils.getSfRankSortSetting(updatesActivity)) {
+                if (!sorted_sf_mirrors.isEmpty()) {
+                    for (Map.Entry<String, String> sortedMirrors : sorted_sf_mirrors.entrySet()) {
+                        if (mirror.equals(sortedMirrors.getKey())) {
+                            mirrorUrl = sortedMirrors.getValue();
+                            updatesActivity.showSnackbarString(mirrorSnack, Snackbar.LENGTH_SHORT);
+                            mirrorsDbHelper.setMirrorUrl(sortedMirrors.getValue(), updateInfo.getDownloadId());
+                            break;
+                        }
+                    }
+                }
+            } else {
+                if (!mirror_links.isEmpty()) {
+                    for (Map.Entry<String, String> sfMirrors : mirror_links.entrySet()) {
+                        if (mirror.equals(sfMirrors.getKey())) {
+                            mirrorUrl = sfMirrors.getValue();
+                            updatesActivity.showSnackbarString(mirrorSnack, Snackbar.LENGTH_SHORT);
+                            mirrorsDbHelper.setMirrorUrl(sfMirrors.getValue(), updateInfo.getDownloadId());
+                            break;
+                        }
+                    }
+                }
+            }
+
+            updateAdded.setDownloadUrl(mirrorUrl);
+            Log.d(TAG, "Mirror for: " + updateInfo.getName() + " set to " + mirrorsDbHelper.getMirrorUrl(updateInfo.getDownloadId()));
+        }
+    }
+
+    private static Map<String, String> sortMirrors(Map<Double, String> ranked_mirrors) {
+        sorted_ranked_mirrors = new TreeMap<>(ranked_mirrors);
+        for (Map.Entry<Double, String> rank_links : sorted_ranked_mirrors.entrySet()) {
+            for (Map.Entry<String, String> mirror_links : mirror_links.entrySet()) {
+                if (rank_links.getValue().equals(mirror_links.getKey())) {
+                    sorted_sf_mirrors.put(rank_links.getValue(), mirror_links.getValue());
+                    Log.d(TAG, "sorted mirrors list: " + rank_links.getValue());
+                }
+            }
+        }
+        return sorted_sf_mirrors;
+    }
+
+    private static Map<String, String> cookRankMirrorsData(Map<String, String> rank_links) {
+        ExecutorService mExecutor = Executors.newCachedThreadPool();
+
+        for (Map.Entry<String, String> rlinks : rank_links.entrySet()) {
+            String rank_url = rlinks.getValue();
+            String rank_name = rlinks.getKey();
+            RankMirrors rm = new RankMirrors(rank_url, rank_name);
+            mExecutor.execute(rm);
+        }
+
+        mExecutor.shutdown();
+        try {
+            mExecutor.awaitTermination(30, TimeUnit.SECONDS);
+            return sortMirrors(ranked_mirrors);
+        } catch (InterruptedException e) {
+            Log.d(TAG, "Executor interrupted!", e);
+            return null;
+        }
+    }
+
+    private static class RankMirrors implements Runnable {
+        private final String rank_url;
+        private final String rank_name;
+
+        RankMirrors(String rank_url, String rank_name) {
+            this.rank_url = rank_url;
+            this.rank_name = rank_name;
+        }
+
+        @Override
+        public void run() {
+            try {
+                String[] pingCmd = {"ping", "-c 5", rank_url};
+                String pingOutput;
+                double pingResult;
+                Runtime mRuntime = Runtime.getRuntime();
+                Process mProcess = mRuntime.exec(pingCmd);
+                BufferedReader in = new BufferedReader(new InputStreamReader(mProcess.getInputStream()));
+                pingOutput = in.readLine();
+
+                while (pingOutput != null) {
+                    if (pingOutput.contains("rtt")) {
+                        pingResult = Double.parseDouble(pingOutput.substring(pingOutput.lastIndexOf("/") + 1,
+                                                                             pingOutput.lastIndexOf("ms")));
+                        if (pingResult != 0)
+                            ranked_mirrors.put(pingResult, rank_name);
+                        Log.d(TAG, "mdev of sourceforge mirror " + rank_name + " " + pingResult);
+                    }
+                    pingOutput = in.readLine();
+                }
+                in.close();
+            } catch (IOException e) {
+                Log.d(TAG, "Failed to rank sourceforge mirror " + rank_name, e);
+            }
+        }
+    }
+
+    public static Map<String, String> sourceforgeMirrors(UpdateInfo update, Boolean sfRankSort) {
+        mirror_links = new LinkedHashMap<>();
+        ranked_mirrors = new LinkedHashMap<>();
+        sorted_sf_mirrors = new LinkedHashMap<>();
+        Map<String, String> rank_links = new LinkedHashMap<>();
+        String projectname = Constants.SF_PROJECT_NAME;
+        String project_root_path = Constants.SF_PROJECT_ROOT_PATH;
+        String current_device = SystemProperties.get(Constants.PROP_DEVICE);
+        String device_file = update.getName();
+        String filepath = "/" + current_device + "/" + project_root_path + "/" + device_file;
+        String mirrorsUrl = "https://sourceforge.net/settings/mirror_choices?projectname=" + projectname + "&filename=" + filepath;
+        Log.d(TAG, "mirrors URL: " + mirrorsUrl);
+
+        Thread mirrorFetch = new Thread(() -> {
+        try {
+            Document doc = Jsoup.connect(mirrorsUrl).get();
+            Elements links = doc.select("#mirrorList li");
+
+            for (Element link : links) {
+                String mirrorName = link.attr("id");
+                String mirrorPlace = link.text();
+                if (!mirrorName.equals("autoselect")) {
+                    mirrorPlace = mirrorPlace.substring(mirrorPlace.lastIndexOf("(") + 1,
+                                                        mirrorPlace.lastIndexOf(")"))
+                                                        .split(",", 2)[0]
+                                                        .trim();
+                    mirror_links.put(mirrorPlace, "https://" + mirrorName + ".dl.sourceforge.net/project/" + projectname + filepath);
+                    rank_links.put(mirrorPlace, mirrorName + ".dl.sourceforge.net");
+                    Log.d(TAG, "mirror: " + mirrorName + " country name: " + mirrorPlace);
+                }
+            }
+
+        } catch (IOException e) {
+            Log.d(TAG, "Failed to fetch sourceforge mirrors!", e);
+        }
+        });
+
+        try {
+            mirrorFetch.start();
+            mirrorFetch.join();
+
+            if (sfRankSort) {
+                return cookRankMirrorsData(rank_links);
+            } else {
+                return mirror_links;
+            }
+
+        } catch (InterruptedException e) {
+            Log.d(TAG, "Mirror fetch thread interrupted!", e);
+            return null;
+        }
     }
 
     public boolean startDownload(String downloadId) {
@@ -470,6 +675,7 @@ public class UpdaterController {
             Log.d(TAG, "Download no longer available online, removing");
             mDownloads.remove(downloadId);
             notifyUpdateDelete(downloadId);
+            mirrorsDbHelper.delUpdate(downloadId);
         } else {
             notifyUpdateChange(downloadId);
         }

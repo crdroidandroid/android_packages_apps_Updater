@@ -372,6 +372,11 @@ public class Utils {
                 Constants.AUTO_UPDATES_CHECK_INTERVAL_DAILY);
     }
 
+    public static Boolean getSfRankSortSetting(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(Constants.PREF_SF_RANK_SORT, false);
+    }
+
     public static boolean isUpdateCheckEnabled(Context context) {
         return getUpdateCheckSetting(context) != Constants.AUTO_UPDATES_CHECK_INTERVAL_NEVER;
     }

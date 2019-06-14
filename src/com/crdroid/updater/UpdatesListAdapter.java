@@ -77,6 +77,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     private String mSelectedDownload;
     private UpdaterController mUpdaterController;
     private UpdatesListActivity mActivity;
+    private UpdatesActivity mUpdatesActivity;
 
     private enum Action {
         DOWNLOAD,
@@ -101,6 +102,8 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         private ProgressBar mProgressBar;
         private TextView mProgressText;
 
+        private TextView mDownloadMirror;
+
         public ViewHolder(final View view) {
             super(view);
             mAction = (Button) view.findViewById(R.id.update_action);
@@ -112,11 +115,14 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
 
             mProgressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
             mProgressText = (TextView) view.findViewById(R.id.progress_text);
+
+            mDownloadMirror = (TextView) view.findViewById(R.id.download_mirror_name);
         }
     }
 
-    public UpdatesListAdapter(UpdatesListActivity activity) {
+    public UpdatesListAdapter(UpdatesListActivity activity, UpdatesActivity updatesActivity) {
         mActivity = activity;
+        mUpdatesActivity = updatesActivity;
 
         TypedValue tv = new TypedValue();
         mActivity.getTheme().resolveAttribute(android.R.attr.disabledAlpha, tv, true);
@@ -261,8 +267,10 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 DateFormat.LONG, update.getTimestamp());
         String buildVersion = mActivity.getString(R.string.list_build_version,
                 update.getVersion());
+        String downloadMirror = MirrorsDbHelper.getInstance(mUpdatesActivity).getMirrorName(update.getDownloadId());
         viewHolder.mBuildDate.setText(buildDate);
         viewHolder.mBuildVersion.setText(buildVersion);
+        viewHolder.mDownloadMirror.setText(downloadMirror);
         viewHolder.mBuildVersion.setCompoundDrawables(null, null, null, null);
 
         if (activeLayout) {
@@ -527,6 +535,9 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                     if (hasPermission) {
                         exportUpdate(update);
                     }
+                    return true;
+                case R.id.menu_sf_mirrors:
+                    UpdatesActivity.prepareSfMirrorsData(update, mUpdatesActivity);
                     return true;
             }
             return false;

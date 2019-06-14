@@ -74,9 +74,21 @@
     <string name="menu_export_update">Export update</string>
     <string name="menu_ab_perf_mode">Prioritize update process</string>
 
+    <!-- Sourceforge mirrors -->
+    <string name="sf_dialog_title">Available Mirrors</string>
+    <string name="menu_sf_mirrors">Mirrors</string>
+    <string name="sf_mirror_preferences">Mirror preferences</string>
+    <string name="rank_and_sort_mirrors">Rank and sort the mirrors</string>
+
     <string name="snack_updates_found">New updates found</string>
     <string name="snack_no_updates_found">No new updates found</string>
     <string name="snack_updates_check_failed">The update check failed. Please check your internet connection and try again later.</string>
+    <string name="snack_ranking_sf_mirrors">Ranking sourceforge mirrors. Please wait!</string>
+    <string name="snack_fetching_sf_mirrors">Fetching sourceforge mirrors. Please wait!</string>
+    <string name="snack_failed_sf_mirrors">Failed to fetch sourceforge mirrors.</string>
+    <string name="snack_fetched_sf_mirrors">Fetched sourceforge mirrors. Done!</string>
+    <string name="snack_set_sf_mirror">Mirror set to %1$s!</string>
+    <string name="snack_force_sf_mirror">Previously selected mirror %1$s was not found! Fallback to default.</string>
 
     <string name="snack_download_failed">The download failed. Please check your internet connection and try again later.</string>
     <string name="snack_download_verification_failed">The update verification failed.</string>
