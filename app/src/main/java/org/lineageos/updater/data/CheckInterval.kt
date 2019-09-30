@@ -14,7 +14,7 @@ enum class CheckInterval(val duration: Duration, val storageValue: String) {
     MONTHLY(30.days, "monthly");
 
     companion object {
-        val default = WEEKLY
+        val default = DAILY
 
         fun fromStorageValue(value: String?) =
             entries.find { it.storageValue == value } ?: default
