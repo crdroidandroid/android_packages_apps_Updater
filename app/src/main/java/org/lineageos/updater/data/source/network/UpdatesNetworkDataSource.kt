@@ -16,16 +16,12 @@ import java.util.concurrent.TimeUnit
 class UpdatesNetworkDataSource(private val context: Context) {
     private val serverUrl: String
         get() {
-            val base = DeviceInfoUtils.updaterUri.trim().ifEmpty {
-                context.getString(R.string.updater_server_url)
-            }
+            val base = context.getString(R.string.updater_server_url)
             require(base.startsWith("https://")) {
                 "Update server URL must use HTTPS: $base"
             }
             return base
                 .replace("{device}", DeviceInfoUtils.device)
-                .replace("{type}", DeviceInfoUtils.releaseType.lowercase())
-                .replace("{incr}", DeviceInfoUtils.buildVersionIncremental)
         }
 
     private val client = OkHttpClient.Builder()
