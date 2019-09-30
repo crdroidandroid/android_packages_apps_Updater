@@ -17,5 +17,5 @@
     <color name="brand_sheen">#EADDFF</color>
 
     <!-- URL template for opening the device-specific downloads page from the update menu. -->
-    <string name="menu_downloads_url" translatable="false">https://download.lineageos.org/devices/<xliff:g id="device_name">%1$s</xliff:g>/builds</string>
+    <string name="menu_downloads_url" translatable="false">https://sourceforge.net/projects/crdroid/files/<xliff:g id="device_name">%1$s</xliff:g>/12.x/</string>
 </resources>
