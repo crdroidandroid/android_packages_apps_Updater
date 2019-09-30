@@ -95,11 +95,6 @@ class UpdatesRepository(
             Log.d(TAG, "${update.name} is older than current Android version")
             return false
         }
-
-        if (!update.type.equals(DeviceInfoUtils.releaseType, ignoreCase = true)) {
-            Log.d(TAG, "${update.name} has type ${update.type}")
-            return false
-        }
         return true
     }
 }
