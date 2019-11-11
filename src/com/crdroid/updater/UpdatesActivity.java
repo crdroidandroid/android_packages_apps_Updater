@@ -431,7 +431,7 @@ public class UpdatesActivity extends UpdatesListActivity {
         autoCheckInterval.setSelection(Utils.getUpdateCheckSetting(this));
         autoDelete.setChecked(prefs.getBoolean(Constants.PREF_AUTO_DELETE_UPDATES, false));
         dataWarning.setChecked(prefs.getBoolean(Constants.PREF_MOBILE_DATA_WARNING, true));
-        abPerfMode.setChecked(prefs.getBoolean(Constants.PREF_AB_PERF_MODE, false));
+        abPerfMode.setChecked(prefs.getBoolean(Constants.PREF_AB_PERF_MODE, true));
 
         new AlertDialog.Builder(this)
                 .setTitle(R.string.menu_preferences)
