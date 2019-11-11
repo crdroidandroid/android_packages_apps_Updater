@@ -72,8 +72,6 @@
     <string name="menu_delete_update">Delete</string>
     <string name="menu_copy_url">Copy URL</string>
     <string name="menu_export_update">Export update</string>
-    <string name="menu_show_changelog">Show changelog</string>
-    <string name="menu_changelog_url" translatable="false">https://raw.githubusercontent.com/crdroidandroid/android_vendor_crDroidOTA/10.0/changelog_<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
     <string name="menu_ab_perf_mode">Prioritize update process</string>
 
     <string name="snack_updates_found">New updates found</string>
@@ -104,6 +102,7 @@
     <string name="action_info">Info</string>
     <string name="action_delete">Delete</string>
     <string name="action_cancel">Cancel</string>
+	<string name="action_changelog">Changelog</string>
 
     <string name="confirm_delete_dialog_title">Delete file</string>
     <string name="confirm_delete_dialog_message">Delete the selected update file?</string>
@@ -148,4 +147,7 @@
     <string name="new_updates_channel_title">New updates</string>
     <string name="ongoing_channel_title">Ongoing downloads</string>
     <string name="update_failed_channel_title">Update failed</string>
+
+	<string name="changelog_url" translatable="false">https://raw.githubusercontent.com/crdroidandroid/android_vendor_crDroidOTA/10.0/changelog_<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
+    <string name="changelog_fail">Failed to retrieve changelog or changelog unavailable</string>
 </resources>

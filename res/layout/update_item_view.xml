@@ -86,5 +86,14 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             tools:text="Pause" />
+
+		<Button
+            android:id="@+id/update_changelog"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left|center_vertical"
+            android:text="@string/action_changelog"
+            android:textAllCaps="false" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
