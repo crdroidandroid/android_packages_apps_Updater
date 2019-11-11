@@ -102,6 +102,6 @@
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
             android:text="@string/action_changelog"
-            android:textAllCaps="false" />
+            android:textAllCaps="true" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
