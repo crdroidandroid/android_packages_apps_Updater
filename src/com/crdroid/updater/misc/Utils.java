@@ -152,16 +152,10 @@ public class Utils {
         return serverUrl.replace("{device}", device);
     }
 
-    public static String getUpgradeBlockedURL(Context context) {
-        String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
-                SystemProperties.get(Constants.PROP_DEVICE));
-        return context.getString(R.string.blocked_update_info_url, device);
-    }
-
     public static String getChangelogURL(Context context) {
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
-        return context.getString(R.string.menu_changelog_url, device);
+        return context.getString(R.string.changelog_url, device);
     }
 
     public static void triggerUpdate(Context context, String downloadId) {
@@ -370,6 +364,11 @@ public class Utils {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getInt(Constants.PREF_AUTO_UPDATES_CHECK_INTERVAL,
                 Constants.AUTO_UPDATES_CHECK_INTERVAL_DAILY);
+    }
+
+    public static Boolean getSfRankSortSetting(Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return preferences.getBoolean(Constants.PREF_SF_RANK_SORT, false);
     }
 
     public static boolean isUpdateCheckEnabled(Context context) {

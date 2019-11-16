@@ -24,6 +24,7 @@ import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.icu.text.DateFormat;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -64,7 +65,9 @@ import com.crdroid.updater.model.UpdateInfo;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class UpdatesActivity extends UpdatesListActivity {
@@ -73,10 +76,12 @@ public class UpdatesActivity extends UpdatesListActivity {
     private UpdaterService mUpdaterService;
     private BroadcastReceiver mBroadcastReceiver;
 
-    private UpdatesListAdapter mAdapter;
+    private static UpdatesListAdapter mAdapter;
 
     private View mRefreshIconView;
     private RotateAnimation mRefreshAnimation;
+
+    private static Map<String, String> sf_mirrors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +89,7 @@ public class UpdatesActivity extends UpdatesListActivity {
         setContentView(R.layout.activity_updates);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        mAdapter = new UpdatesListAdapter(this);
+        mAdapter = new UpdatesListAdapter(this, this);
         recyclerView.setAdapter(mAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -107,6 +112,7 @@ public class UpdatesActivity extends UpdatesListActivity {
                 } else if (UpdaterController.ACTION_UPDATE_REMOVED.equals(intent.getAction())) {
                     String downloadId = intent.getStringExtra(UpdaterController.EXTRA_DOWNLOAD_ID);
                     mAdapter.removeItem(downloadId);
+                    downloadUpdatesList(false);
                 }
             }
         };
@@ -202,10 +208,8 @@ public class UpdatesActivity extends UpdatesListActivity {
                 showPreferencesDialog();
                 return true;
             }
-            case R.id.menu_show_changelog: {
-                Intent openUrl = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(Utils.getChangelogURL(this)));
-                startActivity(openUrl);
+            case R.id.menu_sf_mirrors: {
+                showSfMirrorPreferencesDialog();
                 return true;
             }
         }
@@ -389,6 +393,10 @@ public class UpdatesActivity extends UpdatesListActivity {
         Snackbar.make(findViewById(R.id.main_container), stringId, duration).show();
     }
 
+    public void showSnackbarString(String string, int duration) {
+        Snackbar.make(findViewById(R.id.main_container), string, duration).show();
+    }
+
     private void refreshAnimationStart() {
         if (mRefreshIconView == null) {
             mRefreshIconView = findViewById(R.id.menu_refresh);
@@ -423,7 +431,7 @@ public class UpdatesActivity extends UpdatesListActivity {
         autoCheckInterval.setSelection(Utils.getUpdateCheckSetting(this));
         autoDelete.setChecked(prefs.getBoolean(Constants.PREF_AUTO_DELETE_UPDATES, false));
         dataWarning.setChecked(prefs.getBoolean(Constants.PREF_MOBILE_DATA_WARNING, true));
-        abPerfMode.setChecked(prefs.getBoolean(Constants.PREF_AB_PERF_MODE, false));
+        abPerfMode.setChecked(prefs.getBoolean(Constants.PREF_AB_PERF_MODE, true));
 
         new AlertDialog.Builder(this)
                 .setTitle(R.string.menu_preferences)
@@ -450,6 +458,111 @@ public class UpdatesActivity extends UpdatesListActivity {
                     boolean enableABPerfMode = abPerfMode.isChecked();
                     mUpdaterService.getUpdaterController().setPerformanceMode(enableABPerfMode);
                 })
+                .show();
+    }
+
+    public static void prepareSfMirrorsData (UpdateInfo updateInfo, UpdatesActivity mUpdatesActivity) {
+
+        new AsyncTask<UpdateInfo, Void, Map<String, String>>() {
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+
+                if (Utils.getSfRankSortSetting(mUpdatesActivity))
+                    mUpdatesActivity.showSnackbar(R.string.snack_ranking_sf_mirrors, Snackbar.LENGTH_INDEFINITE);
+                else
+                    mUpdatesActivity.showSnackbar(R.string.snack_fetching_sf_mirrors, Snackbar.LENGTH_INDEFINITE);
+            }
+
+            @Override
+            protected Map<String, String> doInBackground(UpdateInfo... update) {
+
+                Boolean sfRankSort = Utils.getSfRankSortSetting(mUpdatesActivity);
+                sf_mirrors = new LinkedHashMap<>();
+
+                try {
+                    Thread mirrorsData = new Thread(() -> sf_mirrors = UpdaterController.sourceforgeMirrors(update[0], sfRankSort));
+                    mirrorsData.start();
+                    mirrorsData.join();
+                } catch (InterruptedException e) {
+                    Log.d(TAG, "Mirrors data thread interrupted");
+                }
+
+                return sf_mirrors;
+            }
+
+            @Override
+            protected void onPostExecute(Map<String, String> sf_mirrors) {
+                super.onPostExecute(sf_mirrors);
+
+                if (!sf_mirrors.isEmpty()) {
+                    mUpdatesActivity.showSnackbar(R.string.snack_fetched_sf_mirrors, Snackbar.LENGTH_SHORT);
+                    showSfMirrorsDialog(sf_mirrors, mUpdatesActivity, updateInfo);
+                } else {
+                    mUpdatesActivity.showSnackbar(R.string.snack_failed_sf_mirrors, Snackbar.LENGTH_LONG);
+                }
+            }
+        }.execute(updateInfo);
+    }
+
+    private static void showSfMirrorsDialog(Map<String, String> sf_mirrors, UpdatesActivity mUpdatesActivity, UpdateInfo updateInfo) {
+        final MirrorsDbHelper mirrorsDbHelper = MirrorsDbHelper.getInstance(mUpdatesActivity);
+        String[] mirrors = sf_mirrors.keySet().toArray(new String[0]);
+        String[] mirrors_pings = new String[mirrors.length];
+        String downloadId = updateInfo.getDownloadId();
+        String prevMirrorName = mirrorsDbHelper.getMirrorName(updateInfo.getDownloadId());
+        Boolean isRankSort = Utils.getSfRankSortSetting(mUpdatesActivity);
+        int setMirrorPos = 0;
+
+        for (int i=0; i<mirrors.length; i++) {
+            if (mirrors[i].equals(prevMirrorName)) {
+                setMirrorPos = i;
+                break;
+            }
+        }
+
+        // If failed to find the previous mirror force set to the first available one
+        if (setMirrorPos == 0) {
+            mirrorsDbHelper.setMirrorName(mirrors[0], downloadId);
+            UpdaterController.setSfMirror(updateInfo, mUpdatesActivity, mirrors[0]);
+            mAdapter.notifyItemChanged(downloadId);
+        }
+
+        if (isRankSort) {
+            int mirrorName =0;
+            for (Map.Entry<Double, String> pingVals : UpdaterController.sorted_ranked_mirrors.entrySet()) {
+                mirrors_pings[mirrorName] = mirrors[mirrorName] + "  (" + pingVals.getKey() + ")";
+                mirrorName++;
+            }
+        }
+
+        new AlertDialog.Builder(mUpdatesActivity)
+                .setTitle(R.string.sf_dialog_title)
+                .setSingleChoiceItems((isRankSort) ? mirrors_pings : mirrors, setMirrorPos, (dialogInterface, i) -> {
+
+                    mirrorsDbHelper.setMirrorName(mirrors[i], downloadId);
+                    UpdaterController.setSfMirror(updateInfo, mUpdatesActivity, mirrors[i]);
+                    mAdapter.notifyItemChanged(downloadId);
+
+                    Log.d(TAG, "Selected Mirror!" + mirrors[i]);
+
+                }).create()
+                .show();
+    }
+
+    private void showSfMirrorPreferencesDialog () {
+        View view = LayoutInflater.from(this).inflate(R.layout.sf_mirror_preferences, null);
+        Switch sf_rank_sort = view.findViewById(R.id.rank_and_sort_mirrors);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        sf_rank_sort.setChecked(prefs.getBoolean(Constants.PREF_SF_RANK_SORT, false));
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.sf_mirror_preferences)
+                .setView(view)
+                .setOnDismissListener(dialogInterface -> prefs.edit()
+                        .putBoolean(Constants.PREF_SF_RANK_SORT, sf_rank_sort.isChecked())
+                        .apply())
                 .show();
     }
 }

@@ -20,6 +20,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.BatteryManager;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
@@ -57,8 +58,11 @@ import com.crdroid.updater.misc.Utils;
 import com.crdroid.updater.model.UpdateInfo;
 import com.crdroid.updater.model.UpdateStatus;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.List;
@@ -73,6 +77,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     private String mSelectedDownload;
     private UpdaterController mUpdaterController;
     private UpdatesListActivity mActivity;
+    private UpdatesActivity mUpdatesActivity;
 
     private enum Action {
         DOWNLOAD,
@@ -83,10 +88,12 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         DELETE,
         CANCEL_INSTALLATION,
         REBOOT,
+		CHANGELOG,
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private Button mAction;
+		private Button mChangelog;
 
         private TextView mBuildDate;
         private TextView mBuildVersion;
@@ -95,9 +102,12 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         private ProgressBar mProgressBar;
         private TextView mProgressText;
 
+        private TextView mDownloadMirror;
+
         public ViewHolder(final View view) {
             super(view);
             mAction = (Button) view.findViewById(R.id.update_action);
+			mChangelog = (Button) view.findViewById(R.id.update_changelog);
 
             mBuildDate = (TextView) view.findViewById(R.id.build_date);
             mBuildVersion = (TextView) view.findViewById(R.id.build_version);
@@ -105,11 +115,14 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
 
             mProgressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
             mProgressText = (TextView) view.findViewById(R.id.progress_text);
+
+            mDownloadMirror = (TextView) view.findViewById(R.id.download_mirror_name);
         }
     }
 
-    public UpdatesListAdapter(UpdatesListActivity activity) {
+    public UpdatesListAdapter(UpdatesListActivity activity, UpdatesActivity updatesActivity) {
         mActivity = activity;
+        mUpdatesActivity = updatesActivity;
 
         TypedValue tv = new TypedValue();
         mActivity.getTheme().resolveAttribute(android.R.attr.disabledAlpha, tv, true);
@@ -184,6 +197,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         viewHolder.mProgressBar.setVisibility(View.VISIBLE);
         viewHolder.mProgressText.setVisibility(View.VISIBLE);
         viewHolder.mBuildSize.setVisibility(View.INVISIBLE);
+		setButtonAction(viewHolder.mChangelog, Action.CHANGELOG, downloadId, true);
     }
 
     private void handleNotActiveStatus(ViewHolder viewHolder, UpdateInfo update) {
@@ -213,6 +227,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         viewHolder.mProgressBar.setVisibility(View.INVISIBLE);
         viewHolder.mProgressText.setVisibility(View.INVISIBLE);
         viewHolder.mBuildSize.setVisibility(View.VISIBLE);
+		setButtonAction(viewHolder.mChangelog, Action.CHANGELOG, downloadId, true);
     }
 
     @Override
@@ -252,8 +267,10 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 DateFormat.LONG, update.getTimestamp());
         String buildVersion = mActivity.getString(R.string.list_build_version,
                 update.getVersion());
+        String downloadMirror = MirrorsDbHelper.getInstance(mUpdatesActivity).getMirrorName(update.getDownloadId());
         viewHolder.mBuildDate.setText(buildDate);
         viewHolder.mBuildVersion.setText(buildVersion);
+        viewHolder.mDownloadMirror.setText(downloadMirror);
         viewHolder.mBuildVersion.setCompoundDrawables(null, null, null, null);
 
         if (activeLayout) {
@@ -393,6 +410,10 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 } : null;
             }
             break;
+			case CHANGELOG: {
+                clickListener = enabled ? view -> new getChangelogDialog().execute(Utils.getChangelogURL(view.getContext())) : null;
+            }
+            break;
             default:
                 clickListener = null;
         }
@@ -515,6 +536,9 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                         exportUpdate(update);
                     }
                     return true;
+                case R.id.menu_sf_mirrors:
+                    UpdatesActivity.prepareSfMirrorsData(update, mUpdatesActivity);
+                    return true;
             }
             return false;
         });
@@ -536,18 +560,53 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     }
 
     private void showInfoDialog() {
-        String messageString = String.format(StringGenerator.getCurrentLocale(mActivity),
-                mActivity.getString(R.string.blocked_update_dialog_message),
-                Utils.getUpgradeBlockedURL(mActivity));
-        SpannableString message = new SpannableString(messageString);
-        Linkify.addLinks(message, Linkify.WEB_URLS);
         AlertDialog dialog = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.blocked_update_dialog_title)
                 .setPositiveButton(android.R.string.ok, null)
-                .setMessage(message)
+                .setMessage(R.string.blocked_update_dialog_message)
                 .show();
         TextView textView = (TextView) dialog.findViewById(android.R.id.message);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private class getChangelogDialog extends AsyncTask<String, Void, String> {
+
+        protected String doInBackground(String... strings) {
+            String outputString = "";
+            String inputString;
+            int i = 0;
+
+            try {
+                URL changelog = new URL(strings[0]);
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                        changelog.openStream()));
+
+                while((inputString = in.readLine()) != null) {
+                    // don't include the top 5 lines of the changelog
+                    if (i >= 5) {
+                        outputString += inputString + "\n";
+                    }
+                    i++;
+                }
+
+                in.close();
+                return outputString;
+            } catch(IOException e) {
+                Log.e(TAG, "Could not fetch changelog from " + strings[0]);
+                return mActivity.getResources().getString(R.string.changelog_fail);
+            }
+        }
+
+        protected void onPostExecute(String result) {
+            AlertDialog dialog = new AlertDialog.Builder(mActivity)
+                    .setTitle(R.string.action_changelog)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setMessage(result)
+                    .show();
+            TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+        }
     }
 
     private boolean isBatteryLevelOk() {
