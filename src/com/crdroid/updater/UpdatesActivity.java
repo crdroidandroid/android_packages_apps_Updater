@@ -28,6 +28,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -124,7 +125,8 @@ public class UpdatesActivity extends UpdatesListActivity {
 
         TextView headerTitle = (TextView) findViewById(R.id.header_title);
         headerTitle.setText(getString(R.string.header_title_text,
-                BuildInfoUtils.getBuildVersion()));
+                BuildInfoUtils.getBuildVersion()) + "\n(" 
+                + SystemProperties.get(Constants.PROP_DEVICE) + ")");
 
         updateLastCheckedString();
 
