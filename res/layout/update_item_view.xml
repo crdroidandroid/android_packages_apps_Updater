@@ -101,7 +101,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:gravity="right"
-                android:padding="8dp"
                 tools:text="Pause" />
 
             <Button
