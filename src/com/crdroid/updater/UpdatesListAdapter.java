@@ -83,6 +83,8 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     private UpdatesListActivity mActivity;
     private UpdatesActivity mUpdatesActivity;
 
+    private AlertDialog infoDialog;
+
     private enum Action {
         DOWNLOAD,
         PAUSE,
@@ -143,6 +145,15 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     public void setUpdaterController(UpdaterController updaterController) {
         mUpdaterController = updaterController;
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onViewDetachedFromWindow(ViewHolder holder) {
+        super.onViewDetachedFromWindow(holder);
+
+        if (infoDialog != null) {
+            infoDialog.dismiss();
+        }
     }
 
     private void handleActiveStatus(ViewHolder viewHolder, UpdateInfo update) {
@@ -564,12 +575,15 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     }
 
     private void showInfoDialog() {
-        AlertDialog dialog = new AlertDialog.Builder(mActivity)
+        if (infoDialog != null) {
+            infoDialog.dismiss();
+        }
+        infoDialog = new AlertDialog.Builder(mActivity)
                 .setTitle(R.string.blocked_update_dialog_title)
                 .setPositiveButton(android.R.string.ok, null)
                 .setMessage(R.string.blocked_update_dialog_message)
                 .show();
-        TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+        TextView textView = (TextView) infoDialog.findViewById(android.R.id.message);
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
@@ -603,12 +617,15 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         }
 
         protected void onPostExecute(String result) {
-            AlertDialog dialog = new AlertDialog.Builder(mActivity)
+        if (infoDialog != null) {
+            infoDialog.dismiss();
+        }
+        infoDialog = new AlertDialog.Builder(mActivity)
                     .setTitle(R.string.action_changelog)
                     .setPositiveButton(android.R.string.ok, null)
                     .setMessage(result)
                     .show();
-            TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+            TextView textView = (TextView) infoDialog.findViewById(android.R.id.message);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
         }
     }
