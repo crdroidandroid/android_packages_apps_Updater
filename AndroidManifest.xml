@@ -19,7 +19,8 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:persistent="true">
+        android:persistent="true"
+        android:usesCleartextTraffic="false">
 
         <activity
             android:name=".UpdatesActivity"
