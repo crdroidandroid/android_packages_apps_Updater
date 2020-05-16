@@ -17,4 +17,15 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="blocked_update_dialog_message_custom">This update cannot be installed using the updater app. Try installing update via recovery.</string>
+
+    <string name="maintainer_name">Maintainer: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
+
+    <string name="support_links">Support links:</string>
+
+    <string name="current_build_date">Current build date: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
+
+    <string name="current_build_type">Current build type: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+
+    <string name="build_type_unknown">Unofficial or missing OTA info</string>
+
 </resources>
