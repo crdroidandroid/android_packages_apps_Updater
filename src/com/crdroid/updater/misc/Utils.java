@@ -57,6 +57,17 @@ public class Utils {
 
     private static final String TAG = "Utils";
 
+    private static String mMaintainer;
+    private static String mBuildType;
+    private static String mForum;
+    private static String mTelegram;
+    private static String mGapps;
+    private static String mFirmware;
+    private static String mModem;
+    private static String mBootloader;
+    private static String mRecovery;
+    private static String mPaypal;
+
     private Utils() {
     }
 
@@ -89,6 +100,16 @@ public class Utils {
         update.setFileSize(object.getLong("size"));
         update.setDownloadUrl(object.getString("download"));
         update.setVersion(object.getString("version"));
+        mMaintainer = object.getString("maintainer");
+        mBuildType = object.getString("buildtype");
+        mForum = object.getString("forum");
+        mTelegram = object.getString("telegram");
+        mGapps = object.getString("gapps");
+        mFirmware = object.getString("firmware");
+        mModem = object.getString("modem");
+        mBootloader = object.getString("bootloader");
+        mRecovery = object.getString("recovery");
+        mPaypal = object.getString("paypal");
         return update;
     }
 
@@ -384,5 +405,45 @@ public class Utils {
 
     public static boolean isRecoveryUpdateExecPresent() {
         return new File(Constants.UPDATE_RECOVERY_EXEC).exists();
+    }
+
+    public static String getMaintainer() {
+        return mMaintainer;
+    }
+
+    public static String getBuildType() {
+        return mBuildType;
+    }
+
+    public static String getForum() {
+        return mForum;
+    }
+
+    public static String getTelegram() {
+        return mTelegram;
+    }
+
+    public static String getGapps() {
+        return mGapps;
+    }
+
+    public static String getFirmware() {
+        return mFirmware;
+    }
+
+    public static String getModem() {
+        return mModem;
+    }
+
+    public static String getBootloader() {
+        return mBootloader;
+    }
+
+    public static String getRecovery() {
+        return mRecovery;
+    }
+
+    public static String getPaypal() {
+        return mPaypal;
     }
 }
