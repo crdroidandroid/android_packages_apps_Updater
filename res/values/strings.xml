@@ -161,4 +161,10 @@
 
 	<string name="changelog_url" translatable="false">https://raw.githubusercontent.com/crdroidandroid/android_vendor_crDroidOTA/10.0/changelog_<xliff:g id="device_name">%1$s</xliff:g>.txt</string>
     <string name="changelog_fail">Failed to retrieve changelog or changelog unavailable</string>
+
+    <!-- Maintainer-->
+    <string name="maintainer_name">Maintainer: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
+
+    <!-- Support -->
+    <string name="support">Support links:</string>
 </resources>
