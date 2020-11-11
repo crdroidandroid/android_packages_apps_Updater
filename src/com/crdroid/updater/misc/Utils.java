@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -446,5 +446,9 @@ public class Utils {
 
     public static String getPaypal() {
         return mPaypal;
+    }
+
+    public static boolean isRecoveryUpdateExecPresent() {
+        return new File(Constants.UPDATE_RECOVERY_EXEC).exists();
     }
 }
