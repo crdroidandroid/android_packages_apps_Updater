@@ -76,6 +76,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
             | BatteryManager.BATTERY_PLUGGED_WIRELESS;
     private static final String GAPPS_SUBSTRING = "gapps";
     private static final String TWRP_SUBSTRING = "twrp";
+    private static final String MAGISK_SUBSTRING = "magisk";
 
     private final float mAlphaDisabledValue;
 
@@ -233,7 +234,9 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                         downloadId, !isBusy());
             } else {
                 String filename = update.getName();
-                if (filename.indexOf(GAPPS_SUBSTRING) != -1 || filename.indexOf(TWRP_SUBSTRING) != -1) {
+                if (filename.indexOf(GAPPS_SUBSTRING) != -1 ||
+                        filename.indexOf(MAGISK_SUBSTRING) != -1 ||
+                        filename.indexOf(TWRP_SUBSTRING) != -1) {
                     setButtonAction(viewHolder.mAction, Action.INSTALL,
                             downloadId, !isBusy());
                     mIsGappsOrTWRP = true;
