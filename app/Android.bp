@@ -40,23 +40,23 @@ android_app {
     },
 
     required: [
-        "privapp_whitelist_org.lineageos.updater",
-        "default-permissions_org.lineageos.updater"
+        "privapp_whitelist_com.crdroid.updater",
+        "default-permissions_com.crdroid.updater"
     ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_org.lineageos.updater",
+    name: "privapp_whitelist_com.crdroid.updater",
     system_ext_specific: true,
     sub_dir: "permissions",
-    src: "privapp_whitelist_org.lineageos.updater.xml",
+    src: "privapp_whitelist_com.crdroid.updater.xml",
     filename_from_src: true,
 }
 
 prebuilt_etc {
-    name: "default-permissions_org.lineageos.updater",
+    name: "default-permissions_com.crdroid.updater",
     system_ext_specific: true,
     sub_dir: "default-permissions",
-    src: "default-permissions_org.lineageos.updater.xml",
+    src: "default-permissions_com.crdroid.updater.xml",
     filename_from_src: true,
 }
