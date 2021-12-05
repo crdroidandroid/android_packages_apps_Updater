@@ -1,12 +1,12 @@
 #!/bin/sh
 
-updates_dir=/data/lineageos_updates
+updates_dir=/data/crdroid_updates
 
 if [ ! -f "$1" ]; then
    echo "Usage: $0 ZIP [UNVERIFIED]"
    echo "Push ZIP to $updates_dir and add it to Updater"
    echo
-   echo "The name of ZIP is assumed to have lineage-VERSION-DATE-TYPE-* as format"
+   echo "The name of ZIP is assumed to have crdroid-VERSION-DATE-TYPE-* as format"
    echo "If UNVERIFIED is set, the app will verify the update"
    exit
 fi
@@ -33,7 +33,7 @@ else
     status=2
 fi
 
-# Assume lineage-VERSION-DATE-TYPE-*.zip
+# Assume crdroid-VERSION-DATE-TYPE-*.zip
 zip_name=`basename "$zip_path"`
 id=`echo "$zip_name" | sha1sum | cut -d' ' -f1`
 version=`echo "$zip_name" | cut -d'-' -f2`
@@ -52,8 +52,8 @@ adb shell chgrp cache "$zip_path_device"
 adb shell chmod 664 "$zip_path_device"
 
 # Kill the app before updating the database
-adb shell "killall org.lineageos.updater 2>/dev/null"
-adb shell "sqlite3 /data/data/org.lineageos.updater/databases/updates.db" \
+adb shell "killall com.crdroid.updater 2>/dev/null"
+adb shell "sqlite3 /data/data/com.crdroid.updater/databases/updates.db" \
     "\"INSERT INTO updates (status, path, download_id, timestamp, type, version, size)" \
     "  VALUES ($status, '$zip_path_device', '$id', $timestamp, '$type', '$version', $size)\""
 
