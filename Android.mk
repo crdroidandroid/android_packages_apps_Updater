@@ -25,12 +25,12 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
-LOCAL_REQUIRED_MODULES := privapp_whitelist_org.lineageos.updater.xml
+LOCAL_REQUIRED_MODULES := privapp_whitelist_com.crdroid.updater.xml
 
 include $(BUILD_PACKAGE)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := privapp_whitelist_org.lineageos.updater.xml
+LOCAL_MODULE := privapp_whitelist_com.crdroid.updater.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
