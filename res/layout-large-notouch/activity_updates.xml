@@ -31,7 +31,7 @@
                 android:paddingBottom="16dp"
                 android:textColor="?android:attr/textColorPrimary"
                 android:textSize="56sp"
-                tools:text="LineageOS\n18.1" />
+                tools:text="crDroid\n18.1" />
 
             <TextView
                 android:id="@+id/header_build_version"
