@@ -187,165 +187,6 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
 
         updateLastCheckedString();
 
-        TextView headerBuildVersion = findViewById(R.id.header_build_version);
-        headerBuildVersion.setText(
-                getString(R.string.header_android_version, Build.VERSION.RELEASE));
-
-        TextView headerBuildDate = findViewById(R.id.header_build_date);
-        headerBuildDate.setText(getString(R.string.current_build_date, StringGenerator.getDateLocalizedUTC(this,
-                DateFormat.LONG, BuildInfoUtils.getBuildDateTimestamp())));
-
-        TextView headerBuildType = findViewById(R.id.header_build_type);
-        String buildType = Utils.getBuildType();
-        if (buildType == null || buildType.isEmpty()) {
-                headerBuildType.setText(getString(R.string.build_type_unknown));
-                LinearLayout supportLayout=(LinearLayout)this.findViewById(R.id.support_icons);
-                supportLayout.setVisibility(LinearLayout.GONE);
-        } else {
-                headerBuildType.setText(getString(R.string.current_build_type, buildType));
-        }
-
-        TextView MaintainerName = findViewById(R.id.maintainer_name);
-        String maintainer = Utils.getMaintainer();
-        if (maintainer == null || maintainer.isEmpty()) {
-            MaintainerName.setVisibility(View.GONE);
-        } else {
-            MaintainerName.setText(
-                    getString(R.string.maintainer_name, maintainer));
-            MaintainerName.setVisibility(View.VISIBLE);
-        }
-
-        ImageView forumImage = findViewById(R.id.support_forum);
-        String forum = Utils.getForum();
-        forumImage.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse(forum));
-                startActivity(intent);
-                }
-            });
-
-        ImageView telegramImage = findViewById(R.id.support_telegram);
-        String telegram = Utils.getTelegram();
-        if (telegram == null || telegram.isEmpty()) {
-            telegramImage.setVisibility(View.GONE);
-        } else {
-            telegramImage.setVisibility(View.VISIBLE);
-            telegramImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(telegram));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView recoveryImage = findViewById(R.id.support_recovery);
-        String recovery = Utils.getRecovery();
-        if (recovery == null || recovery.isEmpty()) {
-            recoveryImage.setVisibility(View.GONE);
-        } else {
-            recoveryImage.setVisibility(View.VISIBLE);
-            recoveryImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(recovery));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView paypalImage = findViewById(R.id.support_paypal);
-        String paypal = Utils.getPaypal();
-        if (paypal == null || recovery.isEmpty()) {
-            paypalImage.setVisibility(View.GONE);
-        } else {
-            paypalImage.setVisibility(View.VISIBLE);
-            paypalImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(paypal));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView gappsImage = findViewById(R.id.support_gapps);
-        String gapps = Utils.getGapps();
-        if (gapps == null || gapps.isEmpty()) {
-            gappsImage.setVisibility(View.GONE);
-        } else {
-            gappsImage.setVisibility(View.VISIBLE);
-            gappsImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(gapps));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView firmwareImage = findViewById(R.id.support_firmware);
-        String firmware = Utils.getFirmware();
-        if (firmware == null || firmware.isEmpty()) {
-            firmwareImage.setVisibility(View.GONE);
-        } else {
-            firmwareImage.setVisibility(View.VISIBLE);
-            firmwareImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(firmware));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView modemImage = findViewById(R.id.support_modem);
-        String modem = Utils.getModem();
-        if (modem == null || modem.isEmpty()) {
-            modemImage.setVisibility(View.GONE);
-        } else {
-            modemImage.setVisibility(View.VISIBLE);
-            modemImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(modem));
-                    startActivity(intent);
-                    }
-            });
-        }
-
-        ImageView bootloaderImage = findViewById(R.id.support_bootloader);
-        String bootloader = Utils.getBootloader();
-        if (bootloader == null || bootloader.isEmpty()) {
-            bootloaderImage.setVisibility(View.GONE);
-        } else {
-            bootloaderImage.setVisibility(View.VISIBLE);
-            bootloaderImage.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
-                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intent.setData(Uri.parse(bootloader));
-                    startActivity(intent);
-                    }
-            });
-        }
-
         if (!mIsTV) {
             // Switch between header title and appbar title minimizing overlaps
             final CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.collapsing_toolbar);
@@ -650,6 +491,165 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
                 StringGenerator.getTimeLocalized(this, lastCheck));
         TextView headerLastCheck = findViewById(R.id.header_last_check);
         headerLastCheck.setText(lastCheckString);
+
+        TextView headerBuildVersion = findViewById(R.id.header_build_version);
+        headerBuildVersion.setText(
+                getString(R.string.header_android_version, Build.VERSION.RELEASE));
+
+        TextView headerBuildDate = findViewById(R.id.header_build_date);
+        headerBuildDate.setText(getString(R.string.current_build_date, StringGenerator.getDateLocalizedUTC(this,
+                DateFormat.LONG, BuildInfoUtils.getBuildDateTimestamp())));
+
+        TextView headerBuildType = findViewById(R.id.header_build_type);
+        String buildType = Utils.getBuildType();
+        if (buildType == null || buildType.isEmpty()) {
+            headerBuildType.setText(getString(R.string.build_type_unknown));
+            LinearLayout supportLayout=(LinearLayout)this.findViewById(R.id.support_icons);
+            supportLayout.setVisibility(LinearLayout.GONE);
+        } else {
+            headerBuildType.setText(getString(R.string.current_build_type, buildType));
+        }
+
+        TextView MaintainerName = findViewById(R.id.maintainer_name);
+        String maintainer = Utils.getMaintainer();
+        if (maintainer == null || maintainer.isEmpty()) {
+            MaintainerName.setVisibility(View.GONE);
+        } else {
+            MaintainerName.setText(
+                    getString(R.string.maintainer_name, maintainer));
+            MaintainerName.setVisibility(View.VISIBLE);
+        }
+
+        ImageView forumImage = findViewById(R.id.support_forum);
+        String forum = Utils.getForum();
+        forumImage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse(forum));
+                startActivity(intent);
+                }
+            });
+
+        ImageView telegramImage = findViewById(R.id.support_telegram);
+        String telegram = Utils.getTelegram();
+        if (telegram == null || telegram.isEmpty()) {
+            telegramImage.setVisibility(View.GONE);
+        } else {
+            telegramImage.setVisibility(View.VISIBLE);
+            telegramImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(telegram));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView recoveryImage = findViewById(R.id.support_recovery);
+        String recovery = Utils.getRecovery();
+        if (recovery == null || recovery.isEmpty()) {
+            recoveryImage.setVisibility(View.GONE);
+        } else {
+            recoveryImage.setVisibility(View.VISIBLE);
+            recoveryImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(recovery));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView paypalImage = findViewById(R.id.support_paypal);
+        String paypal = Utils.getPaypal();
+        if (paypal == null || recovery.isEmpty()) {
+            paypalImage.setVisibility(View.GONE);
+        } else {
+            paypalImage.setVisibility(View.VISIBLE);
+            paypalImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(paypal));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView gappsImage = findViewById(R.id.support_gapps);
+        String gapps = Utils.getGapps();
+        if (gapps == null || gapps.isEmpty()) {
+            gappsImage.setVisibility(View.GONE);
+        } else {
+            gappsImage.setVisibility(View.VISIBLE);
+            gappsImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(gapps));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView firmwareImage = findViewById(R.id.support_firmware);
+        String firmware = Utils.getFirmware();
+        if (firmware == null || firmware.isEmpty()) {
+            firmwareImage.setVisibility(View.GONE);
+        } else {
+            firmwareImage.setVisibility(View.VISIBLE);
+            firmwareImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(firmware));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView modemImage = findViewById(R.id.support_modem);
+        String modem = Utils.getModem();
+        if (modem == null || modem.isEmpty()) {
+            modemImage.setVisibility(View.GONE);
+        } else {
+            modemImage.setVisibility(View.VISIBLE);
+            modemImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(modem));
+                    startActivity(intent);
+                    }
+            });
+        }
+
+        ImageView bootloaderImage = findViewById(R.id.support_bootloader);
+        String bootloader = Utils.getBootloader();
+        if (bootloader == null || bootloader.isEmpty()) {
+            bootloaderImage.setVisibility(View.GONE);
+        } else {
+            bootloaderImage.setVisibility(View.VISIBLE);
+            bootloaderImage.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intent.setData(Uri.parse(bootloader));
+                    startActivity(intent);
+                    }
+            });
+        }
     }
 
     private void handleDownloadStatusChange(String downloadId) {
