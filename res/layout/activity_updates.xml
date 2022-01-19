@@ -110,7 +110,7 @@
                         android:id="@+id/header_support"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/support"
+                        android:text="@string/support_links"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textSize="12sp" />
 
