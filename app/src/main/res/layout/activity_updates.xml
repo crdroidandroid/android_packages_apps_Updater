@@ -132,8 +132,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_forum"/>
 
@@ -142,8 +142,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_telegram"/>
 
@@ -152,8 +152,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_recovery"/>
 
@@ -162,8 +162,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_paypal"/>
 
@@ -172,8 +172,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_gapps"/>
 
@@ -182,8 +182,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_firmware"/>
 
@@ -192,8 +192,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_modem"/>
 
@@ -202,8 +202,8 @@
                             android:layout_margin="2dp"
                             android:cropToPadding="true"
                             android:scaleType="fitXY"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
                             android:clickable="true"
                             android:src="@drawable/ic_bootloader"/>
                     </LinearLayout>
