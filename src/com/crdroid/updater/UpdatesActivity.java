@@ -155,26 +155,26 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
                 getString(R.string.header_android_version, Build.VERSION.RELEASE));
 
         TextView headerBuildDate = findViewById(R.id.header_build_date);
-        headerBuildDate.setText("Current build date: " + StringGenerator.getDateLocalizedUTC(this,
-                DateFormat.LONG, BuildInfoUtils.getBuildDateTimestamp()));
+        headerBuildDate.setText(getString(R.string.current_build_date, StringGenerator.getDateLocalizedUTC(this,
+                DateFormat.LONG, BuildInfoUtils.getBuildDateTimestamp())));
 
         TextView headerBuildType = findViewById(R.id.header_build_type);
         String buildType = Utils.getBuildType();
         if (buildType == null || buildType.isEmpty()) {
-                headerBuildType.setText("Unofficial or missing OTA info");
+                headerBuildType.setText(getString(R.string.build_type_unknown));
                 LinearLayout supportLayout=(LinearLayout)this.findViewById(R.id.support_icons);
                 supportLayout.setVisibility(LinearLayout.GONE);
         } else {
-                headerBuildType.setText("Current build type: " + buildType);
+                headerBuildType.setText(getString(R.string.current_build_type, buildType));
         }
 
         TextView MaintainerName = findViewById(R.id.maintainer_name);
         String maintainer = Utils.getMaintainer();
         if (maintainer == null || maintainer.isEmpty()) {
-                MaintainerName.setVisibility(View.GONE);
-        } else {strings.xm
-                MaintainerName.setText(
-                        getString(R.string.maintainer_name, maintainer));
+            MaintainerName.setVisibility(View.GONE);
+        } else {
+            MaintainerName.setText(
+                    getString(R.string.maintainer_name, maintainer));
             MaintainerName.setVisibility(View.VISIBLE);
         }
 
