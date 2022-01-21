@@ -15,11 +15,11 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">Cette mise à jour ne peut pas être installé depuis l\'application de mise à jour. Essayez d\'installer la mise à jour manuellement depuis la récupération.</string>
+    <string name="blocked_update_dialog_message_custom">Cette mise à jour ne peut pas être installée depuis l\'application de mise à jour. Essayez d\'installer la mise à jour manuellement depuis le mode recovery.</string>
     <string name="menu_local_update">Installation locale</string>
     <string name="maintainer_name">Mainteneur: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Liens de support :</string>
     <string name="current_build_date">Date de la compilation actuelle: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
-    <string name="current_build_type">Type de construction actuel: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
-    <string name="build_type_unknown">Non officielle ou infos OTA manquantes</string>
+    <string name="current_build_type">Type de la compilation actuelle: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="build_type_unknown">Non officielle ou info OTA manquante</string>
 </resources>
