@@ -21,5 +21,5 @@
     <string name="support_links">Ссылки поддержки:</string>
     <string name="current_build_date">Дата сборки: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Тип сборки: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
-    <string name="build_type_unknown">Неофиц. или нету информации об OTA.</string>
+    <string name="build_type_unknown">Неофиц. или отсутствует информации об OTA</string>
 </resources>
