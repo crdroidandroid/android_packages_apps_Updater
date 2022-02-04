@@ -5,17 +5,22 @@
         android:id="@+id/menu_refresh"
         android:icon="@drawable/ic_menu_refresh"
         android:title="@string/menu_refresh"
+        android:iconTint="@color/theme_accent"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_preferences"
         android:title="@string/menu_preferences"
+        android:iconTint="@color/theme_accent"
         app:showAsAction="never" />
     <item
         android:id="@+id/menu_show_changelog"
+        android:icon="@drawable/ic_changelogs"
         android:title="@string/menu_show_changelog"
-        app:showAsAction="never" />
+        android:iconTint="@color/theme_accent"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/menu_local_update"
         android:title="@string/menu_local_update"
+        android:iconTint="@color/theme_accent"
         app:showAsAction="never" />
 </menu>
