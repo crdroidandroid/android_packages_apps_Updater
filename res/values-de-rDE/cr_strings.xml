@@ -16,10 +16,18 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="blocked_update_dialog_message_custom">Dieses Update kann nicht mit der Updater-App installiert werden. Versuche, es über die Recovery zu installieren.</string>
-    <string name="menu_local_update">Lokale Installation</string>
     <string name="maintainer_name">ROM-Entwickler: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Links für Support:</string>
     <string name="current_build_date">Aktuelles Build-Datum: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Aktueller Build-Typ: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Inoffiziell/fehlende OTA-Infos</string>
+    <string name="info_dialog_title">Did you know?</string>
+    <string name="info_dialog_message">crDroid updates are full installation packages. That means you can always install only the latest update, even if you skipped some in between!</string>
+    <string name="info_dialog_ok">Thanks for the info!</string>
+    <string name="local_update_import">Local update</string>
+    <string name="local_update_import_progress">Importing local update\u2026</string>
+    <string name="local_update_import_success">%1$s has been imported. Do you want to install it?</string>
+    <string name="local_update_import_failure">Failed to import local update</string>
+    <string name="local_update_import_install">Install</string>
+    <string name="local_update_name">Local update</string>
 </resources>
