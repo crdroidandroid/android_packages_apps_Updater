@@ -21,7 +21,7 @@
     <string name="current_build_date">Aktuálny dátum zostavy: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Aktuálny typ zostavy: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Neoficiálne alebo chýbajúce informácie OTA</string>
-    <string name="info_dialog_title">Did you know?</string>
+    <string name="info_dialog_title">Vedeli ste?</string>
     <string name="info_dialog_message">crDroid updates are full installation packages. That means you can always install only the latest update, even if you skipped some in between!</string>
     <string name="info_dialog_ok">Thanks for the info!</string>
     <string name="local_update_import">Local update</string>
