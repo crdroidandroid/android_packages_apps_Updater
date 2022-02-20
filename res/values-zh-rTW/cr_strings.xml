@@ -22,7 +22,7 @@
     <string name="current_build_type">編譯類型：<xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">非官方或是無法取得版本狀態</string>
     <string name="info_dialog_title">Did you know?</string>
-    <string name="info_dialog_message">crDroid updates are full installation packages. That means you can always install only the latest update, even if you skipped some in between!</string>
+    <string name="info_dialog_message">crDroid 的更新為完整的安裝包。 您可以在跳過中間一些更新的情況下，直接安裝最新的版本。</string>
     <string name="info_dialog_ok">Thanks for the info!</string>
     <string name="local_update_import">Local update</string>
     <string name="local_update_import_progress">Importing local update\u2026</string>
