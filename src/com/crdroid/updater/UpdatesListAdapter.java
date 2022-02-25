@@ -546,6 +546,18 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         menu.findItem(R.id.menu_export_update).setVisible(
                 update.getPersistentStatus() == UpdateStatus.Persistent.VERIFIED);
 
+        ActivityResultLauncher<Intent> resultLauncher = mActivity.registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent intent = result.getData();
+                        if (intent != null) {
+                            Uri uri = intent.getData();
+                            exportUpdate(uri);
+                        }
+                    }
+                });
+
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.menu_delete_action) {
@@ -558,7 +570,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                         mActivity.getString(R.string.toast_download_url_copied));
                 return true;
             } else if (itemId == R.id.menu_export_update) {
-                exportUpdate(update);
+                exportUpdate(update, resultLauncher);
                 return true;
             }
             return false;
@@ -568,22 +580,11 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         helper.show();
     }
 
-    private void exportUpdate(UpdateInfo update) {
+    private void exportUpdate(UpdateInfo update, ActivityResultLauncher<Intent> resultLauncher) {
         if (mActivity == null) {
             return;
         }
         mToBeExported = update;
-        ActivityResultLauncher<Intent> resultLauncher = mActivity.registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Intent intent = result.getData();
-                        if (intent != null) {
-                            Uri uri = intent.getData();
-                            exportUpdate(uri);
-                        }
-                    }
-                });
 
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
