@@ -24,7 +24,7 @@
     <string name="info_dialog_title">Schon gewusst?</string>
     <string name="info_dialog_message">crDroid-Updates sind vollständige Installationspakete. Das bedeutet, dass immer auch nur das neueste Update installieren werden kann, wenn zwischendurch einige übersprungen wurden!</string>
     <string name="info_dialog_ok">Danke für die Information!</string>
-    <string name="local_update_import">Local update</string>
+    <string name="local_update_import">Lokales Update</string>
     <string name="local_update_import_progress">Lokales Update wird importiert\u2026</string>
     <string name="local_update_import_success">%1$s erfolgreich importiert. Soll es installiert werden?</string>
     <string name="local_update_import_failure">Fehler beim Importieren des lokalen Updates</string>
