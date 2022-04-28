@@ -21,7 +21,7 @@
     <string name="current_build_date">Data di compilazione attuale: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Tipo di compilazione attuale: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Informazioni OTA non ufficiali o mancanti</string>
-    <string name="info_dialog_title">Lo sapevi che...?</string>
+    <string name="info_dialog_title">Lo sapevi?</string>
     <string name="info_dialog_message">gli aggiornamenti di crDroid sono pacchetti d\'installazione completi. Ciò significa che puoi sempre installare solo l\'ultimo aggiornamento, anche se ne hai saltati alcuni in precedenza!</string>
     <string name="info_dialog_ok">Grazie per l\'informazione!</string>
     <string name="local_update_import">Aggiornamento locale</string>
