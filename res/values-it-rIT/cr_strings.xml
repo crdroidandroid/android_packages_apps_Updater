@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">Questo aggiornamento non può essere installato dall\'applicazione di aggiornamento. Prova a installare l\'aggiornamento manualmente dalla modalità di ripristino.</string>
+    <string name="blocked_update_dialog_message_custom">Questo aggiornamento non può essere installato dall\'applicazione di aggiornamento. Prova a installare l\'aggiornamento manualmente dalla modalità Recovery.</string>
     <string name="maintainer_name">Manutentore: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Link di supporto:</string>
     <string name="current_build_date">Data di compilazione attuale: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
