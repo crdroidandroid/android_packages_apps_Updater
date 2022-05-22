@@ -19,10 +19,10 @@
     <string name="maintainer_name">Maintainer: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Támogatási linkek:</string>
     <string name="current_build_date">Current build date: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
-    <string name="current_build_type">Current build type: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="current_build_type">Jelenlegi build fajtája</string>
     <string name="build_type_unknown">Nem hivatalos vagy hiányzó OTA információ</string>
-    <string name="info_dialog_title">Did you know?</string>
-    <string name="info_dialog_message">crDroid updates are full installation packages. That means you can always install only the latest update, even if you skipped some in between!</string>
+    <string name="info_dialog_title">Tudtad?</string>
+    <string name="info_dialog_message">A crDroid frissítései teljes telepítőcsomagok. Ez azt jelenti, hogy mindig elés a legfrissebb csomagot telepítenie, nem baj ha kihagyott párat!</string>
     <string name="info_dialog_ok">Thanks for the info!</string>
     <string name="local_update_import">Local update</string>
     <string name="local_update_import_progress">Importing local update\u2026</string>
