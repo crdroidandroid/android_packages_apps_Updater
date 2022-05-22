@@ -23,11 +23,11 @@
     <string name="build_type_unknown">Nem hivatalos vagy hiányzó OTA információ</string>
     <string name="info_dialog_title">Tudtad?</string>
     <string name="info_dialog_message">A crDroid frissítései teljes telepítőcsomagok. Ez azt jelenti, hogy mindig elés a legfrissebb csomagot telepítenie, nem baj ha kihagyott párat!</string>
-    <string name="info_dialog_ok">Thanks for the info!</string>
-    <string name="local_update_import">Local update</string>
-    <string name="local_update_import_progress">Importing local update\u2026</string>
-    <string name="local_update_import_success">%1$s has been imported. Do you want to install it?</string>
-    <string name="local_update_import_failure">Failed to import local update</string>
-    <string name="local_update_import_install">Install</string>
-    <string name="local_update_name">Local update</string>
+    <string name="info_dialog_ok">Köszönet az információért!</string>
+    <string name="local_update_import">Helyi frissítés</string>
+    <string name="local_update_import_progress">Helyi frissítés importálása\u2026</string>
+    <string name="local_update_import_success">%1$s importálva lett. Szeretné feltelepíteni?</string>
+    <string name="local_update_import_failure">Nem sikerült feltelepíteni a helyi frissítést</string>
+    <string name="local_update_import_install">Telepítés</string>
+    <string name="local_update_name">Helyi frissítés</string>
 </resources>
