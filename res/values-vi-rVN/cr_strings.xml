@@ -15,14 +15,14 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">Không thể cài đặt bản cập nhật này. Thử cài đặt bản cập nhật thông qua Recovery.</string>
-    <string name="maintainer_name">Người duy tri: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
+    <string name="blocked_update_dialog_message_custom">Không thể cài đặt bản cập nhật này. Thử cài đặt thông qua chế độ phục hồi.</string>
+    <string name="maintainer_name">Người duy trì: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Liên kết hỗ trợ:</string>
-    <string name="current_build_date">Ngày xây dựng hiện tại: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
-    <string name="current_build_type">Loại xây dựng hiện tại: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="current_build_date">Ngày dựng hiện tại: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
+    <string name="current_build_type">Loại dựng hiện tại: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Thông tin OTA không chính thức hoặc bị thiếu</string>
-    <string name="info_dialog_title">Bạn có biết không?</string>
-    <string name="info_dialog_message">các bản cập nhật crDroid là các gói cài đặt đầy đủ. Điều đó có nghĩa là bạn luôn có thể chỉ cài đặt bản cập nhật mới nhất, ngay cả khi bạn đã bỏ qua một số bản cập nhật ở giữa!</string>
+    <string name="info_dialog_title">Bạn có biết?</string>
+    <string name="info_dialog_message">Các bản cập nhật crDroid là các gói cài đặt đầy đủ. Điều đó có nghĩa là bạn luôn có thể chỉ cài đặt bản cập nhật mới nhất, ngay cả khi bạn đã bỏ qua một số bản cập nhật ở giữa!</string>
     <string name="info_dialog_ok">Cảm ơn bạn đã thông tin!</string>
     <string name="local_update_import">Cập nhật cục bộ</string>
     <string name="local_update_import_progress">Đang nhập bản cập nhật cục bộ\u2026</string>
