@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021-2022 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="blocked_update_dialog_message_custom">이 업데이트는 앱을 사용하여 설치할 수 없습니다. 복구 모드를 통해 업데이트를 설치해 보세요.</string>
+    <string name="maintainer_name">관리자: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
+    <string name="support_links">지원 링크:</string>
+    <string name="current_build_date">빌드 날짜: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
+    <string name="current_build_type">빌드 타입: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="build_type_unknown">비공식적이거나 누락된 OTA 정보</string>
+    <string name="info_dialog_title">알고 계신가요?</string>
+    <string name="info_dialog_message">crDroid 업데이트는 전체 설치 패키지입니다. 중간에 일부를 건너뛰더라도 항상 최신 업데이트를 설치할 수 있습니다!</string>
+    <string name="info_dialog_ok">정보 주셔서 감사합니다!</string>
+    <string name="local_update_import">로컬 업데이트</string>
+    <string name="local_update_import_progress">로컬 업데이트 가져오는 중\u2026</string>
+    <string name="local_update_import_success">%1$s 을(를) 가져왔습니다. 설치하시겠습니까?</string>
+    <string name="local_update_import_failure">로컬 업데이트를 가져오지 못했습니다.</string>
+    <string name="local_update_import_install">설치</string>
+    <string name="local_update_name">로컬 업데이트</string>
+</resources>
