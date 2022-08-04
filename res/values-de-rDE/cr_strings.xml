@@ -22,7 +22,7 @@
     <string name="current_build_type">Aktueller Build-Typ: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Inoffiziell/fehlende OTA-Infos</string>
     <string name="info_dialog_title">Schon gewusst?</string>
-    <string name="info_dialog_message">crDroid-Updates sind vollständige Installationspakete. Das bedeutet, dass immer auch nur das neueste Update installieren werden kann, wenn zwischendurch einige übersprungen wurden!</string>
+    <string name="info_dialog_message">crDroid-Updates sind vollständige Installationspakete. Das bedeutet, dass immer auch nur das neueste Update installiert werden kann, wenn zwischendurch einige übersprungen wurden!</string>
     <string name="info_dialog_ok">Danke für die Information!</string>
     <string name="local_update_import">Lokales Update</string>
     <string name="local_update_import_progress">Lokales Update wird importiert\u2026</string>
