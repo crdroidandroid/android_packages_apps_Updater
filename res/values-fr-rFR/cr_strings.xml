@@ -17,10 +17,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="blocked_update_dialog_message_custom">Cette mise à jour ne peut pas être installée depuis l\'application de mise à jour. Essayez d\'installer la mise à jour manuellement depuis le mode recovery.</string>
     <string name="maintainer_name">Mainteneur: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
-    <string name="support_links">Liens de support :</string>
+    <string name="support_links">Liens du support :</string>
     <string name="current_build_date">Date de la compilation actuelle: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Type de la compilation actuelle: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
-    <string name="build_type_unknown">Non officielle ou info OTA manquante</string>
+    <string name="build_type_unknown">Info OTA manquante ou non officielle</string>
     <string name="info_dialog_title">Le saviez-vous?</string>
     <string name="info_dialog_message">Les mises à jour de crDroid sont des paquets d\'installation complets. Cela signifie que vous pouvez toujours installer la dernière mise à jour, même si vous en avez ignoré entre temps !</string>
     <string name="info_dialog_ok">Merci pour l\'information !</string>
