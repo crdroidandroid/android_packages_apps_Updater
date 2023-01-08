@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">此更新无法使用更新程序安装。尝试使用恢复程序安装更新。</string>
+    <string name="blocked_update_dialog_message_custom">此更新无法使用更新器安装。请使用恢复模式以安装更新。</string>
     <string name="maintainer_name">维护者: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">支持链接:</string>
     <string name="current_build_date">当前构建日期： <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
