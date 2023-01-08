@@ -23,7 +23,7 @@
     <string name="build_type_unknown">非官方维护或缺少 OTA 信息</string>
     <string name="info_dialog_title">您知道吗？</string>
     <string name="info_dialog_message">crDroid 采用完整更新（非增量更新）方式进行系统升级。这意味着即使您之前未完成所有的系统升级，也随时可以直接升级到最新的系统版本！</string>
-    <string name="info_dialog_ok">感谢您的反馈！</string>
+    <string name="info_dialog_ok">谢啦</string>
     <string name="local_update_import">本地更新</string>
     <string name="local_update_import_progress">正在导入本地升级包\u2026</string>
     <string name="local_update_import_success">%1$s 已导入，现在开始更新吗？</string>
