@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Näytä muutosloki</string>
     <string name="menu_ab_perf_mode">Priorisoi päivitysprosessi</string>
     <string name="menu_update_recovery">Päivitä recovery-tila</string>
-    <string name="toast_forced_update_recovery">Tällä laitteella ei voi poistaa Lineage Recovery-päivityksiä käytöstä.</string>
+    <string name="toast_forced_update_recovery">Tällä laitteella ei voi poistaa crDroid Recovery-päivityksiä käytöstä.</string>
     <string name="snack_updates_found">Uusia päivityksiä löytyi</string>
     <string name="snack_no_updates_found">Uusia päivityksiä ei löytynyt</string>
     <string name="snack_updates_check_failed">Päivitysten tarkistaminen epäonnistui. Tarkista internet-yhteytesi ja yritä uudelleen.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Päivityksen vahvistaminen epäonnistui.</string>
     <string name="snack_download_verified">Lataus suoritettu.</string>
     <string name="snack_update_not_installable">Tätä päivitystä ei voida asentaa nykyisen version päälle.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Viimeksi tarkistettu: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">Todentaa päivitystä</string>
     <string name="list_no_updates">Uusia päivityksiä ei löytynyt. Tarkistaaksesi päivitykset manuaalisesti, paina Päivitä-painiketta.</string>
     <string name="action_download">Lataa</string>
@@ -107,7 +107,7 @@
     <string name="ongoing_channel_title">Käynnissä olevat lataukset</string>
     <string name="update_failed_channel_title">Päivitys epäonnistui</string>
     <string name="info_dialog_title">Tiesitkö?</string>
-    <string name="info_dialog_message">LineageOS-päivitykset ovat täydellisiä asennuspaketteja, jonka ansiosta voit aina asentaa vain viimeisimmän päivityksen, vaikka ohittaisitkin välillä joitakin versioita!</string>
+    <string name="info_dialog_message">crDroid-päivitykset ovat täydellisiä asennuspaketteja, jonka ansiosta voit aina asentaa vain viimeisimmän päivityksen, vaikka ohittaisitkin välillä joitakin versioita!</string>
     <string name="local_update_import">Paikallinen päivitys</string>
     <string name="local_update_import_progress">Tuodaan paikallista päivitystä\u2026</string>
     <string name="local_update_import_success">%1$s on tuotu. Haluatko asentaa sen?</string>

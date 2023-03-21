@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">Prikaži dnevnik sprememb</string>
     <string name="menu_ab_perf_mode">Daj prednost posodobitvenemu postopku</string>
     <string name="menu_update_recovery">Posodobi obnovitev</string>
-    <string name="toast_forced_update_recovery">Ni mogoče onemogočiti posodobitev obnovitve Lineage na tej napravi.</string>
+    <string name="toast_forced_update_recovery">Ni mogoče onemogočiti posodobitev obnovitve crDroid na tej napravi.</string>
     <string name="snack_updates_found">Najdene nove posodobitve</string>
     <string name="snack_no_updates_found">Ni najdenih novih posodobitev</string>
     <string name="snack_updates_check_failed">Preverjanje za posodobitve je spodletelo. Preverite svojo internetno povezavo in poskusite znova kasneje.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">Preverjanje posodobitve je spodletelo.</string>
     <string name="snack_download_verified">Prenos končan.</string>
     <string name="snack_update_not_installable">Te posodobitve ni mogoče namestiti preko trenutne izgradnje.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Zadnje preverjanje: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> od <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> od <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Preverjanje posodobitve</string>
@@ -126,7 +126,7 @@
     <string name="ongoing_channel_title">Prenosi v teku</string>
     <string name="update_failed_channel_title">Posodobitev je spodletela</string>
     <string name="info_dialog_title">Ali ste vedeli?</string>
-    <string name="info_dialog_message">LineageOS posodobitve so polni namestitveni paketi. To pomeni, da lahko vedno namestite samo zadnjo posodobitev tudi, če ste jih vmes nekaj preskočili!</string>
+    <string name="info_dialog_message">crDroid posodobitve so polni namestitveni paketi. To pomeni, da lahko vedno namestite samo zadnjo posodobitev tudi, če ste jih vmes nekaj preskočili!</string>
     <string name="info_dialog_ok">Hvala za informacije!</string>
     <string name="local_update_import">Lokalna posodobitev</string>
     <string name="local_update_import_progress">Uvažanje lokalne posodobitve \u2026</string>
