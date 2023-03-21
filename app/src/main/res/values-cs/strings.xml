@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Zobrazit seznam změn</string>
     <string name="menu_ab_perf_mode">Upřednostňovat proces aktualizace</string>
     <string name="menu_update_recovery">Aktualizovat recovery oddíl</string>
-    <string name="toast_forced_update_recovery">Na tomto zařízení není možné zakázat aktualizace oddílu Lineage recovery</string>
+    <string name="toast_forced_update_recovery">Na tomto zařízení není možné zakázat aktualizace oddílu crDroid recovery</string>
     <string name="snack_updates_found">Nalezeny nové aktualizace</string>
     <string name="snack_no_updates_found">Nové aktualizace nenalezeny</string>
     <string name="snack_updates_check_failed">Zjištění nové verze selhalo. Prosím zkontrolujte připojení k internetu a pokus opakujte.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Ověření aktualizace se nezdařilo.</string>
     <string name="snack_download_verified">Stahování úspěšné.</string>
     <string name="snack_update_not_installable">Tuto aktualizaci nelze nainstalovat přes aktuální sestavení.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Poslední kontrola: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> z(e) <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> z(e) <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Ověření aktualizace</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">Probíhající stahování</string>
     <string name="update_failed_channel_title">Aktualizace se nezdařila</string>
     <string name="info_dialog_title">Věděli jste, že…</string>
-    <string name="info_dialog_message">Aktualizace LineageOS jsou plné instalační balíčky. To znamená, že můžete vždy nainstalovat pouze nejnovější aktualizaci, a\u00a0je možné některé z\u00a0nich zcela přeskočit!</string>
+    <string name="info_dialog_message">Aktualizace crDroid jsou plné instalační balíčky. To znamená, že můžete vždy nainstalovat pouze nejnovější aktualizaci, a\u00a0je možné některé z\u00a0nich zcela přeskočit!</string>
     <string name="info_dialog_ok">Děkujeme za informace!</string>
     <string name="local_update_import">Místní aktualizace</string>
     <string name="local_update_import_progress">Probíhá import místní aktualizace\u2026</string>
