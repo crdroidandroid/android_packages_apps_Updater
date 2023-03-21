@@ -48,7 +48,7 @@
     <string name="menu_show_changelog">הצגת רשימת שינויים</string>
     <string name="menu_ab_perf_mode">תיעדוף תהליכי עדכון</string>
     <string name="menu_update_recovery">עדכון ה-Recovery</string>
-    <string name="toast_forced_update_recovery">לא ניתן לבטל את יכולת השחזור של Lineage בהתקן זה.</string>
+    <string name="toast_forced_update_recovery">לא ניתן לבטל את יכולת השחזור של crDroid בהתקן זה.</string>
     <string name="snack_updates_found">נמצאו עדכונים חדשים</string>
     <string name="snack_no_updates_found">לא נמצאו עדכונים חדשים</string>
     <string name="snack_updates_check_failed">בדיקת העדכונים נכשלה. בדוק את החיבור שלך לאינטרנט ונסה שוב מאוחר יותר.</string>
@@ -56,11 +56,11 @@
     <string name="snack_download_verification_failed">אימות העדכון נכשל.</string>
     <string name="snack_download_verified">ההורדה הושלמה.</string>
     <string name="snack_update_not_installable">אין אפשרות להתקין עדכון זה מהגרסה הקיימת.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">אנדרואיד <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">בדיקה אחרונה: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> מתוך <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> מתוך <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">מאמת עדכון</string>
@@ -114,7 +114,7 @@
     <string name="ongoing_channel_title">הורדות פעילות</string>
     <string name="update_failed_channel_title">העדכון נכשל</string>
     <string name="info_dialog_title">הידעת?</string>
-    <string name="info_dialog_message">עדכוני LineageOS הם חבילות התקנה מלאות. המשמעות היא שתמיד ניתן להתקין רק את העדכון האחרון, גם אם דילגת על חלק מהעדכונים!</string>
+    <string name="info_dialog_message">עדכוני crDroid הם חבילות התקנה מלאות. המשמעות היא שתמיד ניתן להתקין רק את העדכון האחרון, גם אם דילגת על חלק מהעדכונים!</string>
     <string name="info_dialog_ok">תודה על המידע!</string>
     <string name="local_update_import">עדכון מקומי</string>
     <string name="local_update_import_progress">ייבוא עדכון מקומי\u2026</string>

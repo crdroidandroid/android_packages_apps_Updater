@@ -49,7 +49,7 @@
     <string name="menu_show_changelog">Mustra su registru de modìficas</string>
     <string name="menu_ab_perf_mode">Prioriza su protzessu de atualizatzione</string>
     <string name="menu_update_recovery">Atualiza su recuperadore</string>
-    <string name="toast_forced_update_recovery">Non faghet a disativare is atualizatziones de su recuperadore de Lineage in custu dispositivu.</string>
+    <string name="toast_forced_update_recovery">Non faghet a disativare is atualizatziones de su recuperadore de crDroid in custu dispositivu.</string>
     <string name="snack_updates_found">Atualizatziones noas agatadas</string>
     <string name="snack_no_updates_found">Nissuna atualizatzione noa agatada</string>
     <string name="snack_updates_check_failed">Controllu de atualizatzione faddidu. Controlla sa connessione a internet e torra a proare a pustis.</string>
@@ -57,11 +57,11 @@
     <string name="snack_download_verification_failed">Verìfica de atualizatzione faddida.</string>
     <string name="snack_download_verified">Iscarrigamentu cumpletadu.</string>
     <string name="snack_update_not_installable">Custa atualizatzione non podet èssere installada in pitzus de sa compilatzione atuale.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Ùrtimu controllu: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Verìfica de s\'atualizatzione in cursu</string>
@@ -95,7 +95,7 @@
     <string name="ongoing_channel_title">Iscarrigamentos in cursu</string>
     <string name="update_failed_channel_title">Agiornamentu fallidu</string>
     <string name="info_dialog_title">Dd\'ischias?</string>
-    <string name="info_dialog_message">Is atualizatziones de LineageOS sunt pachetes de installatzione cumpletos. Custu bolet nàrrere chi podes installare semper s\'ùrtima atualizatzione isceti, fintzas si nd\'as brincada calicuna.</string>
+    <string name="info_dialog_message">Is atualizatziones de crDroid sunt pachetes de installatzione cumpletos. Custu bolet nàrrere chi podes installare semper s\'ùrtima atualizatzione isceti, fintzas si nd\'as brincada calicuna.</string>
     <string name="info_dialog_ok">Gràtzias de is informatziones!</string>
     <string name="local_update_import">Atualizatzione locale</string>
     <string name="local_update_import_progress">Importatzione de s\'atualizatzione locale in cursu\u2026</string>
