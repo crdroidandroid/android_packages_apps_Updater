@@ -58,7 +58,7 @@
     <string name="menu_stream_updates_summary">Instalar atualizações ao baixar. Desative para salvar os pacotes de atualização para exportação.</string>
     <string name="menu_delete_update">Apagar</string>
     <string name="menu_export_update">Exportar atualização</string>
-    <string name="menu_view_downloads">Ver nos Downloads do <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">Ver nos Downloads do <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">Alerta de rede limitada</string>
     <string name="menu_metered_network_warning_summary">Avisar antes de baixar pelos dados móveis</string>
     <string name="menu_ab_perf_mode">Priorizar o processo de atualização</string>
@@ -81,13 +81,13 @@
     <string name="found_bug">Encontrou um bug? Reporte com nosso guia de relatórios de bug:</string>
     <string name="updates_zero_state_title">Não há atualizações disponíveis</string>
     <string name="updates_zero_state_description">Novas compilações para este dispositivo aparecerão aqui quando disponíveis.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Tamanho da atualização: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Atualização de segurança: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Atualização maior do Android</string>
     <string name="list_full_install">Instalação completa: É seguro instalar sobre qualquer compilação anterior</string>
-    <string name="list_major_upgrade_recovery_install">As atualizações grandes do <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> devem ser instaladas manualmente. Consulte o guia do seu dispositivo para continuar.</string>
+    <string name="list_major_upgrade_recovery_install">As atualizações grandes do <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> devem ser instaladas manualmente. Consulte o guia do seu dispositivo para continuar.</string>
     <string name="list_downgrade_blocked">Essa compilação é mais antiga do que o sistema instalado e não pode ser aplicada.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

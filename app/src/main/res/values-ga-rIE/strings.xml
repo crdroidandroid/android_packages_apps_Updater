@@ -57,7 +57,7 @@
     <string name="menu_stream_updates_summary">Suiteáil nuashonruithe agus iad á n-íoslódáil. Díchumasaigh chun pacáistí nuashonraithe a shábháil lena n-onnmhairiú.</string>
     <string name="menu_delete_update">Scrios</string>
     <string name="menu_export_update">Easpórtáil nuashonrú</string>
-    <string name="menu_view_downloads">Féach ar Íoslódálacha <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">Féach ar Íoslódálacha <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">Rabhadh líonra méadraithe</string>
     <string name="menu_metered_network_warning_summary">Rabhadh roimh íoslódáil thar shonraí soghluaiste</string>
     <string name="menu_ab_perf_mode">Tabhair tosaíocht don phróiseas nuashonraithe</string>
@@ -80,13 +80,13 @@
     <string name="found_bug">An bhfuair tú fabht? Tuairiscigh é lenár dtreoir tuairiscithe fabht:</string>
     <string name="updates_zero_state_title">Níl aon nuashonruithe ar fáil</string>
     <string name="updates_zero_state_description">Beidh leaganacha nua den fheiste seo le feiceáil anseo nuair a bheidh siad ar fáil.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Méid an nuashonraithe: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Nuashonrú slándála: &lt;xliff:g id="date" example="Jan 2026"&gt;%1$s&lt;/xliff:g&gt;%1$s&lt;/xliff:g&gt;</string>
     <string name="list_major_android_upgrade">Uasghrádú mór Android</string>
     <string name="list_full_install">Suiteáil iomlán: Sábháilte le suiteáil thar aon tógáil roimhe seo</string>
-    <string name="list_major_upgrade_recovery_install">Ní mór uasghráduithe móra ar leaganacha <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> a shuiteáil de láimh. Féach ar threoir do ghléis le leanúint ar aghaidh.</string>
+    <string name="list_major_upgrade_recovery_install">Ní mór uasghráduithe móra ar leaganacha <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> a shuiteáil de láimh. Féach ar threoir do ghléis le leanúint ar aghaidh.</string>
     <string name="list_downgrade_blocked">Tá an tógáil seo níos sine ná an córas suiteáilte agus ní féidir é a chur i bhfeidhm.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> of <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> of <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

@@ -58,7 +58,7 @@
     <string name="menu_stream_updates_summary">يېڭىلانمىنى چۈشۈرۈۋاتقاندا ئورنىتىدۇ. يېڭىلانما بوغچىسىنى چىقىرىش ئۈچۈن ساقلاشنى چەكلەيدۇ.</string>
     <string name="menu_delete_update">ئۆچۈر</string>
     <string name="menu_export_update">يېڭىلاشنى چىقار</string>
-    <string name="menu_view_downloads"><xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> دا چۈشۈرۈشنى كۆرسەت</string>
+    <string name="menu_view_downloads"><xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> دا چۈشۈرۈشنى كۆرسەت</string>
     <string name="menu_metered_network_warning">ئېقىم ھېسابلىنىدىغان تور ئاگاھلاندۇرۇشى</string>
     <string name="menu_metered_network_warning_summary">كۆچمە سانلىق مەلۇمات ئىشلىتىۋاتقاندا چۈشۈرۈشتىن ئىلگىرى ئاگاھلاندۇرىدۇ</string>
     <string name="menu_ab_perf_mode">يېڭىلاش جەريانىنى ئەلالاشتۇرىدۇ</string>
@@ -81,13 +81,13 @@
     <string name="found_bug">كەمتۈك بايقالدىمۇ؟ ئۇنى كەمتۈك مەلۇم قىلىش يېتەكچىسىگە مەلۇم قىلىڭ:</string>
     <string name="updates_zero_state_title">ھېچقانداق يېڭىلانما يوق</string>
     <string name="updates_zero_state_description">ئۈسكۈنىڭىز ئۈچۈن يېڭى تارقىتىلمىنى ئىشلەتكىلى بولسا بۇ جايدا كۆرۈنىدۇ.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">يېڭىلانما چوڭلۇقى: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">بىخەتەرلىك يېڭىلانما: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Android نىڭ چوڭ يۈكسىلىشى</string>
     <string name="list_full_install">تولۇق ئورنىتىش: خالىغان ئالدىنقى نەشرىنىڭ ئۈستىگە بىخەتەر ئورناتقىلى بولىدۇ</string>
-    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> نىڭ ئاساسىي يۈكسەلدۈرۈش نەشرىنى چوقۇم قولدا ئورنىتىش كېرەك. ئۈسكۈنىڭىزنىڭ يېتەكچىسىدىن پايدىلىنىپ داۋاملاشتۇرۇڭ.</string>
+    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> نىڭ ئاساسىي يۈكسەلدۈرۈش نەشرىنى چوقۇم قولدا ئورنىتىش كېرەك. ئۈسكۈنىڭىزنىڭ يېتەكچىسىدىن پايدىلىنىپ داۋاملاشتۇرۇڭ.</string>
     <string name="list_downgrade_blocked">بۇ نەشرى ئورنىتىلغان سىستېمىدىن كونا، قوللانغىلى بولمايدۇ.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
