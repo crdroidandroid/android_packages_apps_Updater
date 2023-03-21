@@ -58,7 +58,7 @@
     <string name="menu_stream_updates_summary">Εγκατάσταση ενημερώσεων κατά τη λήψη. Απενεργοποιήστε για αποθήκευση του πακέτου ενημέρωσης για εξαγωγή.</string>
     <string name="menu_delete_update">Διαγραφή</string>
     <string name="menu_export_update">Εξαγωγή ενημέρωσης</string>
-    <string name="menu_view_downloads">Προβολή στις Λήψεις <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">Προβολή στις Λήψεις <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">Προειδοποίηση ογκοχρέωσης δικτύου</string>
     <string name="menu_metered_network_warning_summary">Προειδοποίηση πριν από τη λήψη μέσω δεδομένων κινητής τηλεφωνίας</string>
     <string name="menu_ab_perf_mode">Επιτάχυνση διαδικασίας ενημέρωσης</string>
@@ -81,13 +81,13 @@
     <string name="found_bug">Βρήκατε πρόβλημα; Αναφέρετέ το με τον βοηθό αναφοράς σφαλμάτων:</string>
     <string name="updates_zero_state_title">Δεν υπάρχουν διαθέσιμες ενημερώσεις</string>
     <string name="updates_zero_state_description">Νέες εκδόσεις για αυτήν τη συσκευή θα εμφανιστούν εδώ όταν είναι διαθέσιμες.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Μέγεθος ενημέρωσης: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Ενημέρωση ασφάλειας: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Σημαντική αναβάθμιση Android</string>
     <string name="list_full_install">Πλήρης εγκατάσταση: Ασφαλές για εγκατάσταση πάνω από οποιαδήποτε προηγούμενη έκδοση</string>
-    <string name="list_major_upgrade_recovery_install">Οι μεγάλες αναβαθμίσεις του <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> πρέπει να εγκατασταθούν χειροκίνητα. Ανατρέξτε στον οδηγό της συσκευής σας για να συνεχίσετε.</string>
+    <string name="list_major_upgrade_recovery_install">Οι μεγάλες αναβαθμίσεις του <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> πρέπει να εγκατασταθούν χειροκίνητα. Ανατρέξτε στον οδηγό της συσκευής σας για να συνεχίσετε.</string>
     <string name="list_downgrade_blocked">Αυτή η έκδοση είναι παλαιότερη από το τρέχον σύστημα και δεν μπορεί να εγκατασταθεί.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> από <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> από <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

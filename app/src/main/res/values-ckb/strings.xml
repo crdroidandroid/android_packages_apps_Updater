@@ -57,7 +57,7 @@
     <string name="menu_stream_updates_summary">دامەزراندنی نوێکارییەکان هاوکات لەگەڵ داگرتندا. ناچالاکی بکە بۆ پاشەکەوتکردنی پەڕگەکانی نوێکاری بە مەبەستی هەناردەکردن.</string>
     <string name="menu_delete_update">سڕینەوە</string>
     <string name="menu_export_update">هەناردەکردنی نوێکاری</string>
-    <string name="menu_view_downloads">بینین لە داگرتنەکانی <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">بینین لە داگرتنەکانی <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">ئاگاداری هێڵی سنووردار</string>
     <string name="menu_metered_network_warning_summary">ئاگادارکردنەوە پێش داگرتن لەسەر هێڵی مۆبایل</string>
     <string name="menu_ab_perf_mode">پێشینەدان بە پڕۆسەی نوێکردنەوە</string>
@@ -80,13 +80,13 @@
     <string name="found_bug">کێشەت دۆزیوەتەوە؟ بەپێی ڕێبەری ڕاپۆرتکردنی کێشەکان ڕاپۆرتی بکە:</string>
     <string name="updates_zero_state_title">هیچ نوێکارییەک بەردەست نییە</string>
     <string name="updates_zero_state_description">وەشانە نوێیەکان بۆ ئەم ئامێرە لێرە دەردەکەون کاتێک بەردەست دەبن.</string>
-    <string name="list_build_version">LineageOS %1$s</string>
-    <string name="list_build_version_date">LineageOS %1$s - %2$s</string>
+    <string name="list_build_version">crDroid %1$s</string>
+    <string name="list_build_version_date">crDroid %1$s - %2$s</string>
     <string name="list_update_size">قەبارەی نوێکاری: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">نوێکاریی ئاسایش: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">نوێکاریی سەرەکیی ئەندرۆید</string>
     <string name="list_full_install">دامەزراندنی تەواو: پارێزراوە بۆ دامەزراندن لەسەر هەر وەشانێکی پێشوو</string>
-    <string name="list_major_upgrade_recovery_install">نوێکارییە سەرەکییەکانی وەشانی <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> دەبێت بە دەست دابمەزرێنرێن. سەردانی ڕێبەری ئامێرەکەت بکە بۆ بەردەوامبوون.</string>
+    <string name="list_major_upgrade_recovery_install">نوێکارییە سەرەکییەکانی وەشانی <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> دەبێت بە دەست دابمەزرێنرێن. سەردانی ڕێبەری ئامێرەکەت بکە بۆ بەردەوامبوون.</string>
     <string name="list_downgrade_blocked">ئەم وەشانە کۆنترە لە سیستمی دامەزراو و ناتوانرێت جێبەجێ بکرێت.</string>
     <string name="list_download_progress_newer">%1$s لە %2$s</string>
     <string name="list_download_progress_eta_newer">%1$s لە %2$s (%3$s ماوە)</string>

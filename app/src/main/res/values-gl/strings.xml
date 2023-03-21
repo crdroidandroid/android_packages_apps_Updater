@@ -33,8 +33,8 @@
     <string name="snack_download_verification_failed">Fallou a verificación da actualización.</string>
     <string name="snack_download_verified">Descarga completada.</string>
     <string name="snack_update_not_installable">Non é posíbel instalar esta actualización sobre a compilación actual.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">Comprobando actualización</string>
     <string name="action_download">Descarga</string>
     <string name="action_pause">Pausar</string>

@@ -57,7 +57,7 @@
     <string name="menu_stream_updates_summary">下载过程中自动安装更新。禁用此功能可保存更新包以供导出。</string>
     <string name="menu_delete_update">删除</string>
     <string name="menu_export_update">导出更新</string>
-    <string name="menu_view_downloads">查看 <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> 的下载</string>
+    <string name="menu_view_downloads">查看 <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> 的下载</string>
     <string name="menu_metered_network_warning">按流量计费网络警告</string>
     <string name="menu_metered_network_warning_summary">使用移动数据下载前请发出警告</string>
     <string name="menu_ab_perf_mode">更新进程优先</string>
@@ -80,13 +80,13 @@
     <string name="found_bug">发现问题？请使用我们的漏洞报告指南进行报告：</string>
     <string name="updates_zero_state_title">暂无可用更新</string>
     <string name="updates_zero_state_description">此设备的新版本将在可用时在此处显示。</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">更新大小：<xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">安全更新：<xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">重大 Android 升级</string>
     <string name="list_full_install">完整安装：可安全地覆盖安装到任何先前的版本</string>
-    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g>的主要版本更新必须手动安装。请参考您的设备指南以继续。</string>
+    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="crDroid">%1$s</xliff:g>的主要版本更新必须手动安装。请参考您的设备指南以继续。</string>
     <string name="list_downgrade_blocked">此构建比已安装的系统版本更旧，无法应用。</string>
     <string name="list_download_progress_newer">已下载 <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>，共 <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer">已下载 <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>，共 <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

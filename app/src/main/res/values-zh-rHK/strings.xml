@@ -32,7 +32,7 @@
     <string name="pref_category_download_install">下載及安裝</string>
     <string name="menu_delete_update">刪除</string>
     <string name="menu_export_update">匯出更新</string>
-    <string name="menu_view_downloads">前往「 <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> 」查看</string>
+    <string name="menu_view_downloads">前往「 <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> 」查看</string>
     <string name="menu_metered_network_warning">流動網絡數據用量警告</string>
     <string name="menu_metered_network_warning_summary">使用流動數據下載前發出警告</string>
     <string name="menu_ab_perf_mode">優先處理更新</string>
@@ -53,12 +53,12 @@
     <string name="report_issues">回報問題</string>
     <string name="header_review_updates">查看更新及近期變更</string>
     <string name="found_bug">發現錯誤？請按照我們的錯誤回報指南回報：</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g>-<xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g>-<xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_security_update">安全性更新：<xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Android 主要版本升級</string>
     <string name="list_full_install">完整安裝: 可在任何先前版本安全安裝</string>
-    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> 的主要版本升級必須手動安裝。請參閱你的裝置指南以繼續。</string>
+    <string name="list_major_upgrade_recovery_install"><xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> 的主要版本升級必須手動安裝。請參閱你的裝置指南以繼續。</string>
     <string name="list_downgrade_blocked">此版本比已安裝的系統更舊，無法套用。</string>
     <string name="list_download_progress_newer">已下載 <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>，共 <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer">已下載 <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>，共 <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
