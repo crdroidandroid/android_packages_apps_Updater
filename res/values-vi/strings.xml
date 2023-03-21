@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Xác thực bản cập nhật thất bại.</string>
     <string name="snack_download_verified">Tải xuống hoàn tất.</string>
     <string name="snack_update_not_installable">Bản cập nhật này không thể được cài đặt lên trên của bản xây dựng hiện hành.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Lần kiểm tra cuối: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">Đang xác thực bản cập nhật</string>
     <string name="list_no_updates">Không có bản cập nhật mới được tìm thấy. Để tự động kiểm tra các bản cập nhật mới, sử dụng nút Làm mới.</string>
     <string name="action_download">Tải xuống</string>
