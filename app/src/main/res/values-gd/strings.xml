@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Seall loga nan atharraichean</string>
     <string name="menu_ab_perf_mode">Cuir prìomhachas air pròiseas an ùrachaidh</string>
     <string name="menu_update_recovery">Ùraich an t-aiseag</string>
-    <string name="toast_forced_update_recovery">Cha ghabh ùrachadh air aiseag Lineage a chur à comas air an uidheam seo.</string>
+    <string name="toast_forced_update_recovery">Cha ghabh ùrachadh air aiseag crDroid a chur à comas air an uidheam seo.</string>
     <string name="snack_updates_found">Chaidh ùrachadh a lorg</string>
     <string name="snack_no_updates_found">Cha deach ùrachadh a lorg</string>
     <string name="snack_updates_check_failed">Cha b’ urrainn dhuinn sùil a thoirt airson ùrachaidhean. Thoir sùil air a’ cheangal agad ris an eadar-lìon is feuch ris a-rithist an ceann greis.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Dh’fhàillig le dearbhadh an ùrachaidh.</string>
     <string name="snack_download_verified">Tha an luchdadh a-nuas deiseil.</string>
     <string name="snack_update_not_installable">Chan urrainn dhut an t-ùrachadh seo a’ stàladh air an togail làithreach agad.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">An sgrùdadh mu dheireadh: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> – <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> – <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">A’ dearbhadh an ùrachaidh</string>
     <string name="list_no_updates">Cha deach ùrachadh a lorg. Airson sùil a thoirt airson ùrachaidhean a làimh, cleachd am putan “Ath-nuadhaich”.</string>
     <string name="action_download">Luchdaich a-nuas</string>

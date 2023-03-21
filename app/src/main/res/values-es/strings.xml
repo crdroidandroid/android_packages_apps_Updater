@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">Mostrar registro de cambios</string>
     <string name="menu_ab_perf_mode">Priorizar el proceso de actualización</string>
     <string name="menu_update_recovery">Actualizar partición de recuperación (recovery)</string>
-    <string name="toast_forced_update_recovery">Es imposible desactivar las actualizaciones del modo de recuperación («Recovery») de Lineage en este dispositivo.</string>
+    <string name="toast_forced_update_recovery">Es imposible desactivar las actualizaciones del modo de recuperación («Recovery») de crDroid en este dispositivo.</string>
     <string name="snack_updates_found">Se encontraron nuevas actualizaciones</string>
     <string name="snack_no_updates_found">No se encontraron nuevas actualizaciones</string>
     <string name="snack_updates_check_failed">Error en la comprobación de actualizaciones. Por favor, verifica la conexión a Internet e inténtalo más tarde.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">Ha fallado la verificación de la actualización.</string>
     <string name="snack_download_verified">Descarga completada.</string>
     <string name="snack_update_not_installable">Esta actualización no puede instalarse sobre la versión actual.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Última comprobación: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Verificando actualización</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">Descargas en curso</string>
     <string name="update_failed_channel_title">Se produjo un error en la actualización</string>
     <string name="info_dialog_title">¿Sabías que...</string>
-    <string name="info_dialog_message">Las actualizaciones de LineageOS son paquetes de instalación completos, lo que significa que siempre puedes instalar la última actualización, ¡incluso si has saltado algunas de las intermedias!</string>
+    <string name="info_dialog_message">Las actualizaciones de crDroid son paquetes de instalación completos, lo que significa que siempre puedes instalar la última actualización, ¡incluso si has saltado algunas de las intermedias!</string>
     <string name="info_dialog_ok">¡Gracias por la información!</string>
     <string name="local_update_import">Actualización local</string>
     <string name="local_update_import_progress">Importando actualización local\u2026</string>
