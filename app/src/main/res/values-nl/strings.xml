@@ -59,7 +59,7 @@
     <string name="menu_show_changelog">Changelog weergeven</string>
     <string name="menu_ab_perf_mode">Geef prioriteit aan het updateproces</string>
     <string name="menu_update_recovery">Recovery bijwerken</string>
-    <string name="toast_forced_update_recovery">Het is onmogelijk om Lineage Recovery updates op dit apparaat uit te schakelen.</string>
+    <string name="toast_forced_update_recovery">Het is onmogelijk om crDroid Recovery updates op dit apparaat uit te schakelen.</string>
     <string name="snack_updates_found">Nieuwe updates gevonden</string>
     <string name="snack_no_updates_found">Geen nieuwe updates gevonden</string>
     <string name="snack_updates_check_failed">Kan niet controleren op updates. Controleer uw internetverbinding en probeer het later opnieuw.</string>
@@ -67,11 +67,11 @@
     <string name="snack_download_verification_failed">Verificatie van de update mislukt.</string>
     <string name="snack_download_verified">Downloaden voltooid.</string>
     <string name="snack_update_not_installable">Deze update kan niet worden geïnstalleerd bovenop de huidige versie.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Laatst gecontroleerd: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> van <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> van <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Update verifiëren</string>
@@ -119,7 +119,7 @@
     <string name="ongoing_channel_title">Huidige downloads</string>
     <string name="update_failed_channel_title">Update mislukt</string>
     <string name="info_dialog_title">Wist u dat?</string>
-    <string name="info_dialog_message">LineageOS updates zijn volledige installatiepakketten. Dat betekent dat u altijd alleen de nieuwste update hoeft te installeren, zelfs als u een paar updates overslaat!</string>
+    <string name="info_dialog_message">crDroid updates zijn volledige installatiepakketten. Dat betekent dat u altijd alleen de nieuwste update hoeft te installeren, zelfs als u een paar updates overslaat!</string>
     <string name="info_dialog_ok">Bedankt voor de informatie!</string>
     <string name="local_update_import">Lokale update</string>
     <string name="local_update_import_progress">Importeer lokale update\u2026</string>

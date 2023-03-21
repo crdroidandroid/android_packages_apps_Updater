@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">顯示更新日誌</string>
     <string name="menu_ab_perf_mode">優先更新過程</string>
     <string name="menu_update_recovery">更新 Recovery</string>
-    <string name="toast_forced_update_recovery">無法停用此裝置上的 Lineage Recovery 更新。</string>
+    <string name="toast_forced_update_recovery">無法停用此裝置上的 crDroid Recovery 更新。</string>
     <string name="snack_updates_found">發現新的更新</string>
     <string name="snack_no_updates_found">沒有找到新的更新</string>
     <string name="snack_updates_check_failed">更新檢查失敗。請檢查您的網路連線並稍後重試。</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">更新驗證失敗。</string>
     <string name="snack_download_verified">下載已完成。</string>
     <string name="snack_update_not_installable">此更新無法安裝在目前版本上。</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">上次檢查：<xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g>-<xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g>-<xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">正在驗證更新</string>
@@ -117,7 +117,7 @@
     <string name="ongoing_channel_title">目前下載</string>
     <string name="update_failed_channel_title">更新失敗</string>
     <string name="info_dialog_title">您知道嗎？</string>
-    <string name="info_dialog_message">LineageOS 的更新為完整的安裝套件。您可以在跳過中間一些更新的情況下，直接安裝最新的版本。</string>
+    <string name="info_dialog_message">crDroid 的更新為完整的安裝套件。您可以在跳過中間一些更新的情況下，直接安裝最新的版本。</string>
     <string name="info_dialog_ok">感謝您提供資料！</string>
     <string name="local_update_import">本機更新</string>
     <string name="local_update_import_progress">正在導入本機更新 \u2026</string>
