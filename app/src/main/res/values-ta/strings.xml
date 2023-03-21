@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">மாற்றுக்குறிப்பைக் காட்டுக</string>
     <string name="menu_ab_perf_mode">இற்றைச் செயற்முறையை முன்னுரிமைப்படுத்துக</string>
     <string name="menu_update_recovery">மீட்டெடுப்பை இற்றைப்படுத்துக</string>
-    <string name="toast_forced_update_recovery">Lineage மீட்டெடுப்பு இற்றைகளை முடக்குவது, இக்கருவியில் இயலாது.</string>
+    <string name="toast_forced_update_recovery">crDroid மீட்டெடுப்பு இற்றைகளை முடக்குவது, இக்கருவியில் இயலாது.</string>
     <string name="snack_updates_found">புதிய இற்றைகள் கிடைத்தன</string>
     <string name="snack_no_updates_found">புதிய இற்றைகள் எவையும் கிடைக்கவில்லை</string>
     <string name="snack_updates_check_failed">இற்றைச் சோதனை தோல்வியுற்றது; உங்கள் இணைய இணைப்பைச் சரிபார்த்த பிறகு, மீண்டும் முயற்சி செய்க.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">இற்றை சரிபார்ப்பு தோல்வியுற்றது.</string>
     <string name="snack_download_verified">பதிவிறக்கம் முடிவுற்றது.</string>
     <string name="snack_update_not_installable">தற்போதைய கட்டமைப்பின் மீது, இந்த இற்றையை நிறுவ முடியாது.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">கடைசியாகச் சரிபார்க்கப்பட்டது: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> இல் <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> இல் <xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">இற்றையைச் சரிபார்க்கிறது</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">நடப்புப் பதிவிறக்கங்கள்</string>
     <string name="update_failed_channel_title">இற்றை தோல்வியுற்றது</string>
     <string name="info_dialog_title">நீங்கள், அறிந்தீரா?</string>
-    <string name="info_dialog_message">LineageOS இற்றைகள் முழு நிறுவல் தொகுப்புகளாகும். அஃதாவது, நீங்கள் இடையில் சிலவற்றைத் தவிர்த்தாலும், எப்போதும் அண்மை இற்றையை மட்டுமே நிறுவ முடியும்!</string>
+    <string name="info_dialog_message">crDroid இற்றைகள் முழு நிறுவல் தொகுப்புகளாகும். அஃதாவது, நீங்கள் இடையில் சிலவற்றைத் தவிர்த்தாலும், எப்போதும் அண்மை இற்றையை மட்டுமே நிறுவ முடியும்!</string>
     <string name="info_dialog_ok">தெரிவித்தலுக்கு நன்றி!</string>
     <string name="local_update_import">உற்றிட இற்றை</string>
     <string name="local_update_import_progress">உற்றிட இற்றையை இறக்குதல் \u2026</string>
