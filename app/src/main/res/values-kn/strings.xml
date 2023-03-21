@@ -40,8 +40,8 @@
     <string name="menu_ab_perf_mode">ನವೀಕರಣಕ್ಕೆ ಆದ್ಯತೆ ಕೊಡು</string>
     <string name="snack_download_verified">ಇಳಿಸುವಿಕೆ ಪೂರ್ಣಗೊಂಡಿದೆ.</string>
     <string name="header_last_updates_check">ಕೊನೆಯ ಪರಿಶೀಲನೆ: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">ನವೀಕರಣ ಪರಿಶೀಲಿಸುತ್ತಿದೆ</string>
     <string name="action_download">ಇಳಿಸು</string>
     <string name="action_install">ಸ್ಥಾಪಿಸು</string>
