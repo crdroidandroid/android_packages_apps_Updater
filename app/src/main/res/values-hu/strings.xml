@@ -63,11 +63,11 @@ illetve, ha éppen tölt, akkor még <xliff:g id="percent_charging">%2$d</xliff:
     <string name="snack_download_verification_failed">A frissítés ellenőrzése sikertelen.</string>
     <string name="snack_download_verified">A letöltés befejeződött.</string>
     <string name="snack_update_not_installable">Ez a frissítés nem telepíthető a jelenlegi verzióra.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Utolsó ellenőrzés: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Frissítésellenőrzés</string>
@@ -113,6 +113,6 @@ illetve, ha éppen tölt, akkor még <xliff:g id="percent_charging">%2$d</xliff:
     <string name="ongoing_channel_title">Folyamatban lévő letöltések</string>
     <string name="update_failed_channel_title">A frissítés sikertelen</string>
     <string name="info_dialog_title">Tudta Ön?</string>
-    <string name="info_dialog_message">A LineageOS frissítései teljes telepítőcsomagok. Ez azt jelenti, hogy mindig elég a legfrissebb csomagot telepítenie, nem baj ha korábban kihagyott párat!</string>
+    <string name="info_dialog_message">A crDroid frissítései teljes telepítőcsomagok. Ez azt jelenti, hogy mindig elég a legfrissebb csomagot telepítenie, nem baj ha korábban kihagyott párat!</string>
     <string name="info_dialog_ok">Köszönet az információért!</string>
 </resources>
