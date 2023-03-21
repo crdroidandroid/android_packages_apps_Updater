@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">ئۆزگىرىش خاتىرىسىنى كۆرسەت</string>
     <string name="menu_ab_perf_mode">يېڭىلاش جەريانىنى ئەلالاشتۇرىدۇ</string>
     <string name="menu_update_recovery">ئەسلىگە كەلتۈرگۈچنى يېڭىلايدۇ</string>
-    <string name="toast_forced_update_recovery">بۇ ئۈسكۈنىدە Lineage ئەسلىگە كەلتۈرگۈچ يېڭىلانمىسىنى چەكلەش مۇمكىن ئەمەس.</string>
+    <string name="toast_forced_update_recovery">بۇ ئۈسكۈنىدە crDroid ئەسلىگە كەلتۈرگۈچ يېڭىلانمىسىنى چەكلەش مۇمكىن ئەمەس.</string>
     <string name="snack_updates_found">يېڭى نەشرى تېپىلدى</string>
     <string name="snack_no_updates_found">يېڭى نەشرى تېپىلمىدى</string>
     <string name="snack_updates_check_failed">يېڭىلانمىنى تەكشۈرەلمىدى. ئىنتېرنېت باغلىنىشىنى تەكشۈرۈپ، ئاندىن قايتا سىناڭ.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">يېڭىلاشنى دەلىللىيەلمىدى.</string>
     <string name="snack_download_verified">چۈشۈرۈش تامام.</string>
     <string name="snack_update_not_installable">بۇ يېڭىلاشنى نۆۋەتتىكى نەشرىنىڭ ئۈستىگە ئورناتقىلى بولمايدۇ.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">ئاخىرقى تەكشۈرۈش: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">يېڭىلاشنى دەلىللەۋاتىدۇ</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">داۋاملىشىۋاتقان چۈشۈرۈش</string>
     <string name="update_failed_channel_title">يېڭىلىيالمىدى</string>
     <string name="info_dialog_title">بىلەمسىز؟</string>
-    <string name="info_dialog_message">LineageOS يېڭىلاش تولۇق ئورنىتىش بولىقى. دېمەك، ئەگەر ئارىلىقتا بىرەر نەشرىدىن ئاتلاپ كەتسىڭىزمۇ، پەقەت ئاخىرقى يېڭىلاشنىلا ئورنىتالايسىز!</string>
+    <string name="info_dialog_message">crDroid يېڭىلاش تولۇق ئورنىتىش بولىقى. دېمەك، ئەگەر ئارىلىقتا بىرەر نەشرىدىن ئاتلاپ كەتسىڭىزمۇ، پەقەت ئاخىرقى يېڭىلاشنىلا ئورنىتالايسىز!</string>
     <string name="info_dialog_ok">ئۇچۇر ئۈچۈن رەھمەت!</string>
     <string name="local_update_import">يەرلىك يېڭىلاش</string>
     <string name="local_update_import_progress">يەرلىك يېڭىلاشنى ئەكىرىۋاتىدۇ\u2026</string>

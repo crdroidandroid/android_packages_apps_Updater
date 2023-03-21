@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">Hiển thị nhật ký thay đổi</string>
     <string name="menu_ab_perf_mode">Ưu tiên quá trình cập nhật</string>
     <string name="menu_update_recovery">Cập nhật recovery</string>
-    <string name="toast_forced_update_recovery">Không thể tắt các bản cập nhật Lineage Recovery trên thiết bị này.</string>
+    <string name="toast_forced_update_recovery">Không thể tắt các bản cập nhật crDroid Recovery trên thiết bị này.</string>
     <string name="snack_updates_found">Đã tìm thấy bản cập nhật mới</string>
     <string name="snack_no_updates_found">Không tìm thấy bản cập nhật mới</string>
     <string name="snack_updates_check_failed">Kiểm tra bản cập nhật không thành công. Vui lòng kiểm tra kết nối internet của bạn và thử lại sau.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">Xác thực bản cập nhật thất bại.</string>
     <string name="snack_download_verified">Tải xuống hoàn tất.</string>
     <string name="snack_update_not_installable">Bản cập nhật này không thể được cài đặt lên trên của bản xây dựng hiện hành.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Lần kiểm tra cuối: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> của <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> của <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Đang xác thực bản cập nhật</string>
@@ -117,7 +117,7 @@
     <string name="ongoing_channel_title">Đang tải xuống</string>
     <string name="update_failed_channel_title">Cập nhật thất bại</string>
     <string name="info_dialog_title">Bạn có biết?</string>
-    <string name="info_dialog_message">Bản cập nhật LineageOS là gói cài đặt đầy đủ. Điều đó có nghĩa là bạn luôn có thể chỉ cài đặt bản cập nhật mới nhất, ngay cả khi bạn đã bỏ qua một số bản cập nhật ở giữa!</string>
+    <string name="info_dialog_message">Bản cập nhật crDroid là gói cài đặt đầy đủ. Điều đó có nghĩa là bạn luôn có thể chỉ cài đặt bản cập nhật mới nhất, ngay cả khi bạn đã bỏ qua một số bản cập nhật ở giữa!</string>
     <string name="info_dialog_ok">Cảm ơn bạn đã thông tin!</string>
     <string name="local_update_import">Cập nhật cục bộ</string>
     <string name="local_update_import_progress">Đang nhập bản cập nhật cục bộ\u2026</string>
