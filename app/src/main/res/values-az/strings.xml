@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">Dəyişiklik jurnalını göstər</string>
     <string name="menu_ab_perf_mode">Üstünlüyü güncəlləmə prosesinə ver</string>
     <string name="menu_update_recovery">Geri qaytarma rejimini güncəllə</string>
-    <string name="toast_forced_update_recovery">Bu cihazda Lineage Geri qaytarma güncəlləmələrini sıradan çıxartmaq mümkün deyil.</string>
+    <string name="toast_forced_update_recovery">Bu cihazda crDroid Geri qaytarma güncəlləmələrini sıradan çıxartmaq mümkün deyil.</string>
     <string name="snack_updates_found">Yeni güncəlləmə tapıldı</string>
     <string name="snack_no_updates_found">Yeni güncəlləmə tapılmadı</string>
     <string name="snack_updates_check_failed">Güncəlləmə yoxlanışı uğursuz oldu. Lütfən internet bağlantınızı yoxlayıb daha sonra yenidən sınayın.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">Güncəlləmə doğrulaması uğursuz oldu.</string>
     <string name="snack_download_verified">Endirmə tamamlandı.</string>
     <string name="snack_update_not_installable">Bu güncəlləmə hazırkı quruluşun üzərinə quraşdırıla bilməz.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Son yoxlama: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Güncəlləmə doğrulanır</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">Davam edən endirmələr</string>
     <string name="update_failed_channel_title">Güncəlləmə uğursuz oldu</string>
     <string name="info_dialog_title">Bilirdiniz?</string>
-    <string name="info_dialog_message">LineageOS güncəlləmələri tam quraşdırma paketləridir. Yəni, güncəlləməni ötürsəniz belə, hər zaman yalnız son güncəlləməni quraşdıra bilərsiniz!</string>
+    <string name="info_dialog_message">crDroid güncəlləmələri tam quraşdırma paketləridir. Yəni, güncəlləməni ötürsəniz belə, hər zaman yalnız son güncəlləməni quraşdıra bilərsiniz!</string>
     <string name="info_dialog_ok">Məlumat üçün təşəkkürlər!</string>
     <string name="local_update_import">Yerli güncəlləmə</string>
     <string name="local_update_import_progress">Yerli güncəlləmə daxilə köçürülür\u2026</string>

@@ -421,7 +421,7 @@ public class Utils {
         } catch (NumberFormatException ignored) {
             // ignore
         }
-        // Lineage 20 and up should only be integer values (we don't have minor versions anymore)
+        // crDroid 20 and up should only be integer values (we don't have minor versions anymore)
         return (floatVersion >= 20) ? String.valueOf((int)floatVersion) : version;
     }
 }

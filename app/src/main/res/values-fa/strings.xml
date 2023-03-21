@@ -60,7 +60,7 @@
     <string name="menu_show_changelog">نمایش تغییرات</string>
     <string name="menu_ab_perf_mode">به روز رسانی با اولویت بالا</string>
     <string name="menu_update_recovery">به‌روز رسانی ریکاوری</string>
-    <string name="toast_forced_update_recovery">غیرفعال کردن به روزرسانی های ریکاوری Lineage در این دستگاه غیرممکن است.</string>
+    <string name="toast_forced_update_recovery">غیرفعال کردن به روزرسانی های ریکاوری crDroid در این دستگاه غیرممکن است.</string>
     <string name="snack_updates_found">نسخه های جدید یافت شد</string>
     <string name="snack_no_updates_found">به‌روزرسانی جدیدی یافت نشد</string>
     <string name="snack_updates_check_failed">بررسی نسخه به روز انجام نشد. اتصال اینترنت خود را بررسی و دوباره سعی کنید.</string>
@@ -68,11 +68,11 @@
     <string name="snack_download_verification_failed">تأیید به‌روزرسانی با خطا روبه‌رو شد.</string>
     <string name="snack_download_verified">بارگیری کامل شد.</string>
     <string name="snack_update_not_installable">این نسخه جدید را نمی توان بر روی نسخه کنونی نصب کرد.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">اندروید <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">آخرین بررسی: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> از <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> از <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">در حال تایید به‌روزرسانی</string>
@@ -120,7 +120,7 @@
     <string name="ongoing_channel_title">بارگیری های جاری</string>
     <string name="update_failed_channel_title">به‌روز رسانی شکست خورد</string>
     <string name="info_dialog_title">آیا می‌دانستید؟</string>
-    <string name="info_dialog_message">به روز رسانی های LineageOS بسته های نصب کامل هستند. این بدان معناست که همیشه می‌توانید فقط آخرین به‌روزرسانی را نصب کنید، حتی اگر برخی از آن‌ها را در این بین رد کرده باشید!</string>
+    <string name="info_dialog_message">به روز رسانی های crDroid بسته های نصب کامل هستند. این بدان معناست که همیشه می‌توانید فقط آخرین به‌روزرسانی را نصب کنید، حتی اگر برخی از آن‌ها را در این بین رد کرده باشید!</string>
     <string name="info_dialog_ok">از اطلاعات شما سپاسگذاریم!</string>
     <string name="local_update_import">به‌روزرسانی داخلی</string>
     <string name="local_update_import_progress">وارد کردن به‌روزرسانی محلی\u2026</string>

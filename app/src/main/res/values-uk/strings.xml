@@ -49,7 +49,7 @@
     <string name="menu_export_update">Експорт оновлення</string>
     <string name="menu_show_changelog">Журнал змін</string>
     <string name="menu_update_recovery">Оновити режим відновлення</string>
-    <string name="toast_forced_update_recovery">Неможливо вимкнути оновлення режиму відновлення Lineage на цьому пристрої.</string>
+    <string name="toast_forced_update_recovery">Неможливо вимкнути оновлення режиму відновлення crDroid на цьому пристрої.</string>
     <string name="snack_updates_found">Знайдено оновлення</string>
     <string name="snack_no_updates_found">Оновлень не знайдено</string>
     <string name="snack_updates_check_failed">Перевірка оновлення не вдалася. Будь-ласка перевірте з’єднання з мережею і спробуйте ще раз.</string>
@@ -57,11 +57,11 @@
     <string name="snack_download_verification_failed">Не пройшла перевірка оновлення.</string>
     <string name="snack_download_verified">Завантаження завершено.</string>
     <string name="snack_update_not_installable">Це оновлення не можна інсталювати на поточну збірку.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Остання перевірка: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> of <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Перевірка оновлення</string>
     <string name="list_no_updates">Оновлень не знайдено. Щоб вручну перевірити наявність оновлень, натисніть кнопку Оновити.</string>

@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">إظهار التغييرات</string>
     <string name="menu_ab_perf_mode">إعطاء الأولوية لعملية التحديث</string>
     <string name="menu_update_recovery">تحديث وضع الاسترداد</string>
-    <string name="toast_forced_update_recovery">من المستحيل تعطيل تحديثات Lineage Recovery على هذا الجهاز</string>
+    <string name="toast_forced_update_recovery">من المستحيل تعطيل تحديثات crDroid Recovery على هذا الجهاز</string>
     <string name="snack_updates_found">تم العثور على تحديثات جديدة</string>
     <string name="snack_no_updates_found">لا توجد تحديثات جديدة</string>
     <string name="snack_updates_check_failed">فشل التحقق من وجود تحديث. برجاء التحقق من اتصالك بالإنترنت وإعادة المحاولة لاحقًا.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">فشل التحقق من التحديث.</string>
     <string name="snack_download_verified">اكتمل التنزيل.</string>
     <string name="snack_update_not_installable">لا يمكن تثبيت هذا التحديث على الاصدار الحالي.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">أندرويد <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">آخر تحقق: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> من <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> من <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">جارٍ التحقق من التحديث</string>
@@ -126,6 +126,6 @@
     <string name="ongoing_channel_title">التنزيلات الحالية</string>
     <string name="update_failed_channel_title">فشل التحديث</string>
     <string name="info_dialog_title">هل كنت تعلم؟  </string>
-    <string name="info_dialog_message">تحديثات LineageOS هي حزم تثبيت كاملة. وهذا يعني أنه يمكنك دائماً تثبيت أحدث إصدار فقط، حتى إذا كنت قد تخطيت بعض الإصدارات السابقة!</string>
+    <string name="info_dialog_message">تحديثات crDroid هي حزم تثبيت كاملة. وهذا يعني أنه يمكنك دائماً تثبيت أحدث إصدار فقط، حتى إذا كنت قد تخطيت بعض الإصدارات السابقة!</string>
     <string name="info_dialog_ok">شكرًا على المعلومة!</string>
 </resources>
