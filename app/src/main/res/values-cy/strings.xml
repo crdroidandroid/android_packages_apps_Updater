@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Dangos log newid</string>
     <string name="menu_ab_perf_mode">Blaenoriaethu\'r broses diweddaru</string>
     <string name="menu_update_recovery">Adfer y modd diweddaru</string>
-    <string name="toast_forced_update_recovery">Mae\'n amhosibl analluogi diweddariadau Adfer Lineage ar y ddyfais hon.</string>
+    <string name="toast_forced_update_recovery">Mae\'n amhosibl analluogi diweddariadau Adfer crDroid ar y ddyfais hon.</string>
     <string name="snack_updates_found">Mae yna ddiweddariad(au) newydd</string>
     <string name="snack_no_updates_found">Ni chanfuwyd diweddariadau newydd</string>
     <string name="snack_updates_check_failed">Methodd gwiriad y diweddariad. Gwiria dy gysylltiad â\'r rhwydwaith a rhoi cynnig arall arni.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Methodd dilysiad y diweddariad.</string>
     <string name="snack_download_verified">Lawrlwytho wedi cwblhau.</string>
     <string name="snack_update_not_installable">Ni ellir gosod y diweddariad hwn ar ben yr adeiledd cyfredol.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Gwiriwyd diwethaf: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> o <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> o <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Yn dilysu\'r diweddariad</string>
@@ -126,7 +126,7 @@
     <string name="ongoing_channel_title">Llwythi sy\'n parhau</string>
     <string name="update_failed_channel_title">Methodd y diweddariad</string>
     <string name="info_dialog_title">A wyddet ti?</string>
-    <string name="info_dialog_message">Mae diweddariadau LineageOS yn becynnau gosod llawn, felly mae o hyd yn bosib gosod y diweddariad diweddaraf, hyd yn oed os wyt wedi neidio ambell ddiweddariad ers y diwethaf!</string>
+    <string name="info_dialog_message">Mae diweddariadau crDroid yn becynnau gosod llawn, felly mae o hyd yn bosib gosod y diweddariad diweddaraf, hyd yn oed os wyt wedi neidio ambell ddiweddariad ers y diwethaf!</string>
     <string name="info_dialog_ok">Diolch am y wybodaeth!</string>
     <string name="local_update_import">Diweddariad lleol</string>
     <string name="local_update_import_progress">Yn mewnforio diweddariad lleol\u2026</string>

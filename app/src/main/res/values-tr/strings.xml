@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Değişiklikleri göster</string>
     <string name="menu_ab_perf_mode">Güncelleme sürecini öncelikli hale getir</string>
     <string name="menu_update_recovery">Kurtarma modunu güncelle</string>
-    <string name="toast_forced_update_recovery">Bu cihazda Lineage Kurtarma Modu güncellemelerini devre dışı bırakmak imkansızdır.</string>
+    <string name="toast_forced_update_recovery">Bu cihazda crDroid Kurtarma Modu güncellemelerini devre dışı bırakmak imkansızdır.</string>
     <string name="snack_updates_found">Yeni güncelleştirmeler bulundu</string>
     <string name="snack_no_updates_found">Yeni güncelleme bulunamadı</string>
     <string name="snack_updates_check_failed">Güncelleme kontrolü başarısız oldu. Lütfen internet bağlantınızı kontrol edin ve daha sonra tekrar deneyin.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Güncelleme doğrulaması başarısız oldu.</string>
     <string name="snack_download_verified">İndirme tamamlandı.</string>
     <string name="snack_update_not_installable">Bu güncelleştirme mevcut yapı üstüne kurulamaz.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Son kontrol zamanı: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Güncelleme doğrulanıyor</string>
@@ -114,7 +114,7 @@
     <string name="ongoing_channel_title">Devam eden indirmeler</string>
     <string name="update_failed_channel_title">Güncelleme başarısız</string>
     <string name="info_dialog_title">Biliyor musun?</string>
-    <string name="info_dialog_message">LineageOS güncellemeleri tam yükleme paketleridir. Bu demektir ki güncelleme atlamış olsanız bile her zaman sadece son güncellemeyi kurabilirsiniz!</string>
+    <string name="info_dialog_message">crDroid güncellemeleri tam yükleme paketleridir. Bu demektir ki güncelleme atlamış olsanız bile her zaman sadece son güncellemeyi kurabilirsiniz!</string>
     <string name="info_dialog_ok">Bilgi için teşekkürler!</string>
     <string name="local_update_import">Yerel güncelleme</string>
     <string name="local_update_import_progress">Yerel güncelleme içe aktarılıyor</string>

@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Покажи промените</string>
     <string name="menu_ab_perf_mode">Приоритет на процеса на актуализиране</string>
     <string name="menu_update_recovery">Актуализиране на recovery</string>
-    <string name="toast_forced_update_recovery">Невъзможно е да деактивирате актуализациите на Lineage Recovery на това устройство.</string>
+    <string name="toast_forced_update_recovery">Невъзможно е да деактивирате актуализациите на crDroid Recovery на това устройство.</string>
     <string name="snack_updates_found">Намерена е нова актуализация</string>
     <string name="snack_no_updates_found">Няма нови актуализации</string>
     <string name="snack_updates_check_failed">Проверката за актуализации се провали. Моля проверете връзката с интернет и опитайте отново по-късно.</string>
@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Проверката на актуализацията е неуспешна.</string>
     <string name="snack_download_verified">Изтеглянето приключи.</string>
     <string name="snack_update_not_installable">Тази актуализация не може да бъде инсталирана на текущата версия.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Последна проверка: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_verifying_update">Проверка на актуализацията</string>
     <string name="list_no_updates">Не са намерени нови актуализации. За да проверите ръчно за нови актуализации, използвайте бутона за обновяване.</string>
     <string name="action_download">Изтегли</string>
