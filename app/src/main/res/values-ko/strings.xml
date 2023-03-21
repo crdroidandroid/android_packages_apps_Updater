@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">업데이트 검증에 실패했습니다.</string>
     <string name="snack_download_verified">다운로드가 완료되었습니다.</string>
     <string name="snack_update_not_installable">현재 빌드에서는 이 업데이트를 설치할 수 없습니다.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">마지막 확인: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> / <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">업데이트 검증 중</string>
@@ -111,6 +111,6 @@
     <string name="ongoing_channel_title">진행 중인 다운로드</string>
     <string name="update_failed_channel_title">업데이트 실패</string>
     <string name="info_dialog_title">알고 계신가요?</string>
-    <string name="info_dialog_message">LineageOS 업데이트는 전체 설치 패키지입니다. 중간에 몇 개 버전을 건너뛰었더라도 가장 최신 버전만 설치하면 됩니다!</string>
+    <string name="info_dialog_message">crDroid 업데이트는 전체 설치 패키지입니다. 중간에 몇 개 버전을 건너뛰었더라도 가장 최신 버전만 설치하면 됩니다!</string>
     <string name="info_dialog_ok">정보 감사합니다!</string>
 </resources>
