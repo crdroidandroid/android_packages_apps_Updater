@@ -54,7 +54,7 @@
     <string name="menu_show_changelog">Birta breytingaannál</string>
     <string name="menu_ab_perf_mode">Setja uppfærsluferli í forgang</string>
     <string name="menu_update_recovery">Uppfæra endurheimtingu</string>
-    <string name="toast_forced_update_recovery">Ekki er hægt að gera uppfærslur á endurheimtingu LineageOS óvirkar á þessu
+    <string name="toast_forced_update_recovery">Ekki er hægt að gera uppfærslur á endurheimtingu crDroid óvirkar á þessu
  tæki.</string>
     <string name="snack_updates_found">Nýjar uppfærslur fundust</string>
     <string name="snack_no_updates_found">Engar nýjar uppfærslur fundust</string>
@@ -63,11 +63,11 @@
     <string name="snack_download_verification_failed">Sannvottun uppfærslu mistókst.</string>
     <string name="snack_download_verified">Niðurhali er lokið.</string>
     <string name="snack_update_not_installable">Þessa uppfærslu er ekki gægt að setja upp á þessari byggingarútgáfu.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Síðast kannað: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> of <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> of <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Yfirfer uppfærslu</string>
@@ -116,7 +116,7 @@
     <string name="ongoing_channel_title">Niðurhal í gangi</string>
     <string name="update_failed_channel_title">Uppfærsla mistókst</string>
     <string name="info_dialog_title">Vissir þú?</string>
-    <string name="info_dialog_message">Uppfærslur á LineageOS eru alltaf heilir uppsetningapakkar. Það þýðir að þú getur alltaf sett einungis upp nýjustu uppfærsluna, jafnvel þótt þú hafir sleppt einhverjum uppfærslum í millitíðinni!</string>
+    <string name="info_dialog_message">Uppfærslur á crDroid eru alltaf heilir uppsetningapakkar. Það þýðir að þú getur alltaf sett einungis upp nýjustu uppfærsluna, jafnvel þótt þú hafir sleppt einhverjum uppfærslum í millitíðinni!</string>
     <string name="info_dialog_ok">Takk fyrir upplýsingarnar!</string>
     <string name="local_update_import">Staðbundin uppfærsla</string>
     <string name="local_update_import_progress">Flyt inn staðbundna uppfærslu\u2026</string>
