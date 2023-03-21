@@ -49,7 +49,7 @@
     <string name="menu_show_changelog">نیشاندانی گۆڕانکارییەکان</string>
     <string name="menu_ab_perf_mode">پێشینەدان بە پڕۆسەی نوێکردنەوە</string>
     <string name="menu_update_recovery">نوێکردنەوەی Recovery (Recovery)</string>
-    <string name="toast_forced_update_recovery">ناتوانرێت نوێکردنەوەی Lineage Recovery لەم ئامێرەدا ناچالاک بکرێت.</string>
+    <string name="toast_forced_update_recovery">ناتوانرێت نوێکردنەوەی crDroid Recovery لەم ئامێرەدا ناچالاک بکرێت.</string>
     <string name="snack_updates_found">نوێکاری نوێ دۆزرایەوە</string>
     <string name="snack_no_updates_found">هیچ نوێکارییەک نەدۆزرایەوە</string>
     <string name="snack_updates_check_failed">پشکنینی نوێکاری سەرکەوتوو نەبوو. تکایە هێڵی ئینتەرنێتەکەت بپشکنە و دواتر هەوڵ بدەرەوە.</string>
@@ -57,11 +57,11 @@
     <string name="snack_download_verification_failed">پشکنینی نوێکاری سەرکەوتوو نەبوو.</string>
     <string name="snack_download_verified">داگرتن تەواو بوو.</string>
     <string name="snack_update_not_installable">ئەم نوێکارییە ناتوانرێت لەسەر ئەم وەشانەی ئێستا دابمەزرێنرێت.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">ئەندرۆید %1$s</string>
     <string name="header_last_updates_check">دواین پشکنین: %1$s (%2$s)</string>
-    <string name="list_build_version">LineageOS %1$s</string>
-    <string name="list_build_version_date">LineageOS %1$s - %2$s</string>
+    <string name="list_build_version">crDroid %1$s</string>
+    <string name="list_build_version_date">crDroid %1$s - %2$s</string>
     <string name="list_download_progress_newer">%1$s لە %2$s</string>
     <string name="list_download_progress_eta_newer">%1$s لە %2$s (%3$s ماوە)</string>
     <string name="list_verifying_update">پشکنینی نوێکاری</string>
@@ -109,7 +109,7 @@
     <string name="ongoing_channel_title">داگرتنە بەردەوامەکان</string>
     <string name="update_failed_channel_title">نوێکردنەوە سەرکەوتوو نەبوو</string>
     <string name="info_dialog_title">ئایا دەزانیت؟</string>
-    <string name="info_dialog_message">نوێکارییەکانی LineageOS پاکێجی تەواوی دامەزراندنن. ئەمە واتە دەتوانیت هەمیشە تەنها دواین نوێکاری دابمەزرێنیت، تەنانەت ئەگەر هەندێک نوێکاری پێشووت تێپەڕاندبێت!</string>
+    <string name="info_dialog_message">نوێکارییەکانی crDroid پاکێجی تەواوی دامەزراندنن. ئەمە واتە دەتوانیت هەمیشە تەنها دواین نوێکاری دابمەزرێنیت، تەنانەت ئەگەر هەندێک نوێکاری پێشووت تێپەڕاندبێت!</string>
     <string name="info_dialog_ok">سوپاس بۆ زانیارییەکە!</string>
     <string name="local_update_import">نوێکاری ناوخۆیی</string>
     <string name="local_update_import_progress">هێنانی نوێکاری ناوخۆیی\u2026</string>
