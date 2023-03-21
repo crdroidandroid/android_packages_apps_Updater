@@ -62,11 +62,11 @@
     <string name="snack_download_verification_failed">Verifiche dal inzornament falide.</string>
     <string name="snack_download_verified">Discjariament completât.</string>
     <string name="snack_update_not_installable">Nol è pussibil instalâ chest inzornament sore di cheste version.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Ultime verifiche: <xliff:g id="date" example="2 di Zenâr dal 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="Lui 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="Lui 11, 2017">%2$s</xliff:g></string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> di <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> • <xliff:g id="percentage" example="56">%3$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> di <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Verifiche inzornament</string>
@@ -114,7 +114,7 @@
     <string name="ongoing_channel_title">Discjariaments in vore</string>
     <string name="update_failed_channel_title">Inzornament falît</string>
     <string name="info_dialog_title">Savevistu?</string>
-    <string name="info_dialog_message">I inzornaments di LineageOS a son pachets di instalazion complets. Chest al significhe che tu puedis simpri instalâ l\'ultin inzornament, ancje se prime tu\'nd âs saltât cualchidun!</string>
+    <string name="info_dialog_message">I inzornaments di crDroid a son pachets di instalazion complets. Chest al significhe che tu puedis simpri instalâ l\'ultin inzornament, ancje se prime tu\'nd âs saltât cualchidun!</string>
     <string name="info_dialog_ok">Graciis pe informazion!</string>
     <string name="local_update_import">Inzornament locâl</string>
     <string name="local_update_import_progress">Daûr a impuartâ l\'inzornament locâl\u2026</string>
