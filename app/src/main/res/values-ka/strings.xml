@@ -34,9 +34,9 @@
     <string name="snack_download_verification_failed">განახლების დამოწმება ვერ მოხერხდა.</string>
     <string name="snack_download_verified">ჩამოტვირთვა დასრულებულია.</string>
     <string name="snack_update_not_installable">განახლების ვერ დაყენდება მიმდინარე ანაწყობზე.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
-    <string name="list_major_upgrade_recovery_install">ძირეული <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> ვერსიის განახლებები ხელით უნდა დაყენდეს. გაეცანით თქვენი მოწყობილობის სახელმძღვანელოს გასაგრძელებლად.</string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_major_upgrade_recovery_install">ძირეული <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> ვერსიის განახლებები ხელით უნდა დაყენდეს. გაეცანით თქვენი მოწყობილობის სახელმძღვანელოს გასაგრძელებლად.</string>
     <string name="list_downgrade_blocked">ეს ანაწყობი ძველია დაყენებულთან შედარებით და ვერ მიესადაგება.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>, სულ <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g>, სულ <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
