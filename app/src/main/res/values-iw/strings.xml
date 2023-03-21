@@ -56,7 +56,7 @@
     <string name="menu_stream_updates_summary">התקנת עדכונים בזמן ההורדה. יש לבטל כדי לשמור את חבילות העדכון לייצוא.</string>
     <string name="menu_delete_update">מחיקה</string>
     <string name="menu_export_update">יצא עדכון</string>
-    <string name="menu_view_downloads">הצגת הורדות <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">הצגת הורדות <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">אזהרת רשת מדודה</string>
     <string name="menu_metered_network_warning_summary"> התרע לפני הורדה באמצעות נתוני סלולר</string>
     <string name="menu_ab_perf_mode">תיעדוף תהליכי עדכון</string>
@@ -79,13 +79,13 @@
     <string name="found_bug">מצאת תקלה? כדאי לדווח עליו לפי מדריך הדיווח שלנו:</string>
     <string name="updates_zero_state_title">אין עדכונים זמינים</string>
     <string name="updates_zero_state_description">גרסאות חדשות עבור מכשיר זה יופיעו כאן כאשר יהיו זמינות.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">גודל העדכון: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">עדכון אבטחה: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">שדרוג אנדרואיד משמעותי</string>
     <string name="list_full_install">התקנה מלאה: בטוח להתקין על כל התקנה קודמת</string>
-    <string name="list_major_upgrade_recovery_install">עדכוני גרסה משמעותיים של <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> מחייבים התקנה ידנית. נא לעיין במדריך המיועד למכשירך בשביל להמשיך.</string>
+    <string name="list_major_upgrade_recovery_install">עדכוני גרסה משמעותיים של <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> מחייבים התקנה ידנית. נא לעיין במדריך המיועד למכשירך בשביל להמשיך.</string>
     <string name="list_downgrade_blocked">גרסת בנייה זו ישנה יותר מהגרסה המותקנת ולא ניתן לעבור אליה.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> מתוך <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> מתוך <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

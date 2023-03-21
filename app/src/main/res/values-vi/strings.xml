@@ -57,7 +57,7 @@
     <string name="menu_stream_updates_summary">Cài đặt các bản cập nhật trong khi tải xuống. Vô hiệu hóa để lưu các gói cập nhật để xuất.</string>
     <string name="menu_delete_update">Xóa</string>
     <string name="menu_export_update">Xuất bản cập nhật</string>
-    <string name="menu_view_downloads">Xem trên <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> Tải xuống</string>
+    <string name="menu_view_downloads">Xem trên <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> Tải xuống</string>
     <string name="menu_metered_network_warning">Cảnh báo mạng được đo lường</string>
     <string name="menu_metered_network_warning_summary">Cảnh báo trước khi tải xuống qua dữ liệu di động</string>
     <string name="menu_ab_perf_mode">Ưu tiên quá trình cập nhật</string>
@@ -80,13 +80,13 @@
     <string name="found_bug">Phát hiện lỗi? Hãy báo cáo lỗi bằng hướng dẫn báo cáo lỗi của chúng tôi:</string>
     <string name="updates_zero_state_title">Không có bản cập nhật nào</string>
     <string name="updates_zero_state_description">Các bản cập nhật mới cho thiết bị này sẽ xuất hiện ở đây khi có sẵn.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Kích thước cập nhật: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Cập nhật bảo mật: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Bản nâng cấp Android chính</string>
     <string name="list_full_install">Cài đặt đầy đủ: An toàn khi cài đè lên bản dựng trước đó</string>
-    <string name="list_major_upgrade_recovery_install">Việc nâng cấp phiên bản chính <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> phải được cài đặt thủ công. Vui lòng tham khảo hướng dẫn sử dụng thiết bị của bạn để tiếp tục.</string>
+    <string name="list_major_upgrade_recovery_install">Việc nâng cấp phiên bản chính <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> phải được cài đặt thủ công. Vui lòng tham khảo hướng dẫn sử dụng thiết bị của bạn để tiếp tục.</string>
     <string name="list_downgrade_blocked">Phiên bản này cũ hơn hệ thống đã cài đặt và không thể được áp dụng.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> của <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> của <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

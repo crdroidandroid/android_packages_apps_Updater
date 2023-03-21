@@ -57,7 +57,7 @@
     <string name="menu_stream_updates_summary">Instalați actualizările în timpul descărcării. Dezactivați pentru a salva pachetele de actualizare pentru export.</string>
     <string name="menu_delete_update">Șterge</string>
     <string name="menu_export_update">Exportează actualizarea</string>
-    <string name="menu_view_downloads">Vezi pe <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> Descărcări</string>
+    <string name="menu_view_downloads">Vezi pe <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> Descărcări</string>
     <string name="menu_metered_network_warning">Avertizare rețea contorizată</string>
     <string name="menu_metered_network_warning_summary">Avertizează înainte de a descărca pe date mobile</string>
     <string name="menu_ab_perf_mode">Proces update prioritar</string>
@@ -80,13 +80,13 @@
     <string name="found_bug">Ați găsit un bug? Raportați-l cu ghidul nostru de raportare a erorilor:</string>
     <string name="updates_zero_state_title">Nu există actualizări disponibile</string>
     <string name="updates_zero_state_description">Noi build-uri pentru acest dispozitiv vor apărea aici atunci când vor fi disponibile.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Dimensiune actualizare: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Actualizare de securitate: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Îmbunătățire majoră Android</string>
     <string name="list_full_install">Instalare completă: Sigur de instalat peste orice versiune anterioară</string>
-    <string name="list_major_upgrade_recovery_install">Upgrade-urile majore <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> trebuie instalate manual. Consultați ghidul dispozitivului pentru a continua.</string>
+    <string name="list_major_upgrade_recovery_install">Upgrade-urile majore <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> trebuie instalate manual. Consultați ghidul dispozitivului pentru a continua.</string>
     <string name="list_downgrade_blocked">Această versiune este mai veche decât sistemul instalat și nu poate fi aplicată.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> din <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> din <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
