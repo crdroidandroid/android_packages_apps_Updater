@@ -40,8 +40,8 @@
     <string name="snack_download_verification_failed">پشکنینی نوێکاری سەرکەوتوو نەبوو.</string>
     <string name="snack_download_verified">داگرتن تەواو بوو.</string>
     <string name="snack_update_not_installable">ئەم نوێکارییە ناتوانرێت لەسەر ئەم وەشانەی ئێستا دابمەزرێنرێت.</string>
-    <string name="list_build_version">LineageOS %1$s</string>
-    <string name="list_build_version_date">LineageOS %1$s - %2$s</string>
+    <string name="list_build_version">crDroid %1$s</string>
+    <string name="list_build_version_date">crDroid %1$s - %2$s</string>
     <string name="list_download_progress_newer">%1$s لە %2$s</string>
     <string name="list_download_progress_eta_newer">%1$s لە %2$s (%3$s ماوە)</string>
     <string name="list_verifying_update">پشکنینی نوێکاری</string>

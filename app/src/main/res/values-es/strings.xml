@@ -56,7 +56,7 @@
     <string name="menu_stream_updates_summary">Instala actualizaciones durante la descarga. Desactiva esta opción para guardar los paquetes de actualización para su exportación.</string>
     <string name="menu_delete_update">Borrar</string>
     <string name="menu_export_update">Exportar actualización</string>
-    <string name="menu_view_downloads">Ver en <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> Descargas</string>
+    <string name="menu_view_downloads">Ver en <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> Descargas</string>
     <string name="menu_metered_network_warning">Aviso de consumo de datos</string>
     <string name="menu_metered_network_warning_summary">Avisar antes de descargar usando datos móviles</string>
     <string name="menu_ab_perf_mode">Priorizar el proceso de actualización</string>
@@ -79,8 +79,8 @@
     <string name="found_bug">¿Has encontrado un error? Notifícalo según nuestra guía para informar de errores:</string>
     <string name="updates_zero_state_title">No hay actualizaciones disponibles</string>
     <string name="updates_zero_state_description">Las nuevas compilaciones para este dispositivo aparecerán aquí cuando estén disponibles.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Tamaño de la actualización: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Actualización de seguridad: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Actualización importante de Android</string>

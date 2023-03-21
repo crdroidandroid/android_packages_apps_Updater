@@ -59,7 +59,7 @@
     <string name="menu_stream_updates_summary">Instal·la les actualitzacions durant la baixada. Desactiveu aquesta opció per desar els paquets d\'actualització per a la seva exportació.</string>
     <string name="menu_delete_update">Elimina</string>
     <string name="menu_export_update">Exporta l\'actualització</string>
-    <string name="menu_view_downloads">Mostra-ho a les baixades del <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g></string>
+    <string name="menu_view_downloads">Mostra-ho a les baixades del <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g></string>
     <string name="menu_metered_network_warning">Avís de xarxa mesurada</string>
     <string name="menu_metered_network_warning_summary">Avisa abans de baixar fent servir dades mòbils</string>
     <string name="menu_ab_perf_mode">Prioritza el procés d\'actualització</string>
@@ -82,13 +82,13 @@
     <string name="found_bug">Heu trobat cap error? Informeu-ne amb la nostra guia d\'informes d\'errors:</string>
     <string name="updates_zero_state_title">No hi ha actualitzacions disponibles</string>
     <string name="updates_zero_state_description">Les noves compilacions per a aquest dispositiu apareixeran aquí quan estiguin disponibles.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Mida de l\'actualització: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Actualització de seguretat: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Actualització important d\'Android</string>
     <string name="list_full_install">Instal·lació completa: instal·lació segura sobre qualsevol compilació anterior</string>
-    <string name="list_major_upgrade_recovery_install">Les actualitzacions importants de <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g> s\'han d\'instal·lar manualment. Consulteu la guia del dispositiu per continuar.</string>
+    <string name="list_major_upgrade_recovery_install">Les actualitzacions importants de <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g> s\'han d\'instal·lar manualment. Consulteu la guia del dispositiu per continuar.</string>
     <string name="list_downgrade_blocked">Aquesta compilació és anterior al sistema instal·lat i no es pot aplicar.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> de <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>

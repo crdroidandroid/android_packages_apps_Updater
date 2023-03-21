@@ -58,7 +58,7 @@
     <string name="menu_stream_updates_summary">Installer oppdateringar medan dei blir lasta ned. Slå av for å lagra oppdateringspakkar til eksport.</string>
     <string name="menu_delete_update">Slett</string>
     <string name="menu_export_update">Eksporter oppdatering</string>
-    <string name="menu_view_downloads">Sjå på <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g>-nedlastingar</string>
+    <string name="menu_view_downloads">Sjå på <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g>-nedlastingar</string>
     <string name="menu_metered_network_warning">Åtvaring om nettverk med datagrense</string>
     <string name="menu_metered_network_warning_summary">Åtvar før nedlasting med mobildata</string>
     <string name="menu_ab_perf_mode">Prioriter oppdateringsprosessen</string>
@@ -81,13 +81,13 @@
     <string name="found_bug">Fann du ein feil? Meld frå med feilmeldingsrettleiaren vår:</string>
     <string name="updates_zero_state_title">Ingen oppdateringar tilgjengelege</string>
     <string name="updates_zero_state_description">Nye versjonar for denne eininga kjem til syne her når dei er klare.</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
     <string name="list_update_size">Storleik på oppdatering: <xliff:g id="size" example="1.34 GB">%1$s</xliff:g></string>
     <string name="list_security_update">Tryggingsoppdatering: <xliff:g id="date" example="Jan 2026">%1$s</xliff:g></string>
     <string name="list_major_android_upgrade">Større Android-oppgradering</string>
     <string name="list_full_install">Full installasjon: Trygt å installera over alle tidlegare versjonar</string>
-    <string name="list_major_upgrade_recovery_install">Større <xliff:g id="brand_name" example="LineageOS">%1$s</xliff:g>-oppgraderingar må installerast manuelt. Sjå rettleiaren for eininga di for å halda fram.</string>
+    <string name="list_major_upgrade_recovery_install">Større <xliff:g id="brand_name" example="crDroid">%1$s</xliff:g>-oppgraderingar må installerast manuelt. Sjå rettleiaren for eininga di for å halda fram.</string>
     <string name="list_downgrade_blocked">Denne versjonen er eldre enn det installerte systemet og kan ikkje installerast.</string>
     <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> av <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> av <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
