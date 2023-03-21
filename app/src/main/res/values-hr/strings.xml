@@ -43,7 +43,7 @@
     <string name="menu_export_update">Izvezi ažuriranje</string>
     <string name="menu_show_changelog">Prikaži promjene</string>
     <string name="menu_update_recovery">Ažuriraj recovery</string>
-    <string name="toast_forced_update_recovery">Nemoguće je onemogućiti ažuriranja Lineage Recovery na ovom uređaju.</string>
+    <string name="toast_forced_update_recovery">Nemoguće je onemogućiti ažuriranja crDroid Recovery na ovom uređaju.</string>
     <string name="snack_updates_found">Pronađena su nova ažuriranja</string>
     <string name="snack_no_updates_found">Nema pronađenih novih ažuriranja</string>
     <string name="snack_updates_check_failed">Provjera ažuriranja nije uspjela. Provjerite internetsku vezu i pokušajte ponovo kasnije.</string>
@@ -51,11 +51,11 @@
     <string name="snack_download_verification_failed">Provjera ažuriranja nije uspjela.</string>
     <string name="snack_download_verified">Preuzimanje je završeno.</string>
     <string name="snack_update_not_installable">Ovo se ažuriranje ne može instalirati na trenutnu verziju.</string>
-    <string name="header_title_text">LineageOS\n%1$s</string>
+    <string name="header_title_text">crDroid\n%1$s</string>
     <string name="header_android_version">Android <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_last_updates_check">Zadnja provjera: <xliff:g id="date" example="1 January 1970">%1$s </xliff:g> (<xliff:g id="time" example="01:23">%2$s </xliff:g>)</string>
-    <string name="list_build_version">LineageOS <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
-    <string name="list_build_version_date">LineageOS <xliff:g id="version" example="14.1">%1$s </xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s </xliff:g></string>
+    <string name="list_build_version">crDroid <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
+    <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s </xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s </xliff:g></string>
     <string name="list_verifying_update">Provjera ažuriranja</string>
     <string name="list_no_updates">Nema pronađenih novih ažuriranja. Za ručnu provjeru novih ažuriranja upotrijebite gumb Osvježi.</string>
     <string name="action_download">Preuzmi</string>
