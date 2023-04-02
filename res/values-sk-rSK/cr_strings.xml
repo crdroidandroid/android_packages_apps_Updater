@@ -25,7 +25,7 @@
     <string name="info_dialog_message">Aktualizácie crDroid sú úplné inštalačné balíčky. To znamená, že vždy môžete nainštalovať iba najnovšiu aktualizáciu, aj keď ste niektoré preskočili!</string>
     <string name="info_dialog_ok">Ďakujeme za informácie!</string>
     <string name="local_update_import">Lokálna aktualizácia</string>
-    <string name="local_update_import_progress">Importuje sa miestna aktualizácia\u2026</string>
+    <string name="local_update_import_progress">Importuje sa lokálna aktualizácia\u2026</string>
     <string name="local_update_import_success">%1$s importovaná. Inštalovať?</string>
     <string name="local_update_import_failure">Nepodarilo sa importovať lokálnu aktualizáciu</string>
     <string name="local_update_import_install">Inštalovať</string>
