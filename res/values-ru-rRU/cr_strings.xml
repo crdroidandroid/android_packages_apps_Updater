@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021-2022 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="blocked_update_dialog_message_custom">Это обновление невозможно установить через приложение. Попробуйте установить обновление через рекавери.</string>
+    <string name="maintainer_name">Сопровождающий <xliff:g id="сопровождающийr" example="Имя сопровожд.">%1$s</xliff:g></string>
+    <string name="support_links">Ссылки поддержки:</string>
+    <string name="current_build_date">Дата сборки: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
+    <string name="current_build_type">Тип сборки: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="build_type_unknown">Неофиц. или отсутствует информации об OTA</string>
+    <string name="info_dialog_title">А вы знали?</string>
+    <string name="info_dialog_message">Обновления crDroid представляют собой полные установочные пакеты. Это означает, что вы всегда можете установить только последнее обновление, даже если вы пропустили некоторые из них!</string>
+    <string name="info_dialog_ok">Спасибо за информацию!</string>
+    <string name="local_update_import">Локальное обновление</string>
+    <string name="local_update_import_progress">Импорт локального обновления\u2026</string>
+    <string name="local_update_import_success">%1$s было импортирован. Вы хотите его установить?</string>
+    <string name="local_update_import_failure">Не удалось импортировать локальное обновление</string>
+    <string name="local_update_import_install">Установить</string>
+    <string name="local_update_name">Локальное обновление</string>
+</resources>
