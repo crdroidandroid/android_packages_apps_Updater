@@ -96,8 +96,7 @@
                     android:id="@+id/header_last_check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/header_build_date"
-                    android:layout_marginTop="8dp"
+                    android:layout_below="@id/maintainer_name"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="12sp"
                     tools:text="Last checked: 1970-01-01"/>
