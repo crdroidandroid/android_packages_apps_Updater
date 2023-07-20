@@ -26,7 +26,7 @@
     <string name="info_dialog_ok">¡Gracias por la información!</string>
     <string name="local_update_import">Actualización local</string>
     <string name="local_update_import_progress">Importando actualización local\u2026</string>
-    <string name="local_update_import_success">%1$s Ha sido importado. ¿Desea instalarlo?</string>
+    <string name="local_update_import_success">La %1$s ha sido importada. ¿Deseas instalarla?</string>
     <string name="local_update_import_failure">Error al importar la actualización local</string>
     <string name="local_update_import_install">Instalar</string>
     <string name="local_update_name">Actualización local</string>
