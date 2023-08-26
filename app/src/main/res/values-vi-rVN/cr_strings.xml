@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2021-2022 crDroid Android Project
+     Copyright (C) 2021-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,13 +21,4 @@
     <string name="current_build_date">Ngày phát hành bản dựng hiện tại: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Loại bản dựng hiện tại: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Thông tin OTA không chính thức hoặc bị thiếu</string>
-    <string name="info_dialog_title">Bạn có biết?</string>
-    <string name="info_dialog_message">Các bản cập nhật crDroid là các gói cài đặt đầy đủ. Có nghĩa rằng bạn luôn chỉ có thể cài đặt bản cập nhật mới nhất, kể cả khi bạn đã bỏ qua một số bản cập nhật ở giữa!</string>
-    <string name="info_dialog_ok">Cảm ơn bạn đã thông tin!</string>
-    <string name="local_update_import">Cập nhật cục bộ</string>
-    <string name="local_update_import_progress">Đang nhập bản cập nhật cục bộ\u2026</string>
-    <string name="local_update_import_success">%1$sđã được nhập. Bạn có muốn cài đặt nó không?</string>
-    <string name="local_update_import_failure">Không nhập được bản cập nhật cục bộ</string>
-    <string name="local_update_import_install">Cài đặt</string>
-    <string name="local_update_name">Cập nhật cục bộ</string>
 </resources>
