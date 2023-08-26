@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2021-2022 crDroid Android Project
+     Copyright (C) 2021-2023 crDroid Android Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,13 +21,4 @@
     <string name="current_build_date">Дата на производство: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Тип на производство: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Не официален или липсва информация за ъпдейт</string>
-    <string name="info_dialog_title">Знаете ли че?</string>
-    <string name="info_dialog_message">Актуализацийте на crDroid са с пълни инсталациаонни пакети. Това значи, че можете да инсталирате дори и крайната версия на дадена актуализация!</string>
-    <string name="info_dialog_ok">Благодарим за информацията!</string>
-    <string name="local_update_import">Локални актуализаций</string>
-    <string name="local_update_import_progress">Импортиране на локална актуализация</string>
-    <string name="local_update_import_success">%1$s беше импортирано.Искате ли да го инсталирате?</string>
-    <string name="local_update_import_failure">Неуспешно импортиране на локална актуализация</string>
-    <string name="local_update_import_install">Инсталиране</string>
-    <string name="local_update_name">Локални актуализаций</string>
 </resources>
