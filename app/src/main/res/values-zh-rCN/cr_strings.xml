@@ -20,5 +20,5 @@
     <string name="support_links">支持链接:</string>
     <string name="current_build_date">当前构建日期： <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">当前构建类型： <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
-    <string name="build_type_unknown">非官方信息或缺少OTA 信息</string>
+    <string name="build_type_unknown">非官方维护版本或缺少OTA 信息</string>
 </resources>
