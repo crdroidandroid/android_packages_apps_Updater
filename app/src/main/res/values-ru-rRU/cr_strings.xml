@@ -15,10 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">Это обновление невозможно установить через приложение. Попробуйте установить обновление через рекавери.</string>
+    <string name="blocked_update_dialog_message_custom">Это обновление невозможно установить через приложение. Попробуйте установить обновление в режиме Recovery.</string>
     <string name="maintainer_name">Сопровождающий <xliff:g id="сопровождающийr" example="Имя сопровожд.">%1$s</xliff:g></string>
-    <string name="support_links">Ссылки поддержки:</string>
+    <string name="support_links">Поддержка:</string>
     <string name="current_build_date">Дата сборки: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Тип сборки: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
-    <string name="build_type_unknown">Неофиц. или отсутствует информации об OTA</string>
+    <string name="build_type_unknown">Неофициальная или нет информации OTA</string>
 </resources>
