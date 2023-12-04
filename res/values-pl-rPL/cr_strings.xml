@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="blocked_update_dialog_message_custom">Ta aktualizacja nie może być zainstalowana za pomocą aplikacji Aktualizator. Spróbuj zainstalować aktualizację za pomocą recovery.</string>
     <string name="maintainer_name">Opiekun: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
-    <string name="support_links">Adresy wsparcia:</string>
+    <string name="support_links">Linki do uzyskania pomocy:</string>
     <string name="current_build_date">Data kompilacji: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Rodzaj kompilacji: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Nieoficjalna kompilacja lub brakujące informacje OTA</string>
