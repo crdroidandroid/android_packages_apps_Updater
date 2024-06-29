@@ -15,7 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="blocked_update_dialog_message_custom">Tätä päivitystä ei voi asentaa päivityssovelluksella. Yritä asentaa päivitys recovery-tilan kautta.</string>
+    <string name="blocked_update_dialog_message_custom">Tätä päivitystä ei voi asentaa päivitys-sovelluksella. Yritä asentaa päivitys recovery-tilan kautta.</string>
     <string name="maintainer_name">Ylläpitäjä: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Tukilinkit:</string>
     <string name="current_build_date">Nykyinen koontipäivä: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
