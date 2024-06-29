@@ -19,6 +19,6 @@
     <string name="maintainer_name">Karbantartó: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Támogatási linkek:</string>
     <string name="current_build_date">Jelenlegi build dátuma: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
-    <string name="current_build_type">Jelenlegi build típusa: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
+    <string name="current_build_type">Jelenlegi build fajtája: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
     <string name="build_type_unknown">Nem hivatalos vagy hiányzó OTA információ</string>
 </resources>
