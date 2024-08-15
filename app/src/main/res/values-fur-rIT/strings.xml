@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     SPDX-FileCopyrightText: 2017-2024 The LineageOS Project
-     SPDX-License-Identifier: Apache-2.0
+SPDX-FileCopyrightText: 2017-2023 The LineageOS Project
+SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Inzornaments</string>
@@ -28,12 +28,6 @@
     <string name="dialog_prepare_zip_message">Preparazion dal inzornament preliminâr</string>
     <string name="dialog_battery_low_title">Batarie basse</string>
     <string name="dialog_battery_low_message_pct">Il nivel de batarie al è masse bas, tu scugnis vê almancul il <xliff:g id="percent_discharging">%1$d</xliff:g>%% par continuâ, <xliff:g id="percent_charging">%2$d</xliff:g>%% se e je in cjame.</string>
-    <string name="dialog_scratch_mounted_message"><![CDATA[        Eseguìs chescj comants e torne prove l\'inzornament:\n
-        • adb root\n
-        • adb enable-verity\n
-        • adb reboot
-        ]]></string>
-    <string name="dialog_scratch_mounted_title">Impussibil instalâ l\'inzornament cun OverlayFS montât</string>
     <string name="reboot">Torne invie</string>
     <string name="menu_refresh">Torne cjame</string>
     <string name="menu_preferences">Preferencis</string>
@@ -62,7 +56,7 @@
     <string name="header_last_updates_check">Ultime verifiche: <xliff:g id="date" example="2 di Zenâr dal 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%2$s</xliff:g>)</string>
     <string name="list_build_version">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
     <string name="list_build_version_date">crDroid <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="Lui 11, 2017">%2$s</xliff:g></string>
-    <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> di <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> • <xliff:g id="percentage" example="56">%3$s</xliff:g></string>
+    <string name="list_download_progress_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> di <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g></string>
     <string name="list_download_progress_eta_newer"><xliff:g id="filesize_without_unit" example="12.2">%1$s</xliff:g> di <xliff:g id="filesize_without_unit" example="310 MB">%2$s</xliff:g> (<xliff:g id="eta" example="3 minutes left">%3$s</xliff:g>)</string>
     <string name="list_verifying_update">Verifiche inzornament</string>
     <string name="list_no_updates">Nissun gnûf inzornament cjatât. Par controlâ a man i gnûfs inzornaments, tocje il boton Inzorne.</string>
