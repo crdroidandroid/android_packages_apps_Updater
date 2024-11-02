@@ -87,12 +87,12 @@
     <string name="toast_already_exporting">Ya se está exportando una actualización</string>
     <string name="toast_export_started">Exportación iniciada</string>
     <plurals name="eta_seconds">
-        <item quantity="one">Falta 1 segundo</item>
-        <item quantity="other">Faltan <xliff:g id="count">%d</xliff:g> segundos</item>
+        <item quantity="one">Queda 1 segundo</item>
+        <item quantity="other">Quedan <xliff:g id="count">%d</xliff:g> segundos</item>
     </plurals>
     <plurals name="eta_minutes">
-        <item quantity="one">Falta 1 minuto</item>
-        <item quantity="other">Faltan <xliff:g id="count">%d</xliff:g> minutos</item>
+        <item quantity="one">Queda 1 minuto</item>
+        <item quantity="other">Quedan <xliff:g id="count">%d</xliff:g> minutos</item>
     </plurals>
     <plurals name="eta_hours">
         <item quantity="one">Queda 1 hora</item>
