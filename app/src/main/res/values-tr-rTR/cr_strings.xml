@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="blocked_update_dialog_message_custom">Bu güncelleme, güncelleyici uygulaması kullanılarak yüklenemez. Güncellemeyi recovery yoluyla yüklemeyi deneyin.</string>
-    <string name="maintainer_name">Maintainer: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
+    <string name="maintainer_name"><xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g>Maintainer: <xliff:g id="maintainer" example="Maintainer Name">%1$s</xliff:g></string>
     <string name="support_links">Destek bağlantıları:</string>
     <string name="current_build_date">Mevcut inşa tarihi: <xliff:g id="build_date" example="Date">%1$s</xliff:g></string>
     <string name="current_build_type">Mevcut inşa türü: <xliff:g id="build_type" example="Type">%1$s</xliff:g></string>
