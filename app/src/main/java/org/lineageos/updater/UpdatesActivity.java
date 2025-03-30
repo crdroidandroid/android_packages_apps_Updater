@@ -812,7 +812,11 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
                         boolean enableABPerfMode = abPerfMode.isChecked();
                         mUpdaterService.getUpdaterController().setPerformanceMode(enableABPerfMode);
                     }
-                    if (Utils.isRecoveryUpdateExecPresent()) {
+                    if (getResources().getBoolean(R.bool.config_hideRecoveryUpdate)) {
+                        boolean enableRecoveryUpdate = false;
+                        SystemProperties.set(Constants.UPDATE_RECOVERY_PROPERTY,
+                                String.valueOf(enableRecoveryUpdate));
+                    } else if (Utils.isRecoveryUpdateExecPresent()) {
                         boolean enableRecoveryUpdate = updateRecovery.isChecked();
                         SystemProperties.set(Constants.UPDATE_RECOVERY_PROPERTY,
                                 String.valueOf(enableRecoveryUpdate));
