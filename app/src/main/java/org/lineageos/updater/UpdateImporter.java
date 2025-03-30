@@ -89,7 +89,6 @@ public class UpdateImporter {
             File importedFile = null;
             try {
                 importedFile = importFile(uri);
-                verifyPackage(importedFile);
 
                 final Update update = buildLocalUpdate(importedFile);
                 addUpdate(update);
@@ -157,20 +156,6 @@ public class UpdateImporter {
         update.setPersistentStatus(UpdateStatus.Persistent.VERIFIED);
         update.setVersion(String.format("%s (%s)", name, buildDate));
         return update;
-    }
-
-    @SuppressWarnings("ResultOfMethodCallIgnored")
-    private void verifyPackage(File file) throws Exception {
-        try {
-            android.os.RecoverySystem.verifyPackage(file, null, null);
-        } catch (Exception e) {
-            if (file.exists()) {
-                file.delete();
-                throw new Exception("Verification failed, file has been deleted");
-            } else {
-                throw e;
-            }
-        }
     }
 
     private void addUpdate(Update update) {
