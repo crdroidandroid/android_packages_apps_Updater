@@ -30,7 +30,7 @@
     <string name="text_download_speed">%1$s, %2$s לשניה</string>
     <string name="pause_button">השהייה</string>
     <string name="resume_button">המשך</string>
-    <string name="suspend_button">מושהה</string>
+    <string name="suspend_button">השעייה</string>
     <string name="installing_update">מתקין חבילת עדכון</string>
     <string name="installing_update_error">ההתקנה נכשלה</string>
     <string name="installing_update_finished">העדכון הותקן</string>
