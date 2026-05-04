@@ -434,39 +434,79 @@ public class Utils {
         return mMaintainer;
     }
 
+    public static void setMaintainer(String maintainer) {
+        mMaintainer = maintainer;
+    }
+
     public static String getBuildType() {
         return mBuildType;
+    }
+
+    public static void setBuildType(String buildType) {
+        mBuildType = buildType;
     }
 
     public static String getForum() {
         return mForum;
     }
 
+    public static void setForum(String forum) {
+        mForum = forum;
+    }
+
     public static String getTelegram() {
         return mTelegram;
+    }
+
+    public static void setTelegram(String telegram) {
+        mTelegram = telegram;
     }
 
     public static String getGapps() {
         return mGapps;
     }
 
+    public static void setGapps(String gapps) {
+        mGapps = gapps;
+    }
+
     public static String getFirmware() {
         return mFirmware;
+    }
+
+    public static void setFirmware(String firmware) {
+        mFirmware = firmware;
     }
 
     public static String getModem() {
         return mModem;
     }
 
+    public static void setModem(String modem) {
+        mModem = modem;
+    }
+
     public static String getBootloader() {
         return mBootloader;
+    }
+
+    public static void setBootloader(String bootloader) {
+        mBootloader = bootloader;
     }
 
     public static String getRecovery() {
         return mRecovery;
     }
 
+    public static void setRecovery(String recovery) {
+        mRecovery = recovery;
+    }
+
     public static String getPaypal() {
         return mPaypal;
+    }
+
+    public static void setPaypal(String paypal) {
+        mPaypal = paypal;
     }
 }
