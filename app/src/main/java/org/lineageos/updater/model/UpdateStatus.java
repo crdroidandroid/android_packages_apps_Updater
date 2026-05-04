@@ -24,5 +24,6 @@ public enum UpdateStatus {
         public static final int UNKNOWN = 0;
         public static final int INCOMPLETE = 1;
         public static final int VERIFIED = 2;
+        public static final int INSTALLED = 3;
     }
 }

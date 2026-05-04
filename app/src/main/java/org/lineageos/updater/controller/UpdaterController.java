@@ -281,6 +281,10 @@ public class UpdaterController {
     }
 
     private boolean fixUpdateStatus(Update update) {
+        if (isWaitingForReboot(update.getDownloadId())) {
+            update.setStatus(UpdateStatus.INSTALLED);
+            return true;
+        }
         switch (update.getPersistentStatus()) {
             case UpdateStatus.Persistent.VERIFIED:
             case UpdateStatus.Persistent.INCOMPLETE:
@@ -294,8 +298,15 @@ public class UpdaterController {
                     update.setProgress(progress);
                 }
                 break;
+            case UpdateStatus.Persistent.INSTALLED:
+                update.setStatus(UpdateStatus.INSTALLED);
+                return true;
         }
         return true;
+    }
+
+    public UpdatesDbHelper getUpdatesDbHelper() {
+        return mUpdatesDbHelper;
     }
 
     public void setUpdatesAvailableOnline(List<String> downloadIds, boolean purgeList) {
@@ -466,6 +477,18 @@ public class UpdaterController {
         DownloadEntry entry = mDownloads.get(downloadId);
         if (entry != null) {
             Update update = entry.mUpdate;
+
+            if (isWaitingForReboot(downloadId)) {
+                new Thread(() -> {
+                    File file = update.getFile();
+                    if (file.exists() && !file.delete()) {
+                        Log.e(TAG, "Could not delete " + file.getAbsolutePath());
+                    }
+                }).start();
+                notifyUpdateChange(downloadId);
+                return;
+            }
+
             update.setStatus(UpdateStatus.DELETED);
             update.setProgress(0);
             update.setPersistentStatus(UpdateStatus.Persistent.UNKNOWN);
