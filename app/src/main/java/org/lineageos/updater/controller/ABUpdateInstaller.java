@@ -89,6 +89,8 @@ class ABUpdateInstaller {
                     installationDone(true);
                     update.setInstallProgress(0);
                     update.setStatus(UpdateStatus.INSTALLED);
+                    update.setPersistentStatus(UpdateStatus.Persistent.INSTALLED);
+                    mUpdaterController.getUpdatesDbHelper().changeUpdateStatus(update);
                     mUpdaterController.notifyUpdateChange(mDownloadId);
                 }
                 break;

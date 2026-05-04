@@ -265,6 +265,9 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
             case UpdateStatus.Persistent.VERIFIED:
                 activeLayout = update.getStatus() == UpdateStatus.INSTALLING;
                 break;
+            case UpdateStatus.Persistent.INSTALLED:
+                activeLayout = false;
+                break;
             case UpdateStatus.Persistent.INCOMPLETE:
                 activeLayout = true;
                 break;
