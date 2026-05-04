@@ -48,21 +48,38 @@
                 android:paddingStart="16dp"
                 app:layout_collapseMode="parallax">
 
-                <TextView
-                    android:id="@+id/header_title"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/header_text_container"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@*android:string/config_headlineFontFamily"
-                    android:paddingBottom="16dp"
-                    android:textColor="?android:attr/textColorPrimary"
-                    android:textSize="56sp"
-                    tools:text="LineageOS\n20"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/header_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@*android:string/config_headlineFontFamily"
+                        android:textColor="?android:attr/textColorPrimary"
+                        android:textSize="56sp"
+                        tools:text="LineageOS\n20"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="12dp"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/crdroid"
+                        android:contentDescription="@null" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/header_build_version"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/header_title"
+                    android:layout_below="@id/header_text_container"
                     android:textColor="?android:attr/textColorPrimary"
                     android:textSize="12sp"
                     tools:text="Android 13"/>
