@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: The LineageOS Project
+ * SPDX-FileCopyrightText: crDroid Android Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -12,77 +13,53 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonIgnoreUnknownKeys
 import org.lineageos.updater.data.Update
-import org.lineageos.updater.misc.Constants
 
-// Commented out fields below are available in production, but not needed in runtime.
-// If you wish to uncomment any of them, please update the README.md to indicate that.
+@Suppress("PROVIDED_RUNTIME_TOO_LOW")
+@Serializable
+@JsonIgnoreUnknownKeys
+data class NetworkUpdateResponse(
+    @SerialName("response") val response: List<NetworkUpdate> = emptyList(),
+)
 
 @Suppress("PROVIDED_RUNTIME_TOO_LOW")
 @Serializable
 @JsonIgnoreUnknownKeys
 data class NetworkUpdate(
-    // @SerialName("date") val date: String,
-    @SerialName("datetime") val datetime: Long,
-    @SerialName("files") val files: List<NetworkUpdateFile>,
-    @SerialName("type") val type: String,
-    @SerialName("version") val version: String,
-)
-
-@Suppress("PROVIDED_RUNTIME_TOO_LOW")
-@Serializable
-@JsonIgnoreUnknownKeys
-data class NetworkUpdateFile(
-    // @SerialName("date") val date: String? = null,
-    // @SerialName("datetime") val datetime: Long? = null,
     @SerialName("filename") val filename: String,
-    // @SerialName("filepath") val filepath: String,
-    @SerialName("os_patch_level") val osPatchLevel: String? = null,
-    @SerialName("os_sdk_level") val osSdkLevel: Int? = null,
-    @SerialName("ota_property_files") val otaPropertyFiles: String? = null,
-    // @SerialName("sha1") val sha1: String,
+    @SerialName("download") val download: String,
+    @SerialName("timestamp") val timestamp: Long,
     @SerialName("sha256") val sha256: String,
     @SerialName("size") val size: Long,
-    // @SerialName("type") val type: String? = null,
-    @SerialName("url") val url: String,
+    @SerialName("version") val version: String,
+    @SerialName("md5") val md5: String? = null,
+    @SerialName("buildtype") val buildType: String? = null,
+    // crDroid additional metadata
+    @SerialName("maintainer") val maintainer: String? = null,
+    @SerialName("oem") val oem: String? = null,
+    @SerialName("device") val device: String? = null,
+    @SerialName("forum") val forum: String? = null,
+    @SerialName("gapps") val gapps: String? = null,
+    @SerialName("firmware") val firmware: String? = null,
+    @SerialName("modem") val modem: String? = null,
+    @SerialName("bootloader") val bootloader: String? = null,
+    @SerialName("recovery") val recovery: String? = null,
+    @SerialName("paypal") val paypal: String? = null,
+    @SerialName("telegram") val telegram: String? = null,
+    @SerialName("os_patch_level") val osPatchLevel: String? = null,
+    @SerialName("os_sdk_level") val osSdkLevel: Int? = null,
+    // Not used
+    @SerialName("ota_property_files") val otaPropertyFiles: String? = null,
 )
 
-private data class PackageFileRange(
-    val offset: Long,
-    val size: Long,
+fun NetworkUpdate.toUpdate(): Update = Update(
+    downloadId = sha256,
+    name = filename,
+    timestamp = timestamp,
+    type = buildType,
+    fileSize = size,
+    downloadUrl = download,
+    version = version,
+    osPatchLevel = osPatchLevel,
+    osSdkLevel = osSdkLevel ?: 0,
+    isAvailableOnline = true,
 )
-
-private fun String.parsePackageFileRanges() =
-    split(",").associate { token ->
-        val parts = token.trim().split(":")
-        parts[0].trim() to PackageFileRange(
-            offset = parts[1].trim().toLong(),
-            size = parts[2].trim().toLong(),
-        )
-    }
-
-fun NetworkUpdate.toUpdate(): Update {
-    val file = files[0]
-    val packageFileRanges = file.otaPropertyFiles?.parsePackageFileRanges().orEmpty()
-    val payloadMetadataRange = packageFileRanges[Constants.AB_PAYLOAD_METADATA_PATH]
-    val payloadRange = packageFileRanges[Constants.AB_PAYLOAD_BIN_PATH]
-    val payloadPropertiesRange = packageFileRanges[Constants.AB_PAYLOAD_PROPERTIES_PATH]
-
-    return Update(
-        downloadId = file.sha256,
-        name = file.filename,
-        timestamp = datetime,
-        type = type,
-        fileSize = file.size,
-        downloadUrl = file.url,
-        version = version,
-        osPatchLevel = file.osPatchLevel,
-        osSdkLevel = file.osSdkLevel ?: 0,
-        payloadMetadataOffset = payloadMetadataRange?.offset,
-        payloadMetadataSize = payloadMetadataRange?.size,
-        payloadOffset = payloadRange?.offset,
-        payloadSize = payloadRange?.size,
-        payloadPropertiesOffset = payloadPropertiesRange?.offset,
-        payloadPropertiesSize = payloadPropertiesRange?.size,
-        isAvailableOnline = true,
-    )
-}
