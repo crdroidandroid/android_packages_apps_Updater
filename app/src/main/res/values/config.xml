@@ -5,10 +5,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Base background of the header card. -->
-    <color name="brand_primary">#167C80</color>
+    <color name="brand_primary">#1366A5</color>
 
     <!-- Tiled pattern overlay color for the header card. -->
-    <color name="brand_pattern">#48A0A3</color>
+    <color name="brand_pattern">#478FC2</color>
 
     <!-- Content color on the header (text, icons, mark). Always white on teal. -->
     <color name="on_brand_surface">#FFFFFF</color>
