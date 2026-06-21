@@ -52,7 +52,7 @@ import kotlin.math.roundToInt
 private const val MARK_X_HEIGHT_RATIO = 0.55f
 
 // Brand guide: "Do not warp, transform". Derive width from height to keep logo proportions.
-private const val MARK_WIDTH_MULTIPLIER = 2.5f
+private const val MARK_WIDTH_MULTIPLIER = 1.114f
 
 // Brand guide: "higher numbers' lower edges". Scale the gap from the mark, not a fixed dp.
 private const val VERSION_MARK_SPACING_RATIO = 0.10f
@@ -248,7 +248,7 @@ fun UpdaterCard(
                         .padding(SettingsDimension.paddingLarge),
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.lineage_mark_tight),
+                        painter = painterResource(R.drawable.crdroid_mark_tight),
                         contentDescription = stringResource(R.string.brand_name),
                         modifier = Modifier
                             .width(markWidth)
