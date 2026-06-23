@@ -43,6 +43,7 @@ import com.android.settingslib.spa.widget.preference.PreferenceModel
 import com.android.settingslib.spa.widget.scaffold.SettingsScaffold
 import com.android.settingslib.spa.widget.ui.Category
 import org.lineageos.updater.controller.UpdaterController
+import org.lineageos.updater.data.DeviceMetadata
 import org.lineageos.updater.data.Update
 import org.lineageos.updater.data.UpdateStatus
 import org.lineageos.updater.deviceinfo.DeviceInfoBanner
@@ -139,6 +140,7 @@ private fun UpdatesScaffoldContent(
                 paddingValues = paddingValues,
                 updatesCheckModel = uiState.updatesCheckModel,
                 updates = uiState.updates,
+                metadata = uiState.deviceMetadata,
                 updaterController = updaterController,
                 controllerStateVersion = controllerStateVersion,
                 showDialog = { actionDialogState.value = it },
@@ -152,6 +154,7 @@ private fun UpdatesScaffoldContent(
                 paddingValues = paddingValues,
                 updatesCheckModel = uiState.updatesCheckModel,
                 updates = uiState.updates,
+                metadata = uiState.deviceMetadata,
                 updaterController = updaterController,
                 controllerStateVersion = controllerStateVersion,
                 showDialog = { actionDialogState.value = it },
@@ -169,6 +172,7 @@ private fun WideUpdatesScaffold(
     paddingValues: PaddingValues,
     updatesCheckModel: UpdatesCheckModel,
     updates: List<Update>,
+    metadata: DeviceMetadata,
     updaterController: UpdaterController?,
     controllerStateVersion: Int,
     showDialog: (AlertDialogState) -> Unit,
@@ -189,6 +193,7 @@ private fun WideUpdatesScaffold(
             )
     ) {
         UpdatesInformationPane(
+            maintainer = metadata.maintainer,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
@@ -198,6 +203,7 @@ private fun WideUpdatesScaffold(
         UpdatesActionPane(
             model = updatesCheckModel,
             updates = updates,
+            metadata = metadata,
             updaterController = updaterController,
             controllerStateVersion = controllerStateVersion,
             showDialog = showDialog,
@@ -219,6 +225,7 @@ private fun UpdatesScaffold(
     paddingValues: PaddingValues,
     updatesCheckModel: UpdatesCheckModel,
     updates: List<Update>,
+    metadata: DeviceMetadata,
     updaterController: UpdaterController?,
     controllerStateVersion: Int,
     showDialog: (AlertDialogState) -> Unit,
@@ -233,10 +240,11 @@ private fun UpdatesScaffold(
             .padding(paddingValues)
             .verticalScroll(rememberScrollState())
     ) {
-        UpdatesInformationPane()
+        UpdatesInformationPane(maintainer = metadata.maintainer)
         UpdatesActionPane(
             model = updatesCheckModel,
             updates = updates,
+            metadata = metadata,
             updaterController = updaterController,
             controllerStateVersion = controllerStateVersion,
             showDialog = showDialog,
@@ -250,15 +258,17 @@ private fun UpdatesScaffold(
 
 @Composable
 private fun UpdatesInformationPane(
+    maintainer: String?,
     modifier: Modifier = Modifier,
 ) {
-    DeviceInfoBanner(modifier = modifier)
+    DeviceInfoBanner(modifier = modifier, maintainer = maintainer)
 }
 
 @Composable
 private fun UpdatesActionPane(
     model: UpdatesCheckModel,
     updates: List<Update>,
+    metadata: DeviceMetadata,
     updaterController: UpdaterController?,
     controllerStateVersion: Int,
     showDialog: (AlertDialogState) -> Unit,
@@ -325,6 +335,7 @@ private fun UpdatesActionPane(
                 onControllerStateChanged()
             },
         )
+        DeviceLinksRow(metadata = metadata)
         UpdatesFooter(
             onLocalUpdateClick = onLocalUpdateClick,
             onPreferencesClick = onPreferencesClick,
