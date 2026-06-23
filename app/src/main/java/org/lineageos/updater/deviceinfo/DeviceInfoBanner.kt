@@ -31,7 +31,10 @@ import org.lineageos.updater.util.StringUtil
 import java.util.Date
 
 @Composable
-fun DeviceInfoBanner(modifier: Modifier = Modifier) {
+fun DeviceInfoBanner(
+    modifier: Modifier = Modifier,
+    maintainer: String? = null,
+) {
     val context = LocalContext.current
     val configuration = LocalConfiguration.current
     val locale = remember(context, configuration.locales) { StringUtil.getCurrentLocale(context) }
@@ -52,6 +55,7 @@ fun DeviceInfoBanner(modifier: Modifier = Modifier) {
         buildDate = buildDate,
         securityPatch = securityPatch,
         modifier = modifier,
+        maintainer = maintainer,
     )
 }
 
@@ -62,6 +66,7 @@ fun DeviceInfoBanner(
     buildDate: String,
     securityPatch: String,
     modifier: Modifier = Modifier,
+    maintainer: String? = null,
 ) {
     val uiMode = LocalConfiguration.current.uiMode
     val isTv = (uiMode and Configuration.UI_MODE_TYPE_MASK) == Configuration.UI_MODE_TYPE_TELEVISION
@@ -77,6 +82,7 @@ fun DeviceInfoBanner(
             buildDate = buildDate,
             securityPatch = securityPatch,
             modifier = Modifier.fillMaxWidth(),
+            maintainer = maintainer,
             shape = if (isTv) {
                 CornerExtraLarge1
             } else {
@@ -104,15 +110,17 @@ fun DeviceInfoBanner(
     showBackground = true,
     uiMode = Configuration.UI_MODE_TYPE_TELEVISION or Configuration.UI_MODE_NIGHT_YES
 )
+
 @UiModePreviews
 @Composable
 private fun DeviceInfoBannerPreview() {
     SettingsTheme {
         DeviceInfoBanner(
-            buildVersion = "23.2",
+            buildVersion = "12.11",
             androidVersion = "16",
             buildDate = "Feb 20",
             securityPatch = "Feb 2026",
+            maintainer = "neobuddy89",
         )
     }
 }

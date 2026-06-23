@@ -1,5 +1,6 @@
 /*
  * SPDX-FileCopyrightText: The LineageOS Project
+ * SPDX-FileCopyrightText: crDroid Android Project
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -35,6 +36,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -198,6 +200,7 @@ fun UpdaterCard(
     securityPatch: String,
     modifier: Modifier = Modifier,
     shape: Shape = CornerExtraLarge1,
+    maintainer: String? = null,
 ) {
     val brandColor = colorResource(R.color.brand_primary)
     val onBrandColor = colorResource(R.color.on_brand_surface)
@@ -245,7 +248,8 @@ fun UpdaterCard(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(SettingsDimension.paddingLarge),
+                        .padding(SettingsDimension.paddingLarge)
+                        .semantics(mergeDescendants = true) {},
                 ) {
                     Image(
                         painter = painterResource(R.drawable.crdroid_mark_tight),
@@ -261,7 +265,7 @@ fun UpdaterCard(
                     Spacer(modifier = Modifier.width(markWidth * VERSION_MARK_SPACING_RATIO))
 
                     Text(
-                        text = buildVersion,
+                        text = stringResource(R.string.header_build_version, buildVersion),
                         style = versionStyle,
                         modifier = Modifier.alignByBaseline(),
                     )
@@ -269,27 +273,36 @@ fun UpdaterCard(
 
                 Spacer(modifier = Modifier.height(SettingsSpace.medium5))
 
-                Row(
+                Column(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(
                             horizontal = SettingsDimension.paddingLarge,
                             vertical = SettingsDimension.paddingLarge,
                         ),
-                    horizontalArrangement = Arrangement.spacedBy(SettingsDimension.paddingLarge),
+                    verticalArrangement = Arrangement.spacedBy(SettingsDimension.paddingLarge),
                 ) {
-                    InfoColumn(
-                        label = stringResource(R.string.header_build_version, buildVersion),
-                        value = stringResource(R.string.header_android_version, androidVersion),
-                    )
-                    InfoColumn(
-                        label = stringResource(R.string.build_date),
-                        value = buildDate,
-                    )
-                    InfoColumn(
-                        label = stringResource(R.string.security_update),
-                        value = securityPatch,
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement =
+                            Arrangement.spacedBy(SettingsDimension.paddingLarge),
+                    ) {
+                        InfoColumn(
+                            label = stringResource(R.string.header_android_version, androidVersion),
+                            value = maintainer ?: stringResource(R.string.updater_build_unofficial),
+                            modifier = Modifier.weight(1f),
+                        )
+                        InfoColumn(
+                            label = stringResource(R.string.build_date),
+                            value = buildDate,
+                            modifier = Modifier.weight(1f),
+                        )
+                        InfoColumn(
+                            label = stringResource(R.string.security_update),
+                            value = securityPatch,
+                            modifier = Modifier.weight(1f),
+                        )
+                    }
                 }
             }
         }
@@ -327,8 +340,10 @@ private fun Modifier.updaterHeaderPattern(
 private fun InfoColumn(
     label: String,
     value: String,
+    modifier: Modifier = Modifier,
 ) {
     Column(
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(SettingsSpace.extraSmall2),
     ) {
         Text(
@@ -349,11 +364,12 @@ private fun InfoColumn(
 private fun UpdaterCardPreview() {
     SettingsTheme {
         UpdaterCard(
-            buildVersion = "23.2",
+            buildVersion = "12.11",
             androidVersion = "16",
             buildDate = "Feb 20",
             securityPatch = "Feb 2026",
             modifier = Modifier.padding(SettingsDimension.itemPadding),
+            maintainer = "neobuddy89",
         )
     }
 }
