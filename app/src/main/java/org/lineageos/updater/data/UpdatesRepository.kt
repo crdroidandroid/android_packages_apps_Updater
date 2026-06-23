@@ -8,6 +8,9 @@ package org.lineageos.updater.data
 import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerializationException
 import org.lineageos.updater.data.source.local.UpdatesLocalDataSource
@@ -27,6 +30,9 @@ class UpdatesRepository(
     private val networkDataSource: UpdatesNetworkDataSource,
     private val localDataSource: UpdatesLocalDataSource,
 ) {
+    private val _deviceMetadata = MutableStateFlow(DeviceMetadata())
+    val deviceMetadata: StateFlow<DeviceMetadata> = _deviceMetadata.asStateFlow()
+
     fun observeLocalUpdates(): Flow<List<Update>> = localDataSource.observeUpdates()
 
     /**
@@ -41,9 +47,28 @@ class UpdatesRepository(
     suspend fun fetchUpdates(): Long? {
         if (!networkMonitor.currentNetworkState.isOnline) return null
 
-        val networkUpdates = withContext(Dispatchers.IO) {
-            networkDataSource.fetchUpdates().map { it.toUpdate() }.filter { filterUpdates(it) }
+        val networkUpdatesRaw = withContext(Dispatchers.IO) {
+            networkDataSource.fetchUpdates()
         }
+
+        _deviceMetadata.value = DeviceMetadata(
+            maintainer = networkUpdatesRaw.firstNotNullOfOrNull {
+                it.maintainer?.takeIf(String::isNotBlank)
+            },
+            forum = networkUpdatesRaw.firstNotNullOfOrNull {
+                it.forum?.takeIf(String::isNotBlank)
+            },
+            telegram = networkUpdatesRaw.firstNotNullOfOrNull {
+                it.telegram?.takeIf(String::isNotBlank)
+            } ?: DeviceMetadata.DEFAULT_TELEGRAM,
+            paypal = networkUpdatesRaw.firstNotNullOfOrNull {
+                it.paypal?.takeIf(String::isNotBlank)
+            } ?: DeviceMetadata.DEFAULT_PAYPAL,
+        )
+
+        val networkUpdates = networkUpdatesRaw
+            .map { it.toUpdate() }
+            .filter { filterUpdates(it) }
 
         if (networkUpdates.isEmpty()) return System.currentTimeMillis()
 
