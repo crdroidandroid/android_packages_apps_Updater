@@ -20,6 +20,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.lineageos.updater.data.Update
+import org.lineageos.updater.data.DeviceMetadata
 import org.lineageos.updater.updatescheck.UpdatesCheckModel
 import org.lineageos.updater.updatescheck.UpdatesCheckState
 
@@ -30,6 +31,7 @@ class UpdatesViewModel(
 ) : AndroidViewModel(application) {
     data class UiState(
         val updates: List<Update> = emptyList(),
+        val deviceMetadata: DeviceMetadata = DeviceMetadata(),
         val isCheckingForUpdates: Boolean = false,
         val isOnline: Boolean = true,
         val lastCheckedTimestamp: Long = 0L,
@@ -66,6 +68,12 @@ class UpdatesViewModel(
         viewModelScope.launch {
             repository.observeLocalUpdates().collect { updates ->
                 _uiState.update { it.copy(updates = updates) }
+            }
+        }
+
+        viewModelScope.launch {
+            repository.deviceMetadata.collect { value ->
+                _uiState.update { it.copy(deviceMetadata = value) }
             }
         }
 
