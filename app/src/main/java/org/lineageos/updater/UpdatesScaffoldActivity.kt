@@ -194,6 +194,7 @@ private fun WideUpdatesScaffold(
     ) {
         UpdatesInformationPane(
             maintainer = metadata.maintainer,
+            device = metadata.device,
             modifier = Modifier
                 .weight(1f)
                 .fillMaxHeight()
@@ -240,7 +241,10 @@ private fun UpdatesScaffold(
             .padding(paddingValues)
             .verticalScroll(rememberScrollState())
     ) {
-        UpdatesInformationPane(maintainer = metadata.maintainer)
+        UpdatesInformationPane(
+            maintainer = metadata.maintainer,
+            device = metadata.device,
+        )
         UpdatesActionPane(
             model = updatesCheckModel,
             updates = updates,
@@ -259,9 +263,10 @@ private fun UpdatesScaffold(
 @Composable
 private fun UpdatesInformationPane(
     maintainer: String?,
+    device: String?,
     modifier: Modifier = Modifier,
 ) {
-    DeviceInfoBanner(modifier = modifier, maintainer = maintainer)
+    DeviceInfoBanner(modifier = modifier, maintainer = maintainer, device = device)
 }
 
 @Composable
