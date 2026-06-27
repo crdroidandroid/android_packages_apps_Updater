@@ -17,6 +17,7 @@ object DeviceInfoUtils : SettingsLibDeviceInfoUtils() {
     private const val PROP_BUILD_VERSION = "ro.crdroid.build.version"
     private const val PROP_DEVICE = "ro.crdroid.device"
     private const val PROP_NEXT_DEVICE = "ro.updater.next_device"
+    private const val PROP_PRODUCT_NAME = "ro.product.name"
     private const val PROP_UPDATER_ALLOW_DOWNGRADING = "crdroid.updater.allow_downgrading"
     private const val PROP_UPDATE_RECOVERY = "persist.vendor.recovery_update"
 
@@ -35,6 +36,9 @@ object DeviceInfoUtils : SettingsLibDeviceInfoUtils() {
 
     @JvmStatic
     val device: String = SystemProperties.get(PROP_NEXT_DEVICE, SystemProperties.get(PROP_DEVICE))
+
+    @JvmStatic
+    val productName: String = SystemProperties.get(PROP_PRODUCT_NAME, "")
 
     @JvmStatic
     val isABDevice: Boolean = SystemProperties.getBoolean(PROP_AB_DEVICE, false)
