@@ -55,6 +55,9 @@ class UpdatesRepository(
             maintainer = networkUpdatesRaw.firstNotNullOfOrNull {
                 it.maintainer?.takeIf(String::isNotBlank)
             },
+            device = networkUpdatesRaw.firstNotNullOfOrNull {
+                it.device?.takeIf(String::isNotBlank)
+            },
             forum = networkUpdatesRaw.firstNotNullOfOrNull {
                 it.forum?.takeIf(String::isNotBlank)
             },
