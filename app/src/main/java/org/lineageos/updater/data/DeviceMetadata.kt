@@ -7,6 +7,7 @@ package org.lineageos.updater.data
 
 data class DeviceMetadata(
     val maintainer: String? = null,
+    val device: String? = null,
     val forum: String? = null,
     val telegram: String = DEFAULT_TELEGRAM,
     val paypal: String = DEFAULT_PAYPAL,

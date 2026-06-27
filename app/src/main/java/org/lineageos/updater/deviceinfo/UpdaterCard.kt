@@ -201,6 +201,7 @@ fun UpdaterCard(
     modifier: Modifier = Modifier,
     shape: Shape = CornerExtraLarge1,
     maintainer: String? = null,
+    device: String? = null,
 ) {
     val brandColor = colorResource(R.color.brand_primary)
     val onBrandColor = colorResource(R.color.on_brand_surface)
@@ -264,11 +265,22 @@ fun UpdaterCard(
 
                     Spacer(modifier = Modifier.width(markWidth * VERSION_MARK_SPACING_RATIO))
 
-                    Text(
-                        text = stringResource(R.string.header_build_version, buildVersion),
-                        style = versionStyle,
-                        modifier = Modifier.alignByBaseline(),
-                    )
+                    Column(modifier = Modifier.alignByBaseline()) {
+                        Text(
+                            text = stringResource(R.string.header_build_version, buildVersion),
+                            style = versionStyle,
+                        )
+                        val bylineText = if (!maintainer.isNullOrBlank()) {
+                            stringResource(R.string.updater_maintainer_by, maintainer)
+                        } else {
+                            stringResource(R.string.updater_build_unofficial)
+                        }
+                        Text(
+                            text = bylineText,
+                            style = MaterialTheme.typography.titleMedium,
+                            color = onBrandColor.copy(alpha = 0.9f),
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(SettingsSpace.medium5))
@@ -289,7 +301,7 @@ fun UpdaterCard(
                     ) {
                         InfoColumn(
                             label = stringResource(R.string.header_android_version, androidVersion),
-                            value = maintainer ?: stringResource(R.string.updater_build_unofficial),
+                            value = device.orEmpty(),
                             modifier = Modifier.weight(1f),
                         )
                         InfoColumn(
@@ -370,6 +382,7 @@ private fun UpdaterCardPreview() {
             securityPatch = "Feb 2026",
             modifier = Modifier.padding(SettingsDimension.itemPadding),
             maintainer = "neobuddy89",
+            device = "OnePlus 12",
         )
     }
 }
