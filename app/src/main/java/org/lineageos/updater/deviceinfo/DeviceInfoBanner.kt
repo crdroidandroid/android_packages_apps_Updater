@@ -34,12 +34,14 @@ import java.util.Date
 fun DeviceInfoBanner(
     modifier: Modifier = Modifier,
     maintainer: String? = null,
+    device: String? = null,
 ) {
     val context = LocalContext.current
     val configuration = LocalConfiguration.current
     val locale = remember(context, configuration.locales) { StringUtil.getCurrentLocale(context) }
     val buildVersion = remember { DeviceInfoUtils.buildVersion }
     val androidVersion = remember { DeviceInfoUtils.androidVersion }
+    val deviceName = device?.takeIf { it.isNotBlank() } ?: DeviceInfoUtils.productName
     val buildDate = remember(locale) {
         DateFormat.getInstanceForSkeleton("MMMd", locale)
             .apply { timeZone = TimeZone.getTimeZone("UTC") }
@@ -56,6 +58,7 @@ fun DeviceInfoBanner(
         securityPatch = securityPatch,
         modifier = modifier,
         maintainer = maintainer,
+        device = deviceName,
     )
 }
 
@@ -67,6 +70,7 @@ fun DeviceInfoBanner(
     securityPatch: String,
     modifier: Modifier = Modifier,
     maintainer: String? = null,
+    device: String? = null,
 ) {
     val uiMode = LocalConfiguration.current.uiMode
     val isTv = (uiMode and Configuration.UI_MODE_TYPE_MASK) == Configuration.UI_MODE_TYPE_TELEVISION
@@ -83,6 +87,7 @@ fun DeviceInfoBanner(
             securityPatch = securityPatch,
             modifier = Modifier.fillMaxWidth(),
             maintainer = maintainer,
+            device = device,
             shape = if (isTv) {
                 CornerExtraLarge1
             } else {
@@ -121,6 +126,7 @@ private fun DeviceInfoBannerPreview() {
             buildDate = "Feb 20",
             securityPatch = "Feb 2026",
             maintainer = "neobuddy89",
+            device = "OnePlus 12",
         )
     }
 }
