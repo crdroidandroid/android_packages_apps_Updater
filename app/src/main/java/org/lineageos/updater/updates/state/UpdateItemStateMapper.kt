@@ -13,6 +13,7 @@ import org.lineageos.updater.controller.UpdaterController
 import org.lineageos.updater.data.Update
 import org.lineageos.updater.data.UpdateStatus
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
+import org.lineageos.updater.download.ParallelDownloadClient
 import org.lineageos.updater.updates.action.UpdateAction
 import org.lineageos.updater.updates.action.UpdateActionType
 import org.lineageos.updater.updates.action.UpdateActions
@@ -199,7 +200,12 @@ class UpdateItemStateMapper(
     }
 
     private fun downloadedSize(update: Update): String {
-        val downloaded = Formatter.formatShortFileSize(context, update.file?.length() ?: 0L)
+        // Parallel downloads keep their data in part files until the final merge.
+        val downloadedBytes = update.file
+            ?.let { ParallelDownloadClient.getDownloadedBytes(it) }
+            ?.let { if (update.fileSize > 0) it.coerceAtMost(update.fileSize) else it }
+            ?: 0L
+        val downloaded = Formatter.formatShortFileSize(context, downloadedBytes)
         val total = Formatter.formatShortFileSize(context, update.fileSize)
 
         return context.getString(R.string.list_download_progress_newer, downloaded, total)

@@ -18,6 +18,7 @@ import org.lineageos.updater.data.UserPreferencesRepository;
 import org.lineageos.updater.data.source.local.UpdatesLocalDataSource;
 import org.lineageos.updater.data.source.local.UpdatesDatabase;
 import org.lineageos.updater.download.DownloadClient;
+import org.lineageos.updater.download.ParallelDownloadClient;
 import org.lineageos.updater.misc.Utils;
 
 import java.io.File;
@@ -372,8 +373,10 @@ public class UpdaterController {
                 builder.setProgress(0);
             } else if (updateInfo.getFileSize() > 0) {
                 builder.setStatus(UpdateStatus.PAUSED);
-                int progress = Math.round(
-                        updateInfo.getFile().length() * 100f / updateInfo.getFileSize());
+                // Parallel downloads keep their data in part files until the final merge.
+                int progress = Math.min(100, Math.round(
+                        ParallelDownloadClient.getDownloadedBytes(updateInfo.getFile()) * 100f
+                                / updateInfo.getFileSize()));
                 builder.setProgress(progress);
             }
 
@@ -504,6 +507,9 @@ public class UpdaterController {
             File file = update.getFile();
             if (file != null && file.exists() && !file.delete()) {
                 Log.e(TAG, "Could not delete " + file.getAbsolutePath());
+            }
+            if (file != null) {
+                ParallelDownloadClient.deletePartFiles(file);
             }
             mUpdatesLocalDataSource.removeUpdate(update.getDownloadId());
         }).start();
