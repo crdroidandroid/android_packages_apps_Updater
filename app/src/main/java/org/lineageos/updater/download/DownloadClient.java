@@ -49,6 +49,7 @@ public interface DownloadClient {
         private DownloadClient.DownloadCallback mCallback;
         private DownloadClient.ProgressListener mProgressListener;
         private boolean mUseDuplicateLinks;
+        private int mConnections = ParallelDownloadClient.DEFAULT_CONNECTIONS;
 
         public DownloadClient build() throws IOException {
             if (mUrl == null) {
@@ -58,8 +59,10 @@ public interface DownloadClient {
             } else if (mCallback == null) {
                 throw new IllegalStateException("No download callback defined");
             }
-            return new HttpURLConnectionClient(mUrl, mDestination, mProgressListener, mCallback,
-                    mUseDuplicateLinks);
+            // Splits the file into byte ranges fetched in parallel, and falls back to
+            // HttpURLConnectionClient when the server or file doesn't allow it.
+            return new ParallelDownloadClient(mUrl, mDestination, mProgressListener, mCallback,
+                    mUseDuplicateLinks, mConnections);
         }
 
         public Builder setUrl(String url) {
@@ -84,6 +87,15 @@ public interface DownloadClient {
 
         public Builder setUseDuplicateLinks(boolean useDuplicateLinks) {
             mUseDuplicateLinks = useDuplicateLinks;
+            return this;
+        }
+
+        /**
+         * Number of simultaneous connections. 1 disables parallel downloading.
+         * Keep it stable for a given download: part files are tied to this value.
+         */
+        public Builder setConnections(int connections) {
+            mConnections = connections;
             return this;
         }
     }
