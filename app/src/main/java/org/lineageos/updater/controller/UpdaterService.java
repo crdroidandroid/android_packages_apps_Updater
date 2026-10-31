@@ -474,8 +474,15 @@ public class UpdaterService extends Service {
 
         String speed = Formatter.formatFileSize(this, update.getSpeed());
         CharSequence eta = StringUtil.formatETA(this, update.getEta() * 1000);
-        mNotificationStyle.bigText(
-                getString(R.string.text_download_speed, eta, speed));
+        String speedText = getString(R.string.text_download_speed, eta, speed);
+        int connections = mUpdaterController.getActiveConnections(update.getDownloadId());
+        if (connections > 0) {
+            speedText = getString(R.string.updater_download_speed_with_connections, speedText,
+                    getResources().getQuantityString(
+                            R.plurals.updater_download_connections_count,
+                            connections, connections));
+        }
+        mNotificationStyle.bigText(speedText);
 
         mNotificationManager.notify(NOTIFICATION_ID, mNotificationBuilder.build());
     }

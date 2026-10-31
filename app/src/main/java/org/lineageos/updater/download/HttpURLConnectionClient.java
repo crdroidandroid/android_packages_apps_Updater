@@ -293,6 +293,11 @@ public class HttpURLConnectionClient implements DownloadClient {
                     return;
                 }
 
+                if (mProgressListener != null) {
+                    // The server accepted the request and data is about to flow.
+                    mProgressListener.updateConnections(1);
+                }
+
                 try (
                         InputStream inputStream = mClient.getInputStream();
                         OutputStream outputStream = new FileOutputStream(mDestination, mResume)
@@ -326,6 +331,9 @@ public class HttpURLConnectionClient implements DownloadClient {
                 Log.e(TAG, "Error downloading file", e);
                 mCallback.onFailure(isInterrupted());
             } finally {
+                if (mProgressListener != null) {
+                    mProgressListener.updateConnections(0);
+                }
                 mClient.disconnect();
             }
         }

@@ -86,6 +86,7 @@ public class UpdaterController {
     private static class DownloadEntry {
         Update mUpdate;
         DownloadClient mDownloadClient;
+        volatile int mActiveConnections;
         private DownloadEntry(Update update) {
             mUpdate = update;
         }
@@ -144,6 +145,7 @@ public class UpdaterController {
             return;
         }
         entry.mDownloadClient = null;
+        entry.mActiveConnections = 0;
         mActiveDownloads--;
     }
 
@@ -219,6 +221,14 @@ public class UpdaterController {
         return new DownloadClient.ProgressListener() {
             private long mLastUpdate = 0;
             private int mProgress = 0;
+
+            @Override
+            public void updateConnections(int activeConnections) {
+                DownloadEntry entry = mDownloads.get(downloadId);
+                if (entry != null) {
+                    entry.mActiveConnections = activeConnections;
+                }
+            }
 
             @Override
             public void update(long bytesRead, long contentLength, long speed, long eta) {
@@ -600,6 +610,12 @@ public class UpdaterController {
                 entry.mUpdate = update;
             }
         }
+    }
+
+    /** Connections currently receiving data for a parallel download, or 0. */
+    public int getActiveConnections(String downloadId) {
+        DownloadEntry entry = mDownloads.get(downloadId);
+        return entry != null && entry.mDownloadClient != null ? entry.mActiveConnections : 0;
     }
 
     public boolean isDownloading(String downloadId) {
