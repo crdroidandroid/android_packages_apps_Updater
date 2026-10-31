@@ -5,19 +5,42 @@
 
 package org.lineageos.updater.preferences
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Speed
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.IntState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.android.settingslib.spa.widget.preference.ListPreference
 import com.android.settingslib.spa.widget.preference.ListPreferenceModel
+import com.android.settingslib.spa.widget.dialog.AlertDialogButton
+import com.android.settingslib.spa.widget.dialog.SettingsAlertDialogWithIcon
 import com.android.settingslib.spa.widget.preference.ListPreferenceOption
+import com.android.settingslib.spa.widget.preference.Preference
+import com.android.settingslib.spa.widget.preference.PreferenceModel
 import com.android.settingslib.spa.widget.preference.SwitchPreference
 import com.android.settingslib.spa.widget.preference.SwitchPreferenceModel
 import com.android.settingslib.spa.widget.scaffold.RegularScaffold
@@ -28,8 +51,12 @@ import org.lineageos.updater.UpdaterApplication
 import org.lineageos.updater.data.CheckInterval
 import org.lineageos.updater.data.UserPreferencesRepository
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
+import org.lineageos.updater.download.ParallelDownloadClient
 import org.lineageos.updater.util.BatteryMonitor
 import java.io.File
+
+private val CONNECTION_OPTIONS = listOf(1, 2, 4, 6, 8, 12, 16)
+    .filter { it <= ParallelDownloadClient.MAX_CONNECTIONS }
 
 @Composable
 fun PreferencesScreen() {
@@ -63,6 +90,10 @@ private fun PreferencesContent(
         true
     )
     val periodicCheckEnabled by repository.periodicCheckEnabledFlow.collectAsStateWithLifecycle(true)
+    val downloadConnections by repository.downloadConnectionsFlow.collectAsStateWithLifecycle(
+        ParallelDownloadClient.DEFAULT_CONNECTIONS
+    )
+    var showConnectionsDialog by rememberSaveable { mutableStateOf(false) }
     var recoveryUpdateEnabled by remember { mutableStateOf(repository.getRecoveryUpdateEnabled()) }
 
     val autoUpdatesCheckSummary = stringResource(R.string.menu_auto_updates_check_summary)
@@ -72,6 +103,14 @@ private fun PreferencesContent(
     val abPerfModeSummary = stringResource(R.string.menu_ab_perf_mode_summary)
     val abPerfModeChargingSummary = stringResource(R.string.menu_ab_perf_mode_summary_charging)
     val updateRecoverySummary = stringResource(R.string.menu_update_recovery_summary)
+    val downloadConnectionsSummary = stringResource(
+        R.string.updater_menu_download_connections_summary,
+        pluralStringResource(
+            R.plurals.updater_download_connections_count,
+            downloadConnections,
+            downloadConnections,
+        ),
+    )
     val selectedCheckInterval = remember(checkInterval) {
         object : IntState {
             override val intValue = checkInterval.ordinal
@@ -143,6 +182,12 @@ private fun PreferencesContent(
             }
         })
 
+        Preference(object : PreferenceModel {
+            override val title = stringResource(R.string.updater_menu_download_connections)
+            override val summary = { downloadConnectionsSummary }
+            override val onClick: () -> Unit = { showConnectionsDialog = true }
+        })
+
         if (isABDevice) {
             SwitchPreference(object : SwitchPreferenceModel {
                 override val title = stringResource(R.string.menu_ab_perf_mode)
@@ -173,6 +218,76 @@ private fun PreferencesContent(
             })
         }
     }
+
+    if (showConnectionsDialog) {
+        DownloadConnectionsDialog(
+            current = downloadConnections,
+            onConfirm = { value ->
+                coroutineScope.launch { repository.setDownloadConnections(value) }
+            },
+            onDismiss = { showConnectionsDialog = false },
+        )
+    }
+}
+
+@Composable
+private fun DownloadConnectionsDialog(
+    current: Int,
+    onConfirm: (Int) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    var selected by rememberSaveable { mutableIntStateOf(current) }
+
+    SettingsAlertDialogWithIcon(
+        onDismissRequest = onDismiss,
+        icon = Icons.Outlined.Speed,
+        confirmButton = AlertDialogButton(text = stringResource(android.R.string.ok)) {
+            onDismiss()
+            onConfirm(selected)
+        },
+        dismissButton = AlertDialogButton(text = stringResource(android.R.string.cancel)) {
+            onDismiss()
+        },
+        title = stringResource(R.string.updater_menu_download_connections),
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                Text(
+                    text = stringResource(R.string.updater_download_connections_dialog_message),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Column(
+                    modifier = Modifier
+                        .padding(top = 8.dp)
+                        .selectableGroup(),
+                ) {
+                    CONNECTION_OPTIONS.forEach { option ->
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .selectable(
+                                    selected = option == selected,
+                                    role = Role.RadioButton,
+                                    onClick = { selected = option },
+                                )
+                                .padding(vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                        ) {
+                            RadioButton(selected = option == selected, onClick = null)
+                            Text(
+                                text = pluralStringResource(
+                                    R.plurals.updater_download_connections_count,
+                                    option,
+                                    option,
+                                ),
+                                modifier = Modifier.padding(start = 16.dp),
+                                style = MaterialTheme.typography.bodyLarge,
+                            )
+                        }
+                    }
+                }
+            }
+        },
+    )
 }
 
 private fun installRecoveryScriptExists() = File("/vendor/bin/install-recovery.sh").exists()

@@ -12,6 +12,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
@@ -20,6 +21,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
+import org.lineageos.updater.download.ParallelDownloadClient
 import org.lineageos.updater.updatescheck.UpdatesCheckWorker
 import java.io.IOException
 
@@ -36,6 +38,7 @@ private object UserPreferencesKeys {
     val AB_PERF_MODE = booleanPreferencesKey("ab_perf_mode")
     val AUTO_DELETE = booleanPreferencesKey("auto_delete_updates")
     val CHECK_INTERVAL = stringPreferencesKey("check_interval")
+    val DOWNLOAD_CONNECTIONS = intPreferencesKey("download_connections")
     val METERED_NETWORK_WARNING = booleanPreferencesKey("metered_network_warning")
     val PERIODIC_CHECK_ENABLED = booleanPreferencesKey("periodic_check_enabled")
     val STREAM_UPDATES = booleanPreferencesKey("stream_updates")
@@ -82,6 +85,23 @@ class UserPreferencesRepository(context: Context) {
 
     suspend fun setMeteredNetworkWarning(value: Boolean) {
         userPreferences.edit { it[UserPreferencesKeys.METERED_NETWORK_WARNING] = value }
+    }
+
+    val downloadConnectionsFlow: Flow<Int> = userPreferencesFlow.map { preferences ->
+        (preferences[UserPreferencesKeys.DOWNLOAD_CONNECTIONS]
+            ?: ParallelDownloadClient.DEFAULT_CONNECTIONS)
+            .coerceIn(1, ParallelDownloadClient.MAX_CONNECTIONS)
+    }
+
+    suspend fun getDownloadConnections(): Int = downloadConnectionsFlow.first()
+
+    fun getDownloadConnectionsBlocking(): Int = runBlocking { getDownloadConnections() }
+
+    suspend fun setDownloadConnections(value: Int) {
+        userPreferences.edit {
+            it[UserPreferencesKeys.DOWNLOAD_CONNECTIONS] =
+                value.coerceIn(1, ParallelDownloadClient.MAX_CONNECTIONS)
+        }
     }
 
     val checkIntervalFlow: Flow<CheckInterval> = userPreferencesFlow.map { preferences ->

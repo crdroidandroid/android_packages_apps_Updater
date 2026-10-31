@@ -46,6 +46,7 @@ public class UpdaterController {
 
     private final Context mContext;
     private final UpdatesLocalDataSource mUpdatesLocalDataSource;
+    private final UserPreferencesRepository mUserPreferencesRepository;
 
     private final PowerManager.WakeLock mWakeLock;
 
@@ -67,6 +68,7 @@ public class UpdaterController {
     private UpdaterController(Context context, UserPreferencesRepository userPreferencesRepository) {
         mUpdatesLocalDataSource =
                 new UpdatesLocalDataSource(UpdatesDatabase.getInstance(context).updateDao());
+        mUserPreferencesRepository = userPreferencesRepository;
         mDownloadRoot = Utils.getDownloadPath(context);
         PowerManager powerManager = context.getSystemService(PowerManager.class);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "Updater:wakelock");
@@ -418,6 +420,7 @@ public class UpdaterController {
                     .setDownloadCallback(getDownloadCallback(downloadId))
                     .setProgressListener(getProgressListener(downloadId))
                     .setUseDuplicateLinks(true)
+                    .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
                     .build();
         } catch (IOException exception) {
             Log.e(TAG, "Could not build download client");
@@ -466,6 +469,8 @@ public class UpdaterController {
                         .setDownloadCallback(getDownloadCallback(downloadId))
                         .setProgressListener(getProgressListener(downloadId))
                         .setUseDuplicateLinks(true)
+                        // A started download keeps its original count; see ParallelDownloadClient.
+                        .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
                         .build();
             } catch (IOException exception) {
                 Log.e(TAG, "Could not build download client");

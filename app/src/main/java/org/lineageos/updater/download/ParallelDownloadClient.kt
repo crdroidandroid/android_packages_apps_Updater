@@ -21,14 +21,18 @@ import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.atomic.AtomicReference
 
 /**
+ * IDM-style multi-connection downloader.
+ *
  * The file is split into [connections] byte ranges, each fetched over its own HTTP connection
  * into a separate part file next to the destination. When every range is complete, the parts
  * are appended into the first one (deleting each as it is consumed, so peak extra disk usage is
  * one part) and that file is renamed onto the destination.
  *
  * Resume needs no extra state: each part file's length is its progress, and the part file names
- * carry the total size and connection count, so stale parts from a different build or layout
- * are never reused.
+ * carry the total size and connection count, so stale parts from a different build are never
+ * reused. A download that has already started keeps the connection count its part files were
+ * created with, so changing the setting never discards downloaded data; the new count applies
+ * to the next download.
  *
  * Falls back to [HttpURLConnectionClient] (single connection) when the server doesn't honour
  * range requests, the file is small, or a download was started by the single-connection client.
@@ -73,22 +77,23 @@ class ParallelDownloadClient internal constructor(
                 Log.e(TAG, "Already downloading")
                 return
             }
-            if (connections < 2) {
+            if (resume && !destination.exists()) {
+                callback.onFailure(false)
+                return
+            }
+            // Keep the layout of an already started download, whatever the current setting.
+            val existingCount = if (resume) existingConnectionCount(destination) else null
+            if (resume && existingCount == null && destination.length() > 0) {
+                // Started by the single-connection client; finish it the same way.
+                startFallbackLocked(resume = true)
+                return
+            }
+            val count = existingCount ?: connections
+            if (count < 2) {
                 startFallbackLocked(resume)
                 return
             }
-            if (resume) {
-                if (!destination.exists()) {
-                    callback.onFailure(false)
-                    return
-                }
-                if (existingPartFiles(destination).isEmpty() && destination.length() > 0) {
-                    // Started by the single-connection client; finish it the same way.
-                    startFallbackLocked(resume = true)
-                    return
-                }
-            }
-            session = Session(resume).also { it.start() }
+            session = Session(resume, count).also { it.start() }
         }
     }
 
@@ -127,7 +132,10 @@ class ParallelDownloadClient internal constructor(
 
     private class Probe(val url: String, val totalLength: Long, val headers: Map<String, String>)
 
-    private inner class Session(private val resume: Boolean) : Thread("ParallelDownload") {
+    private inner class Session(
+        private val resume: Boolean,
+        private val count: Int,
+    ) : Thread("ParallelDownload") {
         @Volatile
         private var cancelled = false
         private val connectionsInUse = ConcurrentHashMap.newKeySet<HttpURLConnection>()
@@ -257,7 +265,7 @@ class ParallelDownloadClient internal constructor(
                 val headers = conn.headerFields.entries
                     .filter { it.key != null && !it.value.isNullOrEmpty() }
                     .associate { it.key to it.value.last() }
-                Log.d(TAG, "Downloading $total bytes from ${conn.url} with $connections connections")
+                Log.d(TAG, "Downloading $total bytes from ${conn.url} with $count connections")
                 return Probe(conn.url.toString(), total, headers)
             } finally {
                 conn.disconnect()
@@ -266,11 +274,11 @@ class ParallelDownloadClient internal constructor(
         }
 
         private fun prepareSegments(total: Long): List<Segment> {
-            val size = total / connections
-            val segments = (0 until connections).map { i ->
+            val size = total / count
+            val segments = (0 until count).map { i ->
                 val start = i * size
-                val end = if (i == connections - 1) total - 1 else start + size - 1
-                Segment(i, start, end, partFile(destination, total, connections, i))
+                val end = if (i == count - 1) total - 1 else start + size - 1
+                Segment(i, start, end, partFile(destination, total, count, i))
             }
             val expected = segments.map { it.file.name }.toSet()
             existingPartFiles(destination)
@@ -438,7 +446,7 @@ class ParallelDownloadClient internal constructor(
         private const val TAG = "ParallelDownloadClient"
 
         const val DEFAULT_CONNECTIONS = 8
-        private const val MAX_CONNECTIONS = 16
+        const val MAX_CONNECTIONS = 16
 
         /** Below this size the extra connections aren't worth it. */
         private const val MIN_PARALLEL_SIZE = 16L * 1024 * 1024
@@ -454,6 +462,16 @@ class ParallelDownloadClient internal constructor(
 
         private fun partFile(destination: File, total: Long, count: Int, index: Int) =
             File(destination.parentFile, "${destination.name}.$total.$count.$index$PART_SUFFIX")
+
+        /** Connection count of a started parallel download, read from its part file names. */
+        private fun existingConnectionCount(destination: File): Int? =
+            existingPartFiles(destination).firstNotNullOfOrNull { f ->
+                f.name.removePrefix("${destination.name}.").removeSuffix(PART_SUFFIX)
+                    .split('.')
+                    .takeIf { it.size == 3 }
+                    ?.get(1)?.toIntOrNull()
+                    ?.takeIf { it in 2..MAX_CONNECTIONS }
+            }
 
         private fun existingPartFiles(destination: File): List<File> =
             destination.parentFile?.listFiles { f ->
