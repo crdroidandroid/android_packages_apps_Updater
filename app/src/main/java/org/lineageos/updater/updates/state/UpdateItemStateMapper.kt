@@ -42,6 +42,7 @@ class UpdateItemStateMapper(
                         eta = update.eta.takeIf { it > 0 }
                             ?.let { StringUtil.formatETA(context, it * 1000).toString() }
                             ?: "",
+                        speed = downloadSpeed(update),
                     )
                 }
             }
@@ -209,6 +210,24 @@ class UpdateItemStateMapper(
         val total = Formatter.formatShortFileSize(context, update.fileSize)
 
         return context.getString(R.string.list_download_progress_newer, downloaded, total)
+    }
+
+    /** "5.2 MB/s · 8 connections", or just the speed when the count is unknown. */
+    private fun downloadSpeed(update: Update): String {
+        if (update.speed <= 0) return ""
+        val speed = context.getString(
+            R.string.updater_download_speed,
+            Formatter.formatFileSize(context, update.speed),
+        )
+        val connections = updaterController.getActiveConnections(update.downloadId)
+        if (connections <= 0) return speed
+        return context.getString(
+            R.string.updater_download_speed_with_connections,
+            speed,
+            context.resources.getQuantityString(
+                R.plurals.updater_download_connections_count, connections, connections,
+            ),
+        )
     }
 
     private data class ActionButtons(

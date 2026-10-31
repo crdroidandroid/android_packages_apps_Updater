@@ -30,6 +30,8 @@ sealed interface ProgressState {
         val percent: Float,
         val downloadedSize: String,
         val eta: String,
+        /** e.g. "5.2 MB/s · 8 connections"; empty when not downloading. */
+        val speed: String = "",
     ) : ProgressState
 
     data object Indeterminate : ProgressState

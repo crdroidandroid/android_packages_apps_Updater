@@ -141,6 +141,9 @@ fun UpdateItem(
                                     }
                                 }
                                 LinearProgressBar(progress = progress.percent / 100f)
+                                if (progress.speed.isNotEmpty()) {
+                                    Text(text = progress.speed)
+                                }
                             }
 
                             ProgressState.Indeterminate -> {
@@ -329,6 +332,7 @@ private fun UpdateItemDownloadingPreview() {
                     percent = 65f,
                     downloadedSize = "715 MB of 1.1 GB",
                     eta = "3 min left",
+                    speed = "5.2 MB/s · 8 connections",
                 ),
                 actions = UpdateActions(
                     primary = UpdateAction(
