@@ -56,6 +56,7 @@ public interface DownloadClient {
         private DownloadClient.ProgressListener mProgressListener;
         private boolean mUseDuplicateLinks;
         private int mConnections = ParallelDownloadClient.DEFAULT_CONNECTIONS;
+        private String mMirror = SourceForgeMirrors.MIRROR_AUTO;
 
         public DownloadClient build() throws IOException {
             if (mUrl == null) {
@@ -68,7 +69,7 @@ public interface DownloadClient {
             // Splits the file into byte ranges fetched in parallel, and falls back to
             // HttpURLConnectionClient when the server or file doesn't allow it.
             return new ParallelDownloadClient(mUrl, mDestination, mProgressListener, mCallback,
-                    mUseDuplicateLinks, mConnections);
+                    mUseDuplicateLinks, mConnections, mMirror);
         }
 
         public Builder setUrl(String url) {
@@ -102,6 +103,15 @@ public interface DownloadClient {
          */
         public Builder setConnections(int connections) {
             mConnections = connections;
+            return this;
+        }
+
+        /**
+         * SourceForge mirror: {@link SourceForgeMirrors#MIRROR_AUTO},
+         * {@link SourceForgeMirrors#MIRROR_FASTEST} or a mirror id.
+         */
+        public Builder setMirror(String mirror) {
+            mMirror = mirror != null ? mirror : SourceForgeMirrors.MIRROR_AUTO;
             return this;
         }
     }

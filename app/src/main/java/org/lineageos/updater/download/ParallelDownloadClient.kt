@@ -37,6 +37,9 @@ import java.util.concurrent.atomic.AtomicReference
  *
  * Falls back to [HttpURLConnectionClient] (single connection) when the server doesn't honour
  * range requests, the file is small, or a download was started by the single-connection client.
+ *
+ * With a [mirror] setting other than Auto, SourceForge links are first pinned to the chosen or
+ * fastest mirror (see [SourceForgeMirrors]); if that mirror then fails, the original link is used.
  */
 class ParallelDownloadClient internal constructor(
     private val url: String,
@@ -45,12 +48,21 @@ class ParallelDownloadClient internal constructor(
     private val callback: DownloadClient.DownloadCallback,
     private val useDuplicateLinks: Boolean,
     connections: Int,
+    private val mirror: String,
 ) : DownloadClient {
 
     private val connections = connections.coerceIn(1, MAX_CONNECTIONS)
     private val lock = Any()
     private var session: Session? = null
     private var fallback: DownloadClient? = null
+
+    /** [url], or the same file pinned to the fastest mirror once one has been picked. */
+    @Volatile
+    private var downloadUrl = url
+    private val pickMirror
+        get() = mirror != SourceForgeMirrors.MIRROR_AUTO &&
+                mirror != SourceForgeMirrors.MIRROR_ASK &&
+                SourceForgeMirrors.isSourceForgeUrl(url)
 
     override fun start() = launch(resume = false)
 
@@ -90,10 +102,12 @@ class ParallelDownloadClient internal constructor(
                 return
             }
             val count = existingCount ?: connections
-            if (count < 2) {
+            if (count < 2 && !pickMirror) {
                 startFallbackLocked(resume)
                 return
             }
+            // Single-connection downloads also go through a session when a mirror must be
+            // picked first, since that takes a few seconds of network work.
             session = Session(resume, count).also { it.start() }
         }
     }
@@ -101,13 +115,25 @@ class ParallelDownloadClient internal constructor(
     private fun startFallbackLocked(resume: Boolean) {
         try {
             val client = HttpURLConnectionClient(
-                url, destination, progressListener, callback, useDuplicateLinks,
+                downloadUrl, destination, progressListener, callback, useDuplicateLinks,
             )
             fallback = client
             if (resume) client.resume() else client.start()
         } catch (e: IOException) {
             Log.e(TAG, "Could not create fallback client", e)
             callback.onFailure(false)
+        }
+    }
+
+    /** Called from a session thread to continue a single-connection download. */
+    private fun handOffToSingle(from: Session, resume: Boolean) {
+        synchronized(lock) {
+            if (session !== from) {
+                callback.onFailure(true)
+                return
+            }
+            session = null
+            startFallbackLocked(resume)
         }
     }
 
@@ -172,7 +198,19 @@ class ParallelDownloadClient internal constructor(
                     FileOutputStream(destination, false).close()
                 }
 
-                val probe = probe()
+                if (pickMirror) {
+                    SourceForgeMirrors.resolve(url, mirror)?.let { downloadUrl = it }
+                    if (cancelled) {
+                        callback.onFailure(true)
+                        return
+                    }
+                }
+                if (count < 2) {
+                    handOffToSingle(this, resume)
+                    return
+                }
+
+                val probe = probeWithMirrorFallback()
                 if (cancelled) {
                     callback.onFailure(true)
                     return
@@ -243,8 +281,23 @@ class ParallelDownloadClient internal constructor(
          * Resolves redirects (SourceForge -> mirror) and checks range support with a 1-byte
          * request. Returns null when a parallel download isn't possible or worthwhile.
          */
-        private fun probe(): Probe? {
-            val conn = openConnection(url, "bytes=0-0", followRedirects = true)
+        /** Probes [downloadUrl]; if a picked mirror misbehaves, retries with the original link. */
+        private fun probeWithMirrorFallback(): Probe? {
+            if (downloadUrl == url) return probe(url)
+            val result = try {
+                probe(downloadUrl)
+            } catch (e: IOException) {
+                if (cancelled) throw e
+                Log.w(TAG, "Picked mirror failed, using the original link", e)
+                null
+            }
+            if (result != null || cancelled) return result
+            downloadUrl = url
+            return probe(url)
+        }
+
+        private fun probe(target: String): Probe? {
+            val conn = openConnection(target, "bytes=0-0", followRedirects = true)
             try {
                 val code = conn.responseCode
                 if (code == HttpURLConnection.HTTP_OK) {
