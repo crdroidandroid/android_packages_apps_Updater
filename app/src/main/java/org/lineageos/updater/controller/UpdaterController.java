@@ -431,6 +431,7 @@ public class UpdaterController {
                     .setProgressListener(getProgressListener(downloadId))
                     .setUseDuplicateLinks(true)
                     .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
+                    .setMirror(mUserPreferencesRepository.getDownloadMirrorBlocking())
                     .build();
         } catch (IOException exception) {
             Log.e(TAG, "Could not build download client");
@@ -481,6 +482,7 @@ public class UpdaterController {
                         .setUseDuplicateLinks(true)
                         // A started download keeps its original count; see ParallelDownloadClient.
                         .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
+                        .setMirror(mUserPreferencesRepository.getDownloadMirrorBlocking())
                         .build();
             } catch (IOException exception) {
                 Log.e(TAG, "Could not build download client");
