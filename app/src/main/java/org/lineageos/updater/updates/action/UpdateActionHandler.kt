@@ -8,6 +8,7 @@ package org.lineageos.updater.updates.action
 import android.app.Activity
 import android.content.Intent
 import android.os.PowerManager
+import android.widget.Toast
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.LinkAnnotation
 import androidx.compose.ui.text.SpanStyle
@@ -20,6 +21,7 @@ import org.lineageos.updater.controller.UpdaterController
 import org.lineageos.updater.controller.UpdaterService
 import org.lineageos.updater.data.Update
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
+import org.lineageos.updater.download.SourceForgeMirrors
 import org.lineageos.updater.misc.Utils
 import org.lineageos.updater.util.BatteryMonitor.BatteryState
 import org.lineageos.updater.util.InstallUtils
@@ -43,7 +45,7 @@ class UpdateActionHandler(
         when (action.type) {
             UpdateActionType.START_DOWNLOAD -> runWithActiveDownloadWarning(update) {
                 runDownloadWithMeteredWarning {
-                    updaterController.startDownload(downloadId)
+                    startDownloadWithMirror(update)
                 }
             }
 
@@ -207,6 +209,51 @@ class UpdateActionHandler(
             UpdateActionType.REBOOT ->
                 activity.getSystemService(PowerManager::class.java).reboot(null)
         }
+    }
+
+    /**
+     * With "Show available mirrors", fetches the mirrors for this build and lets the user pick
+     * one before starting; otherwise starts right away.
+     */
+    private fun startDownloadWithMirror(update: Update) {
+        val downloadId = update.downloadId
+        val url = update.downloadUrl
+        if (url == null || !SourceForgeMirrors.isSourceForgeUrl(url) ||
+            userPreferencesRepository.getDownloadMirrorBlocking() != SourceForgeMirrors.MIRROR_ASK
+        ) {
+            updaterController.startDownload(downloadId)
+            return
+        }
+
+        Toast.makeText(activity, R.string.updater_download_mirror_loading, Toast.LENGTH_SHORT)
+            .show()
+        Thread({
+            val mirrors = runCatching { SourceForgeMirrors.fetchMirrors(url) }.getOrNull().orEmpty()
+            activity.runOnUiThread {
+                if (activity.isFinishing || activity.isDestroyed) return@runOnUiThread
+                if (mirrors.isEmpty()) {
+                    Toast.makeText(
+                        activity, R.string.updater_download_mirror_list_failed, Toast.LENGTH_LONG,
+                    ).show()
+                    updaterController.startDownload(downloadId, SourceForgeMirrors.MIRROR_AUTO)
+                    return@runOnUiThread
+                }
+                showDialog(
+                    AlertDialogState(
+                        title = activity.getString(R.string.updater_download_mirror_list_title),
+                        text = AnnotatedString(""),
+                        options = listOf(
+                            SourceForgeMirrors.MIRROR_AUTO to
+                                    activity.getString(R.string.updater_download_mirror_auto),
+                        ) + mirrors.map { it.id to it.name },
+                        onOptionConfirmed = { mirror ->
+                            updaterController.startDownload(downloadId, mirror)
+                        },
+                        showDismiss = true,
+                    )
+                )
+            }
+        }, "MirrorList").start()
     }
 
     private fun runWithActiveDownloadWarning(update: Update, downloadAction: () -> Unit) {

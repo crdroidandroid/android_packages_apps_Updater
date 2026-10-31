@@ -19,6 +19,7 @@ import org.lineageos.updater.data.source.local.UpdatesLocalDataSource;
 import org.lineageos.updater.data.source.local.UpdatesDatabase;
 import org.lineageos.updater.download.DownloadClient;
 import org.lineageos.updater.download.ParallelDownloadClient;
+import org.lineageos.updater.download.SourceForgeMirrors;
 import org.lineageos.updater.misc.Utils;
 
 import java.io.File;
@@ -87,6 +88,8 @@ public class UpdaterController {
         Update mUpdate;
         DownloadClient mDownloadClient;
         volatile int mActiveConnections;
+        /** Mirror picked in the Download dialog; kept for resuming this download. */
+        String mMirror;
         private DownloadEntry(Update update) {
             mUpdate = update;
         }
@@ -403,8 +406,25 @@ public class UpdaterController {
         return true;
     }
 
-    @SuppressLint("WakelockTimeout")
+    /** The picked mirror, else the setting ("ask" without a pick means Auto). */
+    private String getMirror(DownloadEntry entry) {
+        if (entry.mMirror != null) {
+            return entry.mMirror;
+        }
+        String mirror = mUserPreferencesRepository.getDownloadMirrorBlocking();
+        return SourceForgeMirrors.MIRROR_ASK.equals(mirror) ? SourceForgeMirrors.MIRROR_AUTO : mirror;
+    }
+
     public void startDownload(String downloadId) {
+        startDownload(downloadId, null);
+    }
+
+    /**
+     * @param mirror a mirror id picked by the user, {@link SourceForgeMirrors#MIRROR_AUTO},
+     *               or null to follow the setting.
+     */
+    @SuppressLint("WakelockTimeout")
+    public void startDownload(String downloadId, String mirror) {
         Log.d(TAG, "Starting " + downloadId);
         if (!mDownloads.containsKey(downloadId) || isDownloading(downloadId)) {
             return;
@@ -422,6 +442,7 @@ public class UpdaterController {
             Log.d(TAG, "Changing name with " + destination.getName());
         }
         entry.mUpdate = update.withFile(destination);
+        entry.mMirror = mirror;
         DownloadClient downloadClient;
         try {
             downloadClient = new DownloadClient.Builder()
@@ -431,6 +452,7 @@ public class UpdaterController {
                     .setProgressListener(getProgressListener(downloadId))
                     .setUseDuplicateLinks(true)
                     .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
+                    .setMirror(getMirror(entry))
                     .build();
         } catch (IOException exception) {
             Log.e(TAG, "Could not build download client");
@@ -481,6 +503,7 @@ public class UpdaterController {
                         .setUseDuplicateLinks(true)
                         // A started download keeps its original count; see ParallelDownloadClient.
                         .setConnections(mUserPreferencesRepository.getDownloadConnectionsBlocking())
+                        .setMirror(getMirror(entry))
                         .build();
             } catch (IOException exception) {
                 Log.e(TAG, "Could not build download client");

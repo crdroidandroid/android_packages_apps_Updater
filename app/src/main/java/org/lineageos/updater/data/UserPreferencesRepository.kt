@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 import org.lineageos.updater.deviceinfo.DeviceInfoUtils
 import org.lineageos.updater.download.ParallelDownloadClient
+import org.lineageos.updater.download.SourceForgeMirrors
 import org.lineageos.updater.updatescheck.UpdatesCheckWorker
 import java.io.IOException
 
@@ -39,6 +40,7 @@ private object UserPreferencesKeys {
     val AUTO_DELETE = booleanPreferencesKey("auto_delete_updates")
     val CHECK_INTERVAL = stringPreferencesKey("check_interval")
     val DOWNLOAD_CONNECTIONS = intPreferencesKey("download_connections")
+    val DOWNLOAD_MIRROR = stringPreferencesKey("download_mirror")
     val METERED_NETWORK_WARNING = booleanPreferencesKey("metered_network_warning")
     val PERIODIC_CHECK_ENABLED = booleanPreferencesKey("periodic_check_enabled")
     val STREAM_UPDATES = booleanPreferencesKey("stream_updates")
@@ -102,6 +104,25 @@ class UserPreferencesRepository(context: Context) {
             it[UserPreferencesKeys.DOWNLOAD_CONNECTIONS] =
                 value.coerceIn(1, ParallelDownloadClient.MAX_CONNECTIONS)
         }
+    }
+
+    /**
+     * [SourceForgeMirrors.MIRROR_AUTO], [SourceForgeMirrors.MIRROR_FASTEST] or
+     * [SourceForgeMirrors.MIRROR_ASK]; anything else reads as Auto.
+     */
+    val downloadMirrorFlow: Flow<String> = userPreferencesFlow.map { preferences ->
+        when (val value = preferences[UserPreferencesKeys.DOWNLOAD_MIRROR]) {
+            SourceForgeMirrors.MIRROR_FASTEST, SourceForgeMirrors.MIRROR_ASK -> value
+            else -> SourceForgeMirrors.MIRROR_AUTO
+        }
+    }
+
+    suspend fun getDownloadMirror(): String = downloadMirrorFlow.first()
+
+    fun getDownloadMirrorBlocking(): String = runBlocking { getDownloadMirror() }
+
+    suspend fun setDownloadMirror(mirror: String) {
+        userPreferences.edit { it[UserPreferencesKeys.DOWNLOAD_MIRROR] = mirror }
     }
 
     val checkIntervalFlow: Flow<CheckInterval> = userPreferencesFlow.map { preferences ->
