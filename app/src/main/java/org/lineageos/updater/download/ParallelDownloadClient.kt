@@ -17,6 +17,7 @@ import java.net.URL
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicLong
 import java.util.concurrent.atomic.AtomicReference
 
@@ -142,6 +143,7 @@ class ParallelDownloadClient internal constructor(
         private val segmentThreads = mutableListOf<Thread>()
         private val failure = AtomicReference<Throwable?>(null)
         private val downloaded = AtomicLong(0)
+        private val activeConnections = AtomicInteger(0)
         private val shouldStop get() = cancelled || failure.get() != null
 
         // Speed / ETA state, only touched by this thread.
@@ -321,6 +323,7 @@ class ParallelDownloadClient internal constructor(
         private fun fetchRange(url: String, seg: Segment) {
             val from = seg.start + seg.file.length()
             val conn = openConnection(url, "bytes=$from-${seg.end}", followRedirects = true)
+            var established = false
             try {
                 val code = conn.responseCode
                 if (code != HttpURLConnection.HTTP_PARTIAL) {
@@ -330,6 +333,8 @@ class ParallelDownloadClient internal constructor(
                 if (contentRange == null || !contentRange.startsWith("bytes $from-${seg.end}/")) {
                     throw IOException("Unexpected Content-Range: $contentRange")
                 }
+                established = true
+                activeConnections.incrementAndGet()
                 conn.inputStream.use { input ->
                     FileOutputStream(seg.file, true).use { out ->
                         val buffer = ByteArray(CHUNK_SIZE)
@@ -347,6 +352,7 @@ class ParallelDownloadClient internal constructor(
                     throw IOException("Segment ${seg.index} ended early")
                 }
             } finally {
+                if (established) activeConnections.decrementAndGet()
                 conn.disconnect()
                 connectionsInUse.remove(conn)
             }
@@ -438,6 +444,7 @@ class ParallelDownloadClient internal constructor(
                 lastEta = maxOf(raw, 1.0)
                 eta = lastEta.toLong()
             }
+            progressListener?.updateConnections(activeConnections.get())
             progressListener?.update(bytes, total, speed, eta)
         }
     }

@@ -19,6 +19,12 @@ public interface DownloadClient {
 
     interface ProgressListener {
         void update(long bytesRead, long contentLength, long speed, long eta);
+
+        /**
+         * Number of connections currently receiving data. Only reported by parallel
+         * downloads; 0 means unknown or a single connection.
+         */
+        default void updateConnections(int activeConnections) {}
     }
 
     interface Headers {
