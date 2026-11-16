@@ -163,7 +163,7 @@ public class UpdaterService extends Service {
             if (ABUpdateInstaller.isInstallingUpdate(this)) {
                 // The service is being restarted.
                 ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                        mUpdaterController, mUserPreferencesRepository);
+                        mUpdaterController);
                 installer.reconnect();
             }
         } else if (ACTION_POST_REBOOT_CLEANUP.equals(intent.getAction())) {
@@ -201,7 +201,7 @@ public class UpdaterService extends Service {
             try {
                 if (canStreamUpdate || new OtaMetadataParser(update.getFile()).isABUpdate()) {
                     ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                            mUpdaterController, mUserPreferencesRepository);
+                            mUpdaterController);
                     if (canStreamUpdate) {
                         installer.installStreaming(downloadId);
                     } else {
@@ -225,21 +225,21 @@ public class UpdaterService extends Service {
                 installer.cancel();
             } else if (ABUpdateInstaller.isInstallingUpdate(this)) {
                 ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                        mUpdaterController, mUserPreferencesRepository);
+                        mUpdaterController);
                 installer.reconnect();
                 installer.cancel();
             }
         } else if (ACTION_INSTALL_SUSPEND.equals(intent.getAction())) {
             if (ABUpdateInstaller.isInstallingUpdate(this)) {
                 ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                        mUpdaterController, mUserPreferencesRepository);
+                        mUpdaterController);
                 installer.reconnect();
                 installer.suspend();
             }
         } else if (ACTION_INSTALL_RESUME.equals(intent.getAction())) {
             if (ABUpdateInstaller.isInstallingUpdateSuspended(this)) {
                 ABUpdateInstaller installer = ABUpdateInstaller.getInstance(this,
-                        mUpdaterController, mUserPreferencesRepository);
+                        mUpdaterController);
                 installer.reconnect();
                 installer.resume();
             }

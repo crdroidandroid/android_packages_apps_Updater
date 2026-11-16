@@ -12,18 +12,23 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.UpdateEngine
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import org.lineageos.updater.data.UserPreferencesRepository
+import java.util.concurrent.Executors
 
 class BatteryMonitor(
     private val appContext: Context,
-    coroutineScope: CoroutineScope,
-    userPreferencesRepository: UserPreferencesRepository,
+    private val coroutineScope: CoroutineScope,
+    private val userPreferencesRepository: UserPreferencesRepository,
 ) {
     data class BatteryState(
         val level: Int,
@@ -46,21 +51,36 @@ class BatteryMonitor(
             ?.let { fromIntent(it) }
             ?: BATTERYLESS_STATE
 
-    // Null on non-AB devices where update_engine is absent.
-    private val updateEngine: UpdateEngine? = try {
-        UpdateEngine()
-    } catch (_: Exception) {
-        null
+    /**
+     * update_engine binder calls are synchronous and can stall for seconds while it is busy
+     * (e.g. running postinstall), so they must never run on the main thread. A single thread
+     * also keeps the calls ordered.
+     */
+    private val perfModeDispatcher = Executors.newSingleThreadExecutor { runnable ->
+        Thread(runnable, "UpdaterPerfMode").apply { isDaemon = true }
+    }.asCoroutineDispatcher()
+
+    // Null on non-AB devices where update_engine is absent. Only touched on perfModeDispatcher.
+    private val updateEngine: UpdateEngine? by lazy {
+        try {
+            UpdateEngine()
+        } catch (_: Exception) {
+            null
+        }
+    }
+
+    private fun setPerformanceMode(enable: Boolean) {
+        try {
+            updateEngine?.setPerformanceMode(enable)
+        } catch (_: Throwable) {
+            // Ignored
+        }
     }
 
     private val abPerfMode = userPreferencesRepository.abPerfModeFlow
-        .onEach {
-            try {
-                updateEngine?.setPerformanceMode(currentBatteryState.isAcCharging || it)
-            } catch (_: Throwable) {
-                // Ignored
-            }
-        }
+        .distinctUntilChanged()
+        .onEach { setPerformanceMode(currentBatteryState.isAcCharging || it) }
+        .flowOn(perfModeDispatcher)
         .stateIn(
             scope = coroutineScope,
             started = SharingStarted.Eagerly,
@@ -76,11 +96,8 @@ class BatteryMonitor(
                 // On AC, maximize background updates; otherwise respect the user preference.
                 // Guard on isAcCharging change to avoid redundant IPC on every battery level tick.
                 if (state.isAcCharging != previousState.isAcCharging) {
-                    try {
-                        updateEngine?.setPerformanceMode(state.isAcCharging || abPerfMode.value)
-                    } catch (_: Throwable) {
-                        // Ignored
-                    }
+                    val enable = state.isAcCharging || abPerfMode.value
+                    coroutineScope.launch(perfModeDispatcher) { setPerformanceMode(enable) }
                 }
                 previousState = state
                 trySend(state)
@@ -99,6 +116,18 @@ class BatteryMonitor(
         started = SharingStarted.WhileSubscribed(),
         initialValue = currentBatteryState
     )
+
+    /**
+     * Re-applies the update_engine performance mode from the current charging state and user
+     * preference, asynchronously and off the main thread. Safe to call from any thread.
+     */
+    fun refreshPerformanceMode() {
+        coroutineScope.launch(perfModeDispatcher) {
+            setPerformanceMode(
+                currentBatteryState.isAcCharging || userPreferencesRepository.getAbPerfMode()
+            )
+        }
+    }
 
     companion object {
         private val BATTERYLESS_STATE =

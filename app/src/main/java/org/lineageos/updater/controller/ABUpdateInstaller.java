@@ -17,7 +17,6 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.updater.UpdaterApplication;
 import org.lineageos.updater.data.Update;
 import org.lineageos.updater.data.UpdateStatus;
-import org.lineageos.updater.data.UserPreferencesRepository;
 import org.lineageos.updater.download.SingleRangeHttpFetcher;
 import org.lineageos.updater.misc.Constants;
 import org.lineageos.updater.misc.Utils;
@@ -43,7 +42,6 @@ class ABUpdateInstaller {
     private static ABUpdateInstaller sInstance = null;
 
     private final UpdaterController mUpdaterController;
-    private final UserPreferencesRepository mUserPreferencesRepository;
     private final Context mContext;
     private String mDownloadId;
 
@@ -140,34 +138,24 @@ class ABUpdateInstaller {
         return TextUtils.equals(waitingId, downloadId);
     }
 
-    private boolean shouldEnablePerformanceMode(boolean userPreferenceEnabled) {
-        return ((UpdaterApplication) mContext).getBatteryMonitor()
-                .getCurrentBatteryState().isAcCharging()
-                || userPreferenceEnabled;
+    /**
+     * Applied asynchronously: update_engine binder calls can block for seconds while it is busy,
+     * and reconnect() runs on the main thread.
+     */
+    private void applyPerformanceMode() {
+        ((UpdaterApplication) mContext).getBatteryMonitor().refreshPerformanceMode();
     }
 
-    private void applyPerformanceMode(boolean userPreferenceEnabled) {
-        try {
-            mUpdateEngine.setPerformanceMode(shouldEnablePerformanceMode(userPreferenceEnabled));
-        } catch (Throwable e) {
-            Log.w(TAG, "Could not set performance mode", e);
-        }
-    }
-
-    private ABUpdateInstaller(Context context, UpdaterController updaterController,
-            UserPreferencesRepository userPreferencesRepository) {
+    private ABUpdateInstaller(Context context, UpdaterController updaterController) {
         mUpdaterController = updaterController;
-        mUserPreferencesRepository = userPreferencesRepository;
         mContext = context.getApplicationContext();
         mUpdateEngine = new UpdateEngine();
     }
 
     static synchronized ABUpdateInstaller getInstance(Context context,
-            UpdaterController updaterController,
-            UserPreferencesRepository userPreferencesRepository) {
+            UpdaterController updaterController) {
         if (sInstance == null) {
-            sInstance = new ABUpdateInstaller(context, updaterController,
-                    userPreferencesRepository);
+            sInstance = new ABUpdateInstaller(context, updaterController);
         }
         return sInstance;
     }
@@ -272,7 +260,7 @@ class ABUpdateInstaller {
             }
         }
 
-        applyPerformanceMode(mUserPreferencesRepository.getAbPerfModeBlocking());
+        applyPerformanceMode();
 
         try {
             mUpdateEngine.applyPayload(url, offset, size, headerKeyValuePairs);
@@ -319,7 +307,7 @@ class ABUpdateInstaller {
             return;
         }
 
-        applyPerformanceMode(mUserPreferencesRepository.getAbPerfModeBlocking());
+        applyPerformanceMode();
     }
 
     private void installationDone(boolean needsReboot) {
